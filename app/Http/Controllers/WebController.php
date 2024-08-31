@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
 {
+
     //
     public function index()
     {
-        return view('app', );
+        $listings = Listing::all();
+        return view('app', compact('listings'));
     }
     public function chat()
     {

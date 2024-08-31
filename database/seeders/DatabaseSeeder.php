@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\CategoryType;
+use App\Models\Listing;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -21,19 +22,21 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        CategoryType::factory()->create(['name' => 'Properties', 'slug' => 'properties']);
-        CategoryType::factory()->create(['name' => 'Jobs', 'slug' => 'jobs']);
+        Category::factory()->create(['name' => 'Properties', 'slug' => 'properties']);
+        Category::factory()->create(['name' => 'Jobs', 'slug' => 'jobs']);
 
-        Category::factory(1)->create([
+        CategoryType::factory()->create([
             'name' => 'Houses & Apartments For Sale',
             'slug' => 'houses-and-apartments-for-sale',
-            'category_type_id' => 1,
+            'category_id' => 1,
         ]);
-        Category::factory(1)->create([
+        CategoryType::factory()->create([
             'name' => 'Shops & Offices For Sale',
             'slug' => 'shops-and-offices-for-sale',
-            'category_type_id' => 1,
+            'category_id' => 1,
         ]);
+
+        Listing::factory(10)->create();
 
     }
 }

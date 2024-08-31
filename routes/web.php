@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,3 +12,4 @@ Route::get('post', [WebController::class, 'post'])->name('post');
 Route::get('login', [WebController::class, 'login'])->name('login');
 Route::get('categories', [WebController::class, 'categories'])->name('categories');
 
+Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');

@@ -20,8 +20,8 @@ class CategoryFactory extends Factory
         return [
             //
             'name' => $this->faker->word,
+            'icon' => $this->faker->word,
             'slug' => $this->faker->slug,
-            'category_type_id' => CategoryType::factory(),
 
         ];
     }

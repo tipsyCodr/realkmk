@@ -11,6 +11,10 @@ class Category extends Model
     protected $table = 'categories';
     public function categoryType()
     {
-        return $this->belongsTo(CategoryType::class);
+        return $this->hasMany(CategoryType::class);
+    }
+    public function listing()
+    {
+        return $this->hasMany(Listing::class);
     }
 }

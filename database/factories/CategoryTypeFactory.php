@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\CategoryType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,6 +21,7 @@ class CategoryTypeFactory extends Factory
             //
             'name' => $this->faker->word,
             'slug' => $this->faker->slug,
+            'category_id' => CategoryType::factory(),
 
         ];
     }
