@@ -20,10 +20,10 @@ class ListingFactory extends Factory
     public function definition(): array
     {
         return [
-            'listing_uid' => $this->faker->uuid,
+            'listing_uid' => strtoupper(substr($this->faker->numberBetween(100000000000000, 999999999999999), 0, 15)),
             'ad_title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'price' => $this->faker->numberBetween(1000, 100000),
+            'price' => $this->faker->randomFloat(2, 0, 100000.99),
             'category_type_id' => $this->faker->numberBetween(1, 2),
             'category_id' => $this->faker->numberBetween(1, 2),
             'user_id' => 1,

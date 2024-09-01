@@ -13,10 +13,10 @@ return new class extends Migration {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
             //mandatory fields
-            $table->string('listing_uid');
+            $table->string('listing_uid', 15);
             $table->string('ad_title');
             $table->text('description');
-            $table->integer('price');
+            $table->decimal('price', 10, 2);
             $table->integer('category_type_id');
             $table->integer('category_id');
             $table->unsignedBigInteger('user_id');
@@ -47,6 +47,7 @@ return new class extends Migration {
             $table->integer('salary_max_range')->nullable();
             $table->integer('premium')->nullable();
             $table->integer('views')->default(0);
+            $table->integer('likes')->default(0);
 
 
             //necessary for indexing, and tracking

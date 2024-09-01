@@ -1,5 +1,4 @@
-<x-app-layout>
+<x-post-layout>
+    <x-post-view :listing="$listing" />
 
-    <x-post-view />
-
-</x-app-layout>
+</x-post-layout>
