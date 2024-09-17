@@ -25,6 +25,9 @@
 </head>
 
 <body>
+    <x-alert />
+
+
     <div id="app" class="">
         {{-- <x-head /> --}}
         <x-top-bar />

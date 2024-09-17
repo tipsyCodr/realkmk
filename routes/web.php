@@ -7,9 +7,39 @@ use Illuminate\Support\Facades\Route;
 // Basic Routes
 Route::get('/', [WebController::class, 'index'])->name('home');
 Route::get('chat', [WebController::class, 'chat'])->name('chat');
-Route::get('plan', [WebController::class, 'plan'])->name('plan');
-Route::get('post', [WebController::class, 'post'])->name('post');
+
+Route::name('listing.')->prefix('listing')->group(function () {
+    Route::get('post', [WebController::class, 'post'])->name('post');
+    Route::get('post/type/{category}', [ListingController::class, 'postCategoriesTypes'])->name('types');
+    Route::get('post/{categoryType}', [ListingController::class, 'postForm'])->name('form');
+    Route::get('post/store', [ListingController::class, 'postForm'])->name('store');
+});
+
 Route::get('login', [WebController::class, 'login'])->name('login');
 Route::get('categories', [WebController::class, 'categories'])->name('categories');
 
+Route::get('properties', [WebController::class, 'properties'])->name('properties');
+Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'])->name('properties.form');
+Route::post('properties-form-store', [WebController::class, 'propertiesFormSave'])->name('properties.form.store');
+Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
+
+
 Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
+Route::get('search', [ListingController::class, 'searchListings'])->name('listing.search');
+
+//Jobs Section
+Route::prefix('jobs')->name('jobs.')->group(function () {
+    Route::get('/', [WebController::class, 'jobs'])->name('list');
+    Route::get('form', [WebController::class, 'jobsForm'])->name('form');
+    Route::post('store', [WebController::class, 'jobsStore'])->name('store');
+});
+
+Route::name('plans.')->group(function () {
+    Route::view('plan', 'plans.index')->name('index');
+    Route::view('plan-buyer', 'plans.buyer')->name('buyer');
+    Route::view('plan-seller', 'plans.seller')->name('seller');
+    Route::view('plan-ads', 'plans.ads')->name('ads');
+});
+
+// API
+Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('cities.by.state');

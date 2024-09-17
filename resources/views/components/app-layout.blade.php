@@ -25,6 +25,9 @@
 </head>
 
 <body>
+    <x-alert />
+
+
     <div id="app" class="mt-14 ">
         <x-head />
         <x-navbar />

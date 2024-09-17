@@ -7,12 +7,12 @@
                 @endphp
                 @if (is_array($photos))
                     @foreach ($photos as $photo)
-                        <img src="{{ $photo }}" alt="{{ $listing['title'] }}" class="w-full h-auto rounded"
-                            style="max-width: 500px;">
+                        <img src="{{ Storage::url('uploads/property_images/' . $photo) }}" alt="{{ $listing['title'] }}"
+                            class="w-full h-auto rounded" style="max-width: 500px;">
                     @endforeach
                 @else
-                    <img src="{{ $listing['photos'] }}" alt="{{ $listing['title'] }}" class="w-full h-auto rounded"
-                        style="max-width: 500px;">
+                    <img src="{{ Storage::url('uploads/property_images/' . $listing['photos']) }}"
+                        alt="{{ $listing['title'] }}" class="w-full h-auto rounded" style="max-width: 500px;">
                 @endif
             </div>
         </div>
@@ -22,7 +22,8 @@
         <div class="flex justify-between items-center p-4 bg-gray-50 shadow space-x-4">
             <div class="flex items-center space-x-4">
                 <div class="flex flex-col">
-                    <p class="text-2xl font-bold text-gray-800">&#x20B9;{{ $listing['price'] }} /-</p>
+                    <p class="text-2xl font-bold text-gray-800">&#x20B9;
+                        {{ number_format($listing['price'], 0, '.', ',') }} /-</p>
                     <h1 class="text-xl text-gray-700 overflow-hidden overflow-ellipsis whitespace-nowrap">
                         {{ $listing['ad_title'] }}
                     </h1>

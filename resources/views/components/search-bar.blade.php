@@ -9,23 +9,26 @@
     <div id='search-bar-wrapper'
         class="hidden  search-popup w-full h-full fixed top-0 left-0 bg-white p-2 transition-all duration-500 ease-in-out">
         {{-- Search Bar --}}
-        <div class="search-bar flex flex-row">
-            {{-- back arrow --}}
-            <a id="btn-back" href="#" class="px-1 self-center items-center">
-                <x-back-arrow-icon />
-            </a>
+        <form action="search" method="get">
+            <div class="search-bar flex flex-row">
+                {{-- back arrow --}}
+                <a id="btn-back" href="#" class="px-1 self-center items-center">
+                    <x-back-arrow-icon />
+                </a>
 
-            <input class="w-full rounded py-2 px-1 border border-black pr-0" style="border-right:0px" type="text"
-                name="q" id="q" placeholder="Search">
-            <button class="bg-green-700 text-white p-3 rounded relative top-0" style="margin-left:-40px ">
-                <x-search-icon :color="'white'" />
-            </button>
-        </div>
-        <div class="location-bar border px-2 flex flex-row my-2 items-center">
-            <x-location-icon></x-location-icon>
-            <input class="w-full py-2 px-1" type="text" name="location" id="location"
-                placeholder="{{ old('location') ?? 'Enter Location' }}" value="{{ old('location') ?? '' }}">
-        </div>
+                <input class="w-full rounded py-2 px-1 border border-black pr-0" style="border-right:0px" type="text"
+                    name="q" id="q" placeholder="Search">
+                <button type='submit' class="bg-green-700 text-white p-3 rounded relative top-0"
+                    style="margin-left:-40px ">
+                    <x-search-icon :color="'white'" />
+                </button>
+            </div>
+            <div class="location-bar border px-2 flex flex-row my-2 items-center">
+                <x-location-icon></x-location-icon>
+                <input class="w-full py-2 px-1" type="text" name="l" id="location"
+                    placeholder="{{ old('location') ?? 'Enter Location' }}" value="{{ old('location') ?? 'Bhilai' }}">
+            </div>
+        </form>
         <div class="search-suggestion-wrapper">
             <div class="popular">
                 <small class="uppercase text-gray-400">Popular Categories</small>

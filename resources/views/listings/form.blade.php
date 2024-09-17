@@ -1,0 +1,133 @@
+<!-- Life is available only in the present moment. - Thich Nhat Hanh -->
+<x-app-layout>
+    <x-alert />
+    <x-back-button />
+    <div class="form-wrapper px-4 ">
+        <div class="py-6">
+            <h1 class="text-3xl font-bold  pb-2 capitalize">Request form for Buyer</h1>
+            <p class="text-orange-500 italic capitalize">Fill this Request form below, then you can browse thousands of
+                properties. We also provide Bank Properties & Owner
+                Properties.</p>
+        </div>
+
+        <form action="{{ route('properties.form.store') }}" method="POST">
+            @csrf
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                    Name
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="name" name="name" type="text" placeholder="Enter Your Name"
+                    value="{{ old('name') }}" required>
+                <input type="hidden" name="location" value="{{ old('location') ? old('location') : $location }}">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="mobile">
+                    Mobile
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="mobile" name="mobile" type="text" placeholder="Enter Your Mobile Number"
+                    value="{{ old('mobile') }}" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                    Email
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="email" name="email" type="email" placeholder="Enter Your Email"
+                    value="{{ old('email') }}">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="state">
+                    State
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="state" name="state" required>
+                    @foreach ($states as $state)
+                        <option value="{{ $state->id }}" {{ old('state') == $state->id ? 'selected' : '' }}>
+                            {{ $state->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
+                    City
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="city" name="city" required>
+                    @foreach ($cities as $city)
+                        <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>
+                            {{ $city->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+                    Category
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="category" name="category">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
+                    Address
+                </label>
+                <textarea
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="address" name="address" placeholder="Enter Your Address">{{ old('address') }}</textarea>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+                    Description
+                </label>
+                <textarea
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="description" name="description" placeholder="Enter Your Description">{{ old('description') }}</textarea>
+            </div>
+            <fieldset class="mb-4 p-4 border border-gray-300 rounded">
+                <legend class="text-gray-700 text-sm font-bold">Your Budget</legend>
+                <div class="flex space-x-4">
+                    <div class="w-1/2">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="min_price">
+                            Min Price
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="min_price" name="min_price" type="text" placeholder="Enter Min Price"
+                            value="{{ old('min_price') }}">
+                    </div>
+                    <div class="w-1/2">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="max_price">
+                            Max Price
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="max_price" name="max_price" type="text" placeholder="Enter Max Price"
+                            value="{{ old('max_price') }}">
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="mb-4">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 px-4 rounded"
+                    type="submit">
+                    Save & Browse
+                </button>
+            </div>
+        </form>
+    </div>
+</x-app-layout>

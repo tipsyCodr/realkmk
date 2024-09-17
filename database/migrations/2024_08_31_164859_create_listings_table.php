@@ -52,6 +52,7 @@ return new class extends Migration {
 
             //necessary for indexing, and tracking
             $table->string('slug');
+            $table->dateTime('expires_at')->nullable()->constrained()->nullOnDelete();
             $table->string('status');
             $table->timestamps();
         });

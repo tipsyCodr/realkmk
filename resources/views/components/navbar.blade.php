@@ -4,40 +4,54 @@
             <a href="{{ route('home') }}"
                 class="flex flex-col items-center justify-center  text-gray-500 hover:text-gray-700 text-center">
                 <p>
-                    <x-home-icon :color="'grey-400'" />
+                    {{-- <x-home-icon :color="'grey-400'" /> --}}
+                    <img src="{{ asset('img/icon/home.png') }}"
+                        class="img-fluid rounded-top w-9 hover:scale-125 transition-transform" alt="" />
+
                 </p>
-                <p>Home</p>
+                <p class="text-black">Home</p>
             </a>
         </li>
         <li>
             <a href="{{ route('chat') }}"
                 class="flex flex-col items-center justify-center  text-gray-500 hover:text-gray-700">
-                <x-chat-icon :color="'grey-400'" />
+                {{-- <x-chat-icon :color="'grey-400'" /> --}}
+                <img src="{{ asset('img/icon/chat.png') }}"
+                    class="img-fluid rounded-top w-9 hover:scale-125 transition-transform" alt="" />
 
-                Chat
+
+                <p class="text-black">Chat</p>
             </a>
         </li>
         <li>
-            <a href="{{ route('post') }}"
-                class="flex flex-col items-center justify-center text-gray-500 hover:text-gray-700">
+            <a href="{{ route('listing.post') }}" class="flex flex-col items-center justify-center text-gray-500 ">
 
 
-                <x-add-icon :color="'grey-400'" />
-                Sell
+                {{-- <x-add-icon :color="'grey-400'" /> --}}
+                <img src="{{ asset('img/icon/add.png') }}"
+                    class="img-fluid rounded-top w-9 hover:scale-125 transition-transform" alt="" />
+
+                <p class="text-black">Sell</p>
             </a>
         </li>
         <li>
-            <a href="{{ route('plan') }}"
+            <a href="{{ route('plans.index') }}"
                 class="flex flex-col items-center justify-center  text-gray-500 hover:text-gray-700">
-                <x-daimond-icon :color="'grey-400'" />
-                Plans
+                {{-- <x-daimond-icon :color="'grey-400'" /> --}}
+                <img src="{{ asset('img/icon/premium.png') }}"
+                    class="img-fluid rounded-top w-9 hover:scale-125 transition-transform" alt="" />
+
+                <p class="text-black">Plans</p>
             </a>
         </li>
         <li>
-            <a href="{{ route('login') }}"
+            <a href="{{ route('jobs.list') }}"
                 class="flex flex-col items-center justify-center  text-gray-500 hover:text-gray-700">
-                <x-user-icon :color="'grey-400'" />
-                Login
+                {{-- <x-user-icon :color="'grey-400'" /> --}}
+                <img src="{{ asset('img/icon/suitcase.png') }}"
+                    class="img-fluid rounded-top w-9 hover:scale-125 transition-transform" alt="" />
+
+                <p class="text-black">Jobs</p>
             </a>
         </li>
     </ul>

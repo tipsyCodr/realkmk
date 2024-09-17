@@ -26,7 +26,7 @@ class ListingFactory extends Factory
             'price' => $this->faker->randomFloat(2, 0, 100000.99),
             'category_type_id' => $this->faker->numberBetween(1, 2),
             'category_id' => $this->faker->numberBetween(1, 2),
-            'user_id' => 1,
+            'user_id' => $this->faker->numberBetween(1, 10),
             'photos' => $this->faker->imageUrl,
             'location' => $this->faker->city,
             'bedrooms' => $this->faker->optional()->numberBetween(1, 5),
@@ -50,6 +50,7 @@ class ListingFactory extends Factory
             'premium' => $this->faker->optional()->numberBetween(1, 10),
             'views' => $this->faker->numberBetween(1, 1000),
             'slug' => $this->faker->unique()->slug,
+            'expires_at' => $this->faker->dateTimeBetween('-1 year', '1 year'),
             'status' => $this->faker->randomElement(['active', 'inactive']),
         ];
     }

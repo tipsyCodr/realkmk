@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -15,7 +16,7 @@ class AdController extends Controller
             ['image' => 'https://via.placeholder.com/440x240?text=Ads%20Space', 'url' => '#'],
             // ...
         ];
-
+        $ads = Ad::all();
         // Return the ad data based on the ad count, wrapping around to the start of the list when necessary
         return $ads[$adCount % count($ads)];
     }

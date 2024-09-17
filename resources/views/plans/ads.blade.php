@@ -1,0 +1,133 @@
+<!-- Life is available only in the present moment. - Thich Nhat Hanh -->
+<x-app-layout>
+    <h1 class="font-bold text-4xl p-4 text-center"> Banner Advertisement</h1>
+    <div class="grid grid-cols-1 gap-4 p-4">
+        <div class="rounded p-4 border silver-bg">
+            <div style="background: linear-gradient(to bottom, #333, #555)" class="p-2  text-white rounded-lg">
+                <h2 class="text-2xl font-bold">Silver </h2>
+                <p class="text-green-500 text-sm capitalize"><i class="fas fa-circle-check"></i> Recommended For local
+                    Business</p>
+                <p class='font-bold text-xl capitalize'>Run Ads in a Any of the one city</p>
+                <div class="flex mt-2">
+                    <span
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Delhi</span>
+                    <span
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Mumbai</span>
+                    <span
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Kolkata</span>
+                    <span
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Bengaluru</span>
+                </div>
+                <div class="py-4">
+                    <table class="table-auto w-full">
+                        <thead>
+                            <tr class=" border border-black">
+                                <th class="px-4 py-2 border border-black">Duration</th>
+                                <th class="px-4 py-2 border border-black">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class='text-center'>
+                            <tr>
+                                <td class="px-4 py-2 border border-black">1 Day</td>
+                                <td class="px-4 py-2 border border-black">
+                                    <a href="#"
+                                        class="block silver-bg hover:bg-blue-700 text-black text-center  font-bold py-2 px-4 rounded">
+                                        Buy for Rs.999
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-black">15 Days</td>
+                                <td class="px-4 py-2 border border-black">
+                                    <a href="#"
+                                        class="block silver-bg hover:bg-blue-700 text-black text-center  font-bold py-2 px-4 rounded">
+                                        Buy for Rs.9,999
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-black"><i
+                                        class="fas fa-circle-check text-green-500"></i> 30 Days</td>
+                                <td class="px-4 py-2 border border-black">
+                                    <a href="#"
+                                        class="block silver-bg hover:bg-blue-700 text-black text-center  font-bold py-2 px-4 rounded">
+                                        Buy for Rs.14,999
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class=" rounded-lg p-4 border gold-bg">
+            <div style="background: linear-gradient(to bottom, #333, #555)"
+                class="p-2  text-white bg-opacity-20 rounded-lg">
+                <h2 class="text-2xl font-bold">Gold</h2>
+                <p class="text-green-500 text-sm capitalize"> <i class="fas fa-circle-check"></i> Recommended For Big
+                    Business</p>
+                <p class='font-bold text-xl capitalize'>Show your ads in all cities and on the Home Page of our website
+                </p>
+                <div class="flex flex-col mt-2 ">
+                    <div class="flex flex-row  justify-evenly">
+                        <span
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Delhi</span>
+                        <span
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Mumbai</span>
+                        <span
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Kolkata</span>
+                        <span
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Bengaluru</span>
+                    </div>
+                    <span class='font-black text-center text-2xl  text-white'> + </span>
+                    <span
+                        class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-center text-sm font-semibold text-white mr-2">Homepage</span>
+                </div>
+                <div class="py-4">
+                    <table class="table-auto w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 border border-black">Duration</th>
+                                <th class="px-4 py-2 border border-black">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class='text-center'>
+                            <tr>
+                                <td class="px-4 py-2 border border-black">1 Day</td>
+                                <td class="px-4 py-2 border border-black">
+                                    <a href="#"
+                                        class="block gold-bg hover:bg-yellow-700 text-white text-center  font-bold py-2 px-4 rounded">
+                                        Buy for Rs.1,999
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-black">15 Days</td>
+                                <td class="px-4 py-2 border border-black">
+                                    <a href="#"
+                                        class="block gold-bg hover:bg-yellow-700 text-white text-center  font-bold py-2 px-4 rounded">
+                                        Buy for Rs.14,999
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-black"><i
+                                        class="fas fa-circle-check text-green-500"></i>
+                                    30 Days
+                                </td>
+                                <td class="px-4 py-2 border border-black">
+                                    <a href="#"
+                                        class="block gold-bg hover:bg-yellow-700 text-white text-center  font-bold py-2 px-4 rounded">
+                                        Buy for Rs.24,999
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</x-app-layout>
