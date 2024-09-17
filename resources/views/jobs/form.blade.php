@@ -7,8 +7,8 @@
                 clicking on
                 payment button below the
                 form</p>
-            <form action="{{ route('jobs.store') }}" method="POST"
-                class="w-full flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form id='job_request_form' onsubmit="submitForm(event)" method="POST"
+                class="w-full flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
                     <label class="block text-gray-900 text-justify text-sm font-bold mb-2" for="category">
@@ -16,10 +16,10 @@
                     </label>
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="category" name="category">
+                        id="category" name="category_type">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}"
-                                {{ request()->query('category') == $category->id ? 'selected' : '' }}>
+                                {{ request()->url() == route('jobs.form', $category->id) ? 'selected' : '' }}>
                                 {{ $category->name }}
                             </option>
                         @endforeach
@@ -32,7 +32,7 @@
                     </label>
                     <input
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="name" name="name" type="text" placeholder="Enter Your Name">
+                        id="name" name="name" type="text" placeholder="Enter Your Name" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="state">
@@ -40,7 +40,7 @@
                     </label>
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="state" name="state" data-search="true" onchange="loadCities(this.value)">
+                        id="state" name="state" data-search="true" onchange="loadCities(this.value)" required>
                         <option value="">Select State</option>
                         @foreach ($states as $state)
                             <option value="{{ $state->id }}">{{ $state->name }}</option>
@@ -53,7 +53,7 @@
                     </label>
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="city" name="city" data-search="true">
+                        id="city" name="city" data-search="true" required>
                         <option value="">Select City</option>
                         @if (isset($cities))
                             @foreach ($cities as $city)
@@ -69,7 +69,7 @@
                     </label>
                     <textarea
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="address" name="address" placeholder="Your Address"></textarea>
+                        id="address" name="address" placeholder="Your Address" required></textarea>
                 </div>
 
                 <div class="mb-4">
@@ -79,7 +79,7 @@
                     <input
                         class="shadow  py-2 px-3 border  focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         id="expected_salary" name="expected_salary" type="number" placeholder="Expected Salary"
-                        style="appearance: textfield;" inputmode="numeric" />
+                        style="appearance: textfield;" inputmode="numeric" required />
                 </div>
 
                 <div class="mb-4">
@@ -88,7 +88,7 @@
                     </label>
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="work_field" name="work_field">
+                        id="work_field" name="work_field" required>
                         <option value="">Select Type of Job</option>
                         <option value="field-work">Field Work</option>
                         <option value="part-time">Part Time</option>
@@ -103,7 +103,7 @@
                     </label>
                     <select
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="experience" name="experience">
+                        id="experience" name="experience" required>
                         <option value="">Select Experience</option>
                         <option value="fresher">Fresher</option>
                         <option value="1-year">1 Year</option>
@@ -117,7 +117,7 @@
                     </label>
                     <input
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                        id="photo_passport" name="photo_passport" type="file" accept=".jpg, .jpeg, .png">
+                        id="photo_passport" name="photo_passport" type="file" accept=".jpg, .jpeg, .png" required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="resume">
@@ -125,7 +125,7 @@
                     </label>
                     <input
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                        id="resume" name="resume" type="file" accept=".pdf, .doc, .docx">
+                        id="resume" name="resume" type="file" accept=".pdf" required>
                 </div>
 
                 <div class="flex items-center justify-between">
@@ -171,5 +171,23 @@
                     console.error(error);
                 });
         }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('job_request_form');
+            const formData = new FormData(form);
+            axios.post('{{ route('jobs.store') }}', formData)
+                .then(response => {
+                    console.log(response);
+                    // window.location.href = '{{ route('jobs.list') }}';
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+
+        })
     </script>
 </x-app-layout>

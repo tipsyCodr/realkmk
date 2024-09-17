@@ -10,7 +10,8 @@
                 Properties.</p>
         </div>
 
-        <form action="{{ route('properties.form.store') }}" method="POST">
+        <form id="property_request_form" onsubmit="submitForm(event)" action="{{ route('properties.form.store') }}"
+            method="POST">
             @csrf
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
@@ -130,4 +131,20 @@
             </div>
         </form>
     </div>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('property_request_form');
+            const formData = new FormData(form);
+            axios.post("{{ route('properties.form.store') }}", formData)
+                .then(response => {
+                    console.log(response);
+                    // window.location.href = '{{ route('jobs.list') }}';
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+        }
+    </script>
 </x-app-layout>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoryType;
 use App\Models\City;
+use App\Models\JobRequest;
 use App\Models\Listing;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class WebController extends Controller
 {
@@ -46,10 +48,7 @@ class WebController extends Controller
         $cities = City::where('state_id', $request->stateId)->get();
         return response()->json($cities);
     }
-    public function jobsStore(Request $request)
-    {
-        dd($request->all());
-    }
+
     public function plan()
     {
         // echo "plans";
@@ -74,14 +73,7 @@ class WebController extends Controller
         $categories = CategoryType::where('category_id', 1)->get();
         return view('listings.form', compact('categories', 'states', 'cities', 'location'));
     }
-    public function propertiesFormSave(Request $request)
-    {
-        $location = $request->post('location');
-        // dd($location);
-        session(['success' => 'dummy']);
 
-        return redirect()->route('properties.show', $location)->with('success', 'Request Submitted Successfull!');
-    }
 
     public function showProperties(Request $request)
     {
