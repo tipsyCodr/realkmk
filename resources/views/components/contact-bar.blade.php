@@ -1,5 +1,5 @@
 <div>
-    <div class="fixed bottom-0 left-0 w-full h-16 bg-white shadow ">
+    <div class="fixed bottom-0 left-0 w-full h-16 bg-white shadow " style="z-index: 5">
 
         <div class="flex flex-row  justify-between items-center p-2">
             <div class="flex-1">

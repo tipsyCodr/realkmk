@@ -1,22 +1,25 @@
 <div class="">
     <div class="carousel">
         <div class="wrapper">
-            <div class="item  justify-center bg-black">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
+            <div class="item  flex justify-center bg-black">
+                <div class="swiper flex justify-center">
+                    <div class="swiper-wrapper ">
                         @php
                             $photos = json_decode($listing['photos'], true);
                         @endphp
                         @if (is_array($photos))
                             @foreach ($photos as $photo)
-                                <div class="swiper-slide">
+                                <div class="swiper-slide text-center flex items-center justify-center">
                                     <img src="{{ Storage::url($photo) }}" alt="{{ $listing['title'] }}"
-                                        class="w-full h-auto rounded" style="max-width: 500px;">
+                                        class="w-full h-auto rounded mx-auto" style="max-width: 500px;">
                                 </div>
                             @endforeach
                         @else
-                            <img src="{{ Storage::url('uploads/property_images/' . $listing['photos']) }}"
-                                alt="{{ $listing['title'] }}" class="w-full h-auto rounded" style="max-width: 500px;">
+                            <div class="swiper-slide text-center flex items-center justify-center">
+                                <img src="{{ Storage::url('uploads/property_images/' . $listing['photos']) }}"
+                                    alt="{{ $listing['title'] }}" class="w-full h-auto rounded mx-auto"
+                                    style="max-width: 500px;">
+                            </div>
                         @endif
                     </div>
                     <div class="swiper-pagination"></div>

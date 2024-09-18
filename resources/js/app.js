@@ -9,7 +9,9 @@ import "swiper/css/bundle";
 const swiper = new Swiper(".swiper", {
     // Optional parameters
     direction: "horizontal",
-    slidesPerView: 1,
+    slidesPerView: "auto",
+    centeredSlides: true,
+    spaceBetween: 30,
     // If we need pagination
     pagination: {
         el: ".swiper-pagination",
