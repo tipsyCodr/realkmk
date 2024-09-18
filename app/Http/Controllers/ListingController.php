@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\CategoryType;
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ListingController extends Controller
 {
@@ -53,5 +54,71 @@ class ListingController extends Controller
         $category = Category::where('id', $categoryType->category_id)->first();
         $user = auth()->user();
         return view('listings.post', compact('user', 'category', 'categoryType'));
+    }
+    public function storePropertyListing(Request $request)
+    {
+        // dd($request->all());
+        $request->validate([
+            'ad_title' => 'required',
+            'location' => 'required',
+            'category_type_id' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'photos' => 'nullable|array',
+            'photos.*' => 'nullable|file|mimes:png,jpg,jpeg,gif,svg|max:2048',
+            'bedrooms' => 'nullable|integer',
+            'bathrooms' => 'nullable|integer',
+            'furnishing' => 'nullable|string',
+            'construction_status' => 'nullable|string',
+            'listed_by' => 'nullable|string',
+            'facing' => 'nullable|string',
+            'project_name' => 'nullable|string',
+            'super_builtup_area' => 'nullable|integer',
+            'carpet_area' => 'nullable|integer',
+            'maintainance' => 'nullable|integer',
+            'total_floors' => 'nullable|integer',
+            'car_parking' => 'nullable|integer',
+        ]);
+        $user = auth()->user();
+        $categoryType = CategoryType::find($request->category_type_id);
+        // dd($categoryType);
+        $category = Category::find($categoryType->category_id)->slug;
+        $listing = Listing::create([
+            'user_id' => 11,
+            'listing_uid' => "KMK" . rand(1000000000, 9999999999),
+            'ad_title' => $request->ad_title,
+            'slug' => Str::slug($request->ad_title),
+            'location' => $request->location,
+            'category_id' => $request->category_id,
+            'category_type_id' => $request->category_type_id,
+            'price' => $request->price,
+            'description' => $request->description,
+            'bedrooms' => $request->bedrooms,
+            'bathrooms' => $request->bathrooms,
+            'furnishing' => $request->furnishing,
+            'construction_status' => $request->construction_status,
+            'listed_by' => $request->listed_by,
+            'facing' => $request->facing,
+            'project_name' => $request->project_name,
+            'super_builtup_area' => $request->super_builtup_area,
+            'carpet_area' => $request->carpet_area,
+            'maintainance' => $request->maintainance,
+            'total_floors' => $request->total_floors,
+            'car_parking' => $request->car_parking,
+            'status' => 1,
+        ]);
+        if ($request->hasFile('photos')) {
+            $photos = [];
+            foreach ($request->file('photos') as $photo) {
+                $photos[] = $photo->store('uploads/property_images', 'public');
+            }
+            $listing->photos = json_encode($photos);
+            $listing->save();
+        }
+        return redirect()->back()->with([
+            'listing_uid' => $listing->listing_uid,
+            'success' => 'Thank You for posting your listing it will be available after sometime',
+        ]);
+        // return view('listings.post', compact('user', 'category', 'categoryType'));
     }
 }
