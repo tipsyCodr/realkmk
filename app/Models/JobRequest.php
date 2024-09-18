@@ -16,6 +16,6 @@ class JobRequest extends Model
     }
     public function state()
     {
-        return $this->hasOne(state::class);
+        return $this->hasOne(State::class);
     }
 }

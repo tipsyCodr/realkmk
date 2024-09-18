@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,7 +12,6 @@ return new class extends Migration
     {
         Schema::create('property_requests', function (Blueprint $table) {
             $table->id();
-<<<<<<<<<<<<<<  ✨ Codeium Command ⭐  >>>>>>>>>>>>>>>>
             $table->string('address');
             $table->string('category');
             $table->string('city');
@@ -25,7 +23,6 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('name');
             $table->string('state');
-<<<<<<<  1103ef80-b12e-450d-b5c2-bd3a46a2ce74  >>>>>>>
             $table->timestamps();
         });
     }
