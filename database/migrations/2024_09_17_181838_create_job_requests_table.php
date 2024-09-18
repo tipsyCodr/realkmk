@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('category_type')->nullable();
             $table->string('expected_salary')->nullable();
+            $table->string('email')->nullable();
+            $table->string('mobile')->nullable();
             $table->string('experience')->nullable();
             $table->string('work_field')->nullable();
             $table->string('address')->nullable();

@@ -35,6 +35,23 @@
                         id="name" name="name" type="text" placeholder="Enter Your Name" required>
                 </div>
                 <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                        Email
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="email" name="email" type="email" placeholder="Enter Your Email" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="mobile">
+                        Mobile
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="mobile" name="mobile" type="tel" pattern="[0-9]{10}"
+                        placeholder="Enter Your Mobile Number" required>
+                </div>
+                <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="state">
                         State
                     </label>
@@ -117,7 +134,8 @@
                     </label>
                     <input
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                        id="photo_passport" name="photo_passport" type="file" accept=".jpg, .jpeg, .png" required>
+                        id="photo_passport" name="photo_passport" type="file" accept=".jpg, .jpeg, .png"
+                        required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="resume">
@@ -127,7 +145,15 @@
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         id="resume" name="resume" type="file" accept=".pdf" required>
                 </div>
-
+                <div id="message">
+                    <div id="success"
+                        class="bg-green-200 text-green-800 border border-green-600 p-2 my-2 rounded"style='display: none;'>
+                        Your
+                        Form Has
+                        Been Submitted. We will contact you on your contact details.</div>
+                    <div id="error" class="bg-red-200 text-red-800 border border-red-600 p-2 my-2 rounded "
+                        style='display: none;'>There is some problem please try again later .</div>
+                </div>
                 <div class="flex items-center justify-between">
                     <button
                         class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -135,7 +161,7 @@
                         Submit
                     </button>
                 </div>
-                <div class="silver-bg text-white text-center border border-black my-6 rounded">
+                <div id='' class="silver-bg text-white text-center border border-black my-6 rounded">
                     <p class="text-center font-bold text-3xl text-black ">Note: </p>
                     <p class="text-center font-bold text-3xl text-black capitalize ">Join Membership pay Rs.499 only
                     </p>
@@ -179,9 +205,14 @@
             axios.post('{{ route('jobs.store') }}', formData)
                 .then(response => {
                     console.log(response);
+                    $('#success').show();
+                    window.location.href = '#message';
+
                     // window.location.href = '{{ route('jobs.list') }}';
                 })
                 .catch(error => {
+                    window.location.href = '#message';
+                    $('#error').show();
                     console.error(error);
                 });
 

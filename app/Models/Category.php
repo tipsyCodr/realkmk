@@ -17,4 +17,8 @@ class Category extends Model
     {
         return $this->hasMany(Listing::class);
     }
+    public function jobRequest()
+    {
+        return $this->belongsTo(JobRequest::class);
+    }
 }

@@ -10,6 +10,14 @@ class JobRequest extends Model
     use HasFactory;
 
     protected $guarded = [];
+    public function category()
+    {
+        return $this->hasMany(Category::class);
+    }
+    public function categoryType()
+    {
+        return $this->belongsTo(CategoryType::class);
+    }
     public function city()
     {
         return $this->belongsTo(City::class);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoryType;
 use App\Models\JobRequest;
 use App\Models\PropertyRequest;
 use Illuminate\Http\Request;
@@ -18,6 +19,8 @@ class RequestController extends Controller
             $jobRequest->name = $request->name ?? '';
             $jobRequest->category_type = $request->category_type ?? '';
             $jobRequest->expected_salary = $request->expected_salary ?? 0;
+            $jobRequest->email = $request->email ?? 0;
+            $jobRequest->mobile = $request->mobile ?? 0;
             $jobRequest->experience = $request->experience ?? '';
             $jobRequest->work_field = $request->work_field ?? '';
             $jobRequest->address = $request->address ?? '';
@@ -58,6 +61,10 @@ class RequestController extends Controller
     public function indexJobs()
     {
         $requests = JobRequest::all();
+        foreach ($requests as $request) {
+            $categoryType = CategoryType::find($request->category_type);
+            $request->category_type = $categoryType->name;
+        }
         return view('admin.requests.jobs.list', compact('requests'));
     }
 
@@ -67,7 +74,6 @@ class RequestController extends Controller
         return view('admin.requests.properties.list', compact('requests'));
     }
 
-
     public function viewJob(Request $request)
     {
         $id = $request->route('id');
@@ -76,6 +82,9 @@ class RequestController extends Controller
         if (!$job) {
             abort(404, 'Job request not found');
         }
+
+        $categoryType = CategoryType::find($job->category_type);
+        $job->category_type = $categoryType->name;
 
         return view('admin.requests.jobs.view', compact('job'));
     }

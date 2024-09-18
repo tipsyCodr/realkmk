@@ -16,4 +16,8 @@ class CategoryType extends Model
     {
         return $this->hasMany(Listing::class);
     }
+    public function jobRequest()
+    {
+        return $this->hasMany(JobRequest::class);
+    }
 }
