@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JobRequest;
 use App\Models\PropertyRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class RequestController extends Controller
 {
