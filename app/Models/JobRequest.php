@@ -12,10 +12,10 @@ class JobRequest extends Model
     protected $guarded = [];
     public function city()
     {
-        return $this->hasOne(City::class);
+        return $this->hasMany(City::class);
     }
     public function state()
     {
-        return $this->hasOne(State::class);
+        return $this->hasMany(State::class);
     }
 }
