@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JobRequest;
 use App\Models\PropertyRequest;
 use Illuminate\Http\Request;
 
@@ -46,22 +47,27 @@ class RequestController extends Controller
         }
 
     }
+
     public function showRequests()
     {
         // $requests = JobRequest::all();
-        return view('admin.request.list', compact('requests'));
+        return view('admin.requests.view');
     }
-    public function viewJobRequests()
+
+    public function indexJobs()
     {
         $requests = JobRequest::all();
-        return view('admin.jobs.list', compact('requests'));
+        return view('admin.requests.jobs.list', compact('requests'));
     }
-    public function viewPropertyRequests()
+
+    public function indexProperties()
     {
         $requests = PropertyRequest::all();
-        return view('admin.properties.list', compact('requests'));
+        return view('admin.requests.properties.list', compact('requests'));
     }
-    public function viewSingleJobRequest(Request $request)
+
+
+    public function viewJob(Request $request)
     {
         $id = $request->route('id');
         $job = JobRequest::where('id', $id)->first();
@@ -70,14 +76,14 @@ class RequestController extends Controller
             abort(404, 'Job request not found');
         }
 
-        return view('admin.jobs.view', compact('job'));
+        return view('admin.requests.jobs.view', compact('job'));
     }
-    public function viewSingleBusinessRequest(Request $request)
+    public function viewProperty(Request $request)
     {
         $id = $request->route('id');
-        $job = BusinessRequest::where('id', $id)->first();
+        $request = PropertyRequest::where('id', $id)->first();
 
-        return view('admin.jobs.view', compact('job'));
+        return view('admin.requests.properties.view', compact('request'));
     }
     public function propertiesFormSave(Request $request)
     {

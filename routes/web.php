@@ -24,11 +24,14 @@ Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'
 Route::post('properties-form-store', [RequestController::class, 'propertiesFormSave'])->name('properties.form.store');
 Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
 
-Route::get('admin/requests/', [RequestController::class, 'showRequests'])->name('request');
-Route::get('admin/requests/v/jobs/{id}', [RequestController::class, 'viewSingleJobRequest'])->name('jobs.view');
-Route::get('admin/requests/v/properties/{id', [RequestController::class, 'viewSinglePropertyRequest'])->name('properties.view');
-Route::get('admin/requests/s/jobs', [RequestController::class, 'viewSingleJobRequest'])->name('jobs.list');
-Route::get('admin/requests/s/properties', [RequestController::class, 'viewSinglePropertyRequest'])->name('properties.list');
+
+Route::name('admin.requests.')->prefix('admin/requests')->group(function () {
+    Route::get('/', [RequestController::class, 'showRequests'])->name('list');
+    Route::get('jobs/{id}', [RequestController::class, 'viewJob'])->name('jobs.view');
+    Route::get('properties/{id}', [RequestController::class, 'viewProperty'])->name('properties.view');
+    Route::get('jobs', [RequestController::class, 'indexJobs'])->name('jobs.list');
+    Route::get('properties', [RequestController::class, 'indexProperties'])->name('properties.list');
+});
 
 Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
 Route::get('search', [ListingController::class, 'searchListings'])->name('listing.search');
