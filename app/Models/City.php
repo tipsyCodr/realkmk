@@ -10,6 +10,6 @@ class City extends Model
     use HasFactory;
     public function jobRequest()
     {
-        return $this->belongsTo(JobRequest::class);
+        return $this->hasOne(JobRequest::class);
     }
 }
