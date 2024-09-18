@@ -1,4 +1,16 @@
 <x-app-layout>
+    @if ($errors->any())
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+            <p>
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            </p>
+        </div>
+    @endif
     <div class="wrapper pt-6">
         <h1 class="px-4 font-bold text-xl capitalize">Login to your account</h1>
         <div class="login-wrapper px-4 ">
@@ -34,7 +46,7 @@
                 </div>
 
                 <div class="text-sm text-center">
-                    <a href="" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500">
                         Or Register if you don't have an account
                     </a>
                 </div>

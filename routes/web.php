@@ -2,13 +2,18 @@
 
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
 // Basic Routes
 Route::get('/', [WebController::class, 'index'])->name('home');
 Route::get('chat', [WebController::class, 'chat'])->name('chat');
+
+//User Management
 Route::get('login', [WebController::class, 'login'])->name('login');
+Route::get('register', [WebController::class, 'register'])->name('register');
+Route::get('register/store', [UserController::class, 'registerUser'])->name('register.store');
 
 Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
 
