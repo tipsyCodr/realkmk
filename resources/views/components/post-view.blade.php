@@ -1,19 +1,33 @@
 <div class="">
     <div class="carousel">
         <div class="wrapper">
-            <div class="item flex justify-center bg-black">
-                @php
-                    $photos = json_decode($listing['photos'], true);
-                @endphp
-                @if (is_array($photos))
-                    @foreach ($photos as $photo)
-                        <img src="{{ Storage::url('uploads/property_images/' . $photo) }}" alt="{{ $listing['title'] }}"
-                            class="w-full h-auto rounded" style="max-width: 500px;">
-                    @endforeach
-                @else
-                    <img src="{{ Storage::url('uploads/property_images/' . $listing['photos']) }}"
-                        alt="{{ $listing['title'] }}" class="w-full h-auto rounded" style="max-width: 500px;">
-                @endif
+            <div class="item  justify-center bg-black">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        @php
+                            $photos = json_decode($listing['photos'], true);
+                        @endphp
+                        @if (is_array($photos))
+                            @foreach ($photos as $photo)
+                                <div class="swiper-slide">
+                                    <img src="{{ Storage::url($photo) }}" alt="{{ $listing['title'] }}"
+                                        class="w-full h-auto rounded" style="max-width: 500px;">
+                                </div>
+                            @endforeach
+                        @else
+                            <img src="{{ Storage::url('uploads/property_images/' . $listing['photos']) }}"
+                                alt="{{ $listing['title'] }}" class="w-full h-auto rounded" style="max-width: 500px;">
+                        @endif
+                    </div>
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
             </div>
         </div>
     </div>

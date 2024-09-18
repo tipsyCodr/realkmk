@@ -1,5 +1,8 @@
 <div>
-    <div class="fixed top-0 left-0 w-full h-16 bg-gradient-to-b from-black to-transparent shadow ">
+    <div class="fixed top-0 left-0 w-full h-16 bg-gradient-to-b from-black to-transparent shadow "
+        style="
+    z-index: 4;
+">
 
         <div class="flex flex-row  justify-between items-center p-2">
             <div class="">
