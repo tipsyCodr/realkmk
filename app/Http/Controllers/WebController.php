@@ -29,6 +29,7 @@ class WebController extends Controller
         // echo "posts";
         return view('sell');
     }
+
     public function jobs()
     {
         // echo "posts";
@@ -56,8 +57,7 @@ class WebController extends Controller
     }
     public function login()
     {
-        echo "logins";
-        // return view('app');
+        return view('user.login');
     }
 
     public function properties()

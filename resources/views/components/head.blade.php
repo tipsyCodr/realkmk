@@ -16,8 +16,10 @@
         <div class="text-center my-2 self-center flex flex-row place-items-center px-2">
             {{-- <x-location-icon />
             <p><u>{{ $location }}</u></p> --}}
-            <img class="img-fluid rounded-top w-9 hover:scale-125 transition-transform"
-                src="{{ asset('img/icon/user.png') }}" alt="">
+            <a href="{{ route('login') }}">
+                <img class="img-fluid rounded-top w-9 hover:scale-125 transition-transform"
+                    src="{{ asset('img/icon/user.png') }}" alt="">
+            </a>
         </div>
     </div>
 </header>

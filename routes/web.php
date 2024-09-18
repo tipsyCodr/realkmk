@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 // Basic Routes
 Route::get('/', [WebController::class, 'index'])->name('home');
 Route::get('chat', [WebController::class, 'chat'])->name('chat');
+Route::get('login', [WebController::class, 'login'])->name('login');
+
+Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
 
 Route::name('listing.')->prefix('listing')->group(function () {
     Route::get('post', [WebController::class, 'post'])->name('post');
