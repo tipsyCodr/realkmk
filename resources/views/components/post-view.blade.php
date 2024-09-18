@@ -145,7 +145,7 @@
         <div class="px-4 flex items-center">
             <img src="https://i.pravatar.cc/100?img={{ rand(1, 70) }}" width="30" height="30"
                 class="rounded-full mr-2" />
-            <p class="text-black">{{ $listing['user']['name'] }}</p>
+            <p class="text-black">{{ $listing['user'] ? $listing['user']['name'] : '' }}</p>
         </div>
 
         <div class="px-4">
