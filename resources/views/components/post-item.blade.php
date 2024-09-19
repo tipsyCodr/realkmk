@@ -12,7 +12,7 @@
             @endforeach
         @else
             <img src="{{ Storage::url('uploads/property_images/' . $post['photos']) }}" alt="{{ $post['title'] }}"
-                class="w-full h-auto rounded object-cover">
+                class="w-full h-full rounded object-cover">
         @endif
     </div>
     <p class="text-left text-xl font-bold">
