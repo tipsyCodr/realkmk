@@ -18,7 +18,12 @@ class AdController extends Controller
         ];
         $ads = Ad::all();
         // Return the ad data based on the ad count, wrapping around to the start of the list when necessary
-        return $ads[($adCount % count($ads)) ?: 0];
+        if (count($ads) > 0) {
+            return $ads[$adCount % count($ads)];
+        } else {
+            // Handle the case when $ads is empty, return null or any default value
+            return null;
+        }
     }
 
 
