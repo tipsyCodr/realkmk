@@ -6,12 +6,13 @@
             @endphp
             @if (is_array($photos))
                 @foreach ($photos as $photo)
-                    <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}" class="w-full h-auto rounded">
+                    <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}"
+                        class="w-full h-auto rounded object-cover">
                 @break
             @endforeach
         @else
             <img src="{{ Storage::url('uploads/property_images/' . $post['photos']) }}" alt="{{ $post['title'] }}"
-                class="w-full h-auto rounded">
+                class="w-full h-auto rounded object-cover">
         @endif
     </div>
     <p class="text-left text-xl font-bold">
