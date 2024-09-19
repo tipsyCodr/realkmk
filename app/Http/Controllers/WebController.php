@@ -57,6 +57,9 @@ class WebController extends Controller
     }
     public function login()
     {
+        if (auth()->check()) {
+            return view('user.profile');
+        }
         return view('user.login');
     }
 

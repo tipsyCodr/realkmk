@@ -13,7 +13,9 @@ Route::get('chat', [WebController::class, 'chat'])->name('chat');
 //User Management
 Route::get('login', [WebController::class, 'login'])->name('login');
 Route::get('register', [WebController::class, 'register'])->name('register');
-Route::get('register/store', [UserController::class, 'registerUser'])->name('register.store');
+Route::post('register/store', [UserController::class, 'registerUser'])->name('register.store');
+Route::post('login/user', [UserController::class, 'authenticateUser'])->name('authenticate.user');
+Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
 

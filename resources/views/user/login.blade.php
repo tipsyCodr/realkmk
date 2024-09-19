@@ -11,14 +11,21 @@
             </p>
         </div>
     @endif
+    <div class="text-center">
+        <a href="{{ route('register') }}"
+            class="inline-block mt-4 text-sm p-2 rounded text-white font-medium bg-indigo-600 hover:bg-indigo-500">
+            Don't have an account? Register
+        </a>
+    </div>
     <div class="wrapper pt-6">
+
         <h1 class="px-4 font-bold text-xl capitalize">Login to your account</h1>
         <div class="login-wrapper px-4 ">
-            <form class="space-y-6" action="{{ route('login') }}" method="POST">
+            <form class="space-y-6" action="{{ route('authenticate.user') }}" method="POST">
                 @csrf
                 <div class="space-y-2">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required
+                    <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile No.</label>
+                    <input id="mobile" name="mobile" type="mobile" autocomplete="mobile" required
                         class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
                 </div>
 

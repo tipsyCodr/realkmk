@@ -39,13 +39,17 @@ class UserController extends Controller
         return redirect('/')->with('success', 'Registration Successful ! Now you can post your listing!');
 
     }
-    public function authenticateUser(\Request $request)
+    public function authenticateUser(Request $request)
     {
-
-        $request->validate([
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
             'mobile' => 'required|digits:10',
             'password' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
         $credentials = $request->only('mobile', 'password');
         if (auth()->attempt($credentials)) {
             return redirect()->intended('/')->with('success', 'Login Successful !');
@@ -53,6 +57,13 @@ class UserController extends Controller
         return redirect()->back()->withErrors(['mobile' => 'Invalid Credentials']);
 
 
+    }
 
+    public function logout(\Request $request)
+    {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/')->with('success', 'Logged out successfully !');
     }
 }
