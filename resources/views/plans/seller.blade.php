@@ -19,7 +19,7 @@
             <h2 class="text-4xl font-bold text-center py-4">Silver Plan</h2>
             <p class="font-bold text-3xl text-center pb-4 "> Rs. 4,500</p>
 
-            <div class="bg-gray-50 bg-opacity-45 p-2 rounded-lg">
+            <div class="bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
                 <ol class="card-text text-left">
                     <li><i class="fa fa-check-circle text-green-600"></i> 3 Month Validity</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Giving Buyer Geniune Number </li>
@@ -34,11 +34,17 @@
                     <li><i class="fa fa-circle-xmark text-red-600"></i> Total amount Rs.39,500</li>
                 </ol>
             </div>
+            <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                @csrf
+                <input type="hidden" name="amount" value="4,500" />
+                <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
+                    name="submit" value="Pay Now" />
+            </form>
         </div>
         <div class="px-6 py-4 my-4 w-80 rounded-xl gold-bg transition-opacity duration-500 ease-in-out " id="bGold"
             style="display:none;">
 
-            <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-lg">
+            <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
                 <h2 class="text-4xl font-bold text-center py-4 text-black-100 ">Gold Plan</h2>
                 <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 9,500</p>
                 <b class="p-2 block text-left">
@@ -61,6 +67,12 @@
 
                 </ol>
             </div>
+            <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                @csrf
+                <input type="hidden" name="amount" value="9,500" />
+                <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
+                    name="submit" value="Pay Now" />
+            </form>
         </div>
     </div>
 </x-app-layout>

@@ -91,4 +91,9 @@ class WebController extends Controller
         return view('listings.list', compact('listings'));
     }
 
+    public function showScanner(Request $request)
+    {
+        $amount = $request->input('amount');
+        return view('payment.show', compact('amount'));
+    }
 }

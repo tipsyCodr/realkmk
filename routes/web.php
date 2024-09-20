@@ -17,6 +17,8 @@ Route::post('register/store', [UserController::class, 'registerUser'])->name('re
 Route::post('login/user', [UserController::class, 'authenticateUser'])->name('authenticate.user');
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
+Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
+
 Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
 
 Route::name('listing.')->prefix('listing')->group(function () {
