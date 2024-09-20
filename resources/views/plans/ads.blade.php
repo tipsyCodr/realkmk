@@ -8,15 +8,19 @@
                 <p class="text-green-500 text-sm capitalize"><i class="fas fa-circle-check"></i> Recommended For local
                     Business</p>
                 <p class='font-bold text-xl capitalize'>Run Ads in a Any of the one city</p>
-                <div class="flex mt-2">
-                    <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Delhi</span>
-                    <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Mumbai</span>
-                    <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Kolkata</span>
-                    <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Bengaluru</span>
+                <div class="grid grid-cols-2 gap-2 text-center">
+                    <div>
+                        <span
+                            class="block silver-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-gray-700 mr-2">Delhi</span>
+                        <span
+                            class="block silver-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-gray-700 mr-2">Mumbai</span>
+                    </div>
+                    <div>
+                        <span
+                            class="block silver-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-gray-700 mr-2">Kolkata</span>
+                        <span
+                            class="block silver-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-gray-700 mr-2">Bengaluru</span>
+                    </div>
                 </div>
                 <div class="py-4">
                     <table class="table-auto w-full">
@@ -78,15 +82,19 @@
                 <p class='font-bold text-xl capitalize'>Show your ads in all cities and on the Home Page of our website
                 </p>
                 <div class="flex flex-col mt-2 ">
-                    <div class="flex flex-row  justify-evenly">
-                        <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Delhi</span>
-                        <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Mumbai</span>
-                        <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Kolkata</span>
-                        <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Bengaluru</span>
+                    <div class="grid grid-cols-2 gap-2 text-center">
+                        <div>
+                            <span
+                                class="block gold-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-white mr-2">Delhi</span>
+                            <span
+                                class="block gold-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-white mr-2">Mumbai</span>
+                        </div>
+                        <div>
+                            <span
+                                class="block gold-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-white mr-2">Kolkata</span>
+                            <span
+                                class="block gold-bg font-bold rounded-full px-3 py-1 my-2 text-xs font-semibold text-white mr-2">Bengaluru</span>
+                        </div>
                     </div>
                     <span class='font-black text-center text-2xl  text-white'> + </span>
                     <span
