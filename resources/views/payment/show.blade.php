@@ -5,7 +5,7 @@
         <p class="text-md font-bold text-blue-400">Scan this QR Code below to make Payment.</p>
 
         <a href="{{ asset('img/pay.jpg') }}" download="qrcode.jpg"
-            class="text-white bg-blue-500 p-2 rounded-md mt-4">Download QR Code</a>
+            class="text-white  mb-4 bg-blue-500 p-2 rounded-md mt-4">Download QR Code</a>
 
         <img class="border p-2  mt-8" src="{{ asset('img/pay.jpg') }}" style="width: 300px;" alt="">
 
