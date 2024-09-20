@@ -161,13 +161,19 @@
                         Submit
                     </button>
                 </div>
-                <div id='' class="silver-bg text-white text-center border border-black my-6 rounded">
+                <div id='' class="silver-bg text-white text-center border border-black my-6 rounded p-4">
                     <p class="text-center font-bold text-3xl text-black ">Note: </p>
-                    <p class="text-center font-bold text-3xl text-black capitalize ">Join Membership pay Rs.499 only
+                    <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership pay Rs.499
+                        only
                     </p>
-                    <a class='p-2 m-4 block text-xl gold-bg text-white font-bold rounded' href="#"> Pay
-                        Rs.499 /-
-                        Now</a>
+                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                        @csrf
+                        <input type="hidden" name="amount" value="499" />
+                        <input class="w-full p-2  block text-xl gold-bg text-white font-bold rounded" type="submit"
+                            name="submit" value=" Pay Rs.499 /- Now" />
+                    </form>
+
+
                 </div>
                 <div class="py-4 text-center flex flex-col justify-center">
                     <p class="font-bold text-2xl capitalize">
