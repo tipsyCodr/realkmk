@@ -10,13 +10,13 @@
                 <p class='font-bold text-xl capitalize'>Run Ads in a Any of the one city</p>
                 <div class="flex mt-2">
                     <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Delhi</span>
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Delhi</span>
                     <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Mumbai</span>
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Mumbai</span>
                     <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Kolkata</span>
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Kolkata</span>
                     <span
-                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-gray-700 mr-2">Bengaluru</span>
+                        class="inline-block silver-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-gray-700 mr-2">Bengaluru</span>
                 </div>
                 <div class="py-4">
                     <table class="table-auto w-full">
@@ -30,29 +30,37 @@
                             <tr>
                                 <td class="px-4 py-2 border border-black">1 Day</td>
                                 <td class="px-4 py-2 border border-black">
-                                    <a href="#"
-                                        class="block silver-bg hover:bg-blue-700 text-black text-center  font-bold py-2 px-4 rounded">
-                                        Buy for Rs.999
-                                    </a>
+                                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                                        @csrf
+                                        <input type="hidden" name="amount" value="999" />
+                                        <input class="p-2 silver-bg text-black rounded w-full font-bold" type="submit"
+                                            name="submit" value=" Buy for Rs.999" />
+                                    </form>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="px-4 py-2 border border-black">15 Days</td>
                                 <td class="px-4 py-2 border border-black">
-                                    <a href="#"
-                                        class="block silver-bg hover:bg-blue-700 text-black text-center  font-bold py-2 px-4 rounded">
-                                        Buy for Rs.9,999
-                                    </a>
+                                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                                        @csrf
+                                        <input type="hidden" name="amount" value="9,999" />
+                                        <input class="p-2 silver-bg text-black  rounded w-full font-bold" type="submit"
+                                            name="submit" value=" Buy for Rs.9,999" />
+                                    </form>
+
                                 </td>
                             </tr>
                             <tr>
                                 <td class="px-4 py-2 border border-black"><i
                                         class="fas fa-circle-check text-green-500"></i> 30 Days</td>
                                 <td class="px-4 py-2 border border-black">
-                                    <a href="#"
-                                        class="block silver-bg hover:bg-blue-700 text-black text-center  font-bold py-2 px-4 rounded">
-                                        Buy for Rs.14,999
-                                    </a>
+                                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                                        @csrf
+                                        <input type="hidden" name="amount" value="14,999" />
+                                        <input class="p-2 silver-bg text-black  rounded w-full font-bold" type="submit"
+                                            name="submit" value=" Buy for Rs.14,999" />
+                                    </form>
+
                                 </td>
                             </tr>
                         </tbody>
@@ -72,17 +80,17 @@
                 <div class="flex flex-col mt-2 ">
                     <div class="flex flex-row  justify-evenly">
                         <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Delhi</span>
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Delhi</span>
                         <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Mumbai</span>
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Mumbai</span>
                         <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Kolkata</span>
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Kolkata</span>
                         <span
-                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-sm font-semibold text-white mr-2">Bengaluru</span>
+                            class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-xs font-semibold text-white mr-2">Bengaluru</span>
                     </div>
                     <span class='font-black text-center text-2xl  text-white'> + </span>
                     <span
-                        class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-center text-sm font-semibold text-white mr-2">Homepage</span>
+                        class="inline-block gold-bg font-bold rounded-full px-3 py-1  text-center text-xs font-semibold text-white mr-2">Homepage</span>
                 </div>
                 <div class="py-4">
                     <table class="table-auto w-full">
@@ -96,19 +104,25 @@
                             <tr>
                                 <td class="px-4 py-2 border border-black">1 Day</td>
                                 <td class="px-4 py-2 border border-black">
-                                    <a href="#"
-                                        class="block gold-bg hover:bg-yellow-700 text-white text-center  font-bold py-2 px-4 rounded">
-                                        Buy for Rs.1,999
-                                    </a>
+                                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                                        @csrf
+                                        <input type="hidden" name="amount" value="1,999" />
+                                        <input class="p-2 gold-bg text-white rounded w-full font-bold" type="submit"
+                                            name="submit" value=" Buy for Rs.1,999" />
+                                    </form>
+
                                 </td>
                             </tr>
                             <tr>
                                 <td class="px-4 py-2 border border-black">15 Days</td>
                                 <td class="px-4 py-2 border border-black">
-                                    <a href="#"
-                                        class="block gold-bg hover:bg-yellow-700 text-white text-center  font-bold py-2 px-4 rounded">
-                                        Buy for Rs.14,999
-                                    </a>
+                                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                                        @csrf
+                                        <input type="hidden" name="amount" value="14,999" />
+                                        <input class="p-2 gold-bg text-white rounded w-full font-bold" type="submit"
+                                            name="submit" value=" Buy for Rs.14,999" />
+                                    </form>
+
                                 </td>
                             </tr>
                             <tr>
@@ -117,10 +131,13 @@
                                     30 Days
                                 </td>
                                 <td class="px-4 py-2 border border-black">
-                                    <a href="#"
-                                        class="block gold-bg hover:bg-yellow-700 text-white text-center  font-bold py-2 px-4 rounded">
-                                        Buy for Rs.24,999
-                                    </a>
+                                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                                        @csrf
+                                        <input type="hidden" name="amount" value="24,999" />
+                                        <input class="p-2 gold-bg text-white rounded w-full font-bold" type="submit"
+                                            name="submit" value=" Buy for Rs.24,999" />
+                                    </form>
+
                                 </td>
                             </tr>
                         </tbody>
