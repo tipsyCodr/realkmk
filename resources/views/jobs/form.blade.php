@@ -161,27 +161,28 @@
                         Submit
                     </button>
                 </div>
-                <div id='' class="silver-bg text-white text-center border border-black my-6 rounded p-4">
-                    <p class="text-center font-bold text-3xl text-black ">Note: </p>
-                    <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership pay Rs.499
-                        only
-                    </p>
-                    <form action="{{ route('payment.show') }}" method="POST" id="card-form">
-                        @csrf
-                        <input type="hidden" name="amount" value="499" />
-                        <input class="w-full p-2  block text-xl gold-bg text-white font-bold rounded" type="submit"
-                            name="submit" value=" Pay Rs.499 /- Now" />
-                    </form>
+            </form>
+            <div id='' class="silver-bg text-white text-center border border-black my-6 rounded p-4">
+                <p class="text-center font-bold text-3xl text-black ">Note: </p>
+                <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership pay Rs.499
+                    only
+                </p>
+                <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                    @csrf
+                    <input type="hidden" name="amount" value="499" />
+                    <input class="cursor-pointer w-full p-2  block text-xl gold-bg text-white font-bold rounded"
+                        type="submit" name="submit" value=" Pay Rs.499 /- Now" />
+                </form>
 
 
-                </div>
-                <div class="py-4 text-center flex flex-col justify-center">
-                    <p class="font-bold text-2xl capitalize">
-                        We are working our best with these companies to provide you with the best and geniune jobs for
-                        you.
-                    </p>
-                    <img class="py-4 my-4 border" src="{{ asset('img/jobs.jpg') }}" alt="">
-                </div>
+            </div>
+            <div class="py-4 text-center flex flex-col justify-center">
+                <p class="font-bold text-2xl capitalize">
+                    We are working our best with these companies to provide you with the best and geniune jobs for
+                    you.
+                </p>
+                <img class="py-4 my-4 border" src="{{ asset('img/jobs.jpg') }}" alt="">
+            </div>
         </div>
 
     </div>
