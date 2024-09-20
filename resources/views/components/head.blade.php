@@ -6,10 +6,10 @@
         @endphp
         <div class="self-center">
             <a class="logo d-block mx-auto" href="/">
-                {{-- <img src="{{ asset('img/logo.png') }}" alt="" style="width: 200px"> --}}
-                <p class="p-2 text-3xl font-bold uppercase text-red-500 ">Real<span
+                <img src="{{ asset('img/logo.png') }}" alt="" style="width: 200px">
+                {{-- <p class="p-2 text-3xl font-bold uppercase text-red-500 ">Real<span
                         class="text-yellow-500 ">KMK</span>.com
-                </p>
+                </p> --}}
 
             </a>
         </div>

@@ -1,7 +1,7 @@
 <footer style="text-align: center;">
     <footer>
         <div class="environment">
-            <p>Copyright © 2024 Real buy sale. All rights reserved.</p>
+            <p>Copyright © 2024 RealKMK. All rights reserved.</p>
         </div>
 
         <div class="copyrights">

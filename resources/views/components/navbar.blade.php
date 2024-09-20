@@ -24,7 +24,9 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('listing.post') }}" class="flex flex-col items-center justify-center text-gray-500 ">
+            <a href="{{ route('listing.types', 'properties') }}"
+                class="flex flex-col items-center justify-center text-gray-500 ">
+                {{-- <a href="{{ route('listing.post') }}" class="flex flex-col items-center justify-center text-gray-500 "> --}}
 
 
                 {{-- <x-add-icon :color="'grey-400'" /> --}}
