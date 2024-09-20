@@ -7,7 +7,7 @@
         <a href="{{ asset('img/pay.jpg') }}" download="qrcode.jpg"
             class="text-white bg-blue-500 p-2 rounded-md mt-4">Download QR Code</a>
 
-        <img class="border p-2 w-2/3  mt-8" src="{{ asset('img/pay.jpg') }}" alt="">
+        <img class="border p-2 w-2/4 mt-8" src="{{ asset('img/pay.jpg') }}" alt="">
 
     </div>
 </x-app-layout>
