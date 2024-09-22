@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */
 ;
 --
--- Database: `u944597293_xyzsell`
+-- Database: `realbuysale`
 --
 
 -- --------------------------------------------------------
@@ -217,7 +217,7 @@ ALTER TABLE `states`
 MODIFY `pk_i_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   AUTO_INCREMENT = 15165663;
 --
--- Constraints for dumped tables
+-- Constraints for dumped tablesjob_requests
 --
 
 --
