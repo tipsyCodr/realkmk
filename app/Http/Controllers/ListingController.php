@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\CategoryType;
+use App\Models\City;
 use App\Models\Listing;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -50,17 +52,19 @@ class ListingController extends Controller
     {
         $categorySlug = $request->segment(3);
         // dd($categorySlug);
+        $states = State::all();
+        $cities = City::all();
         $categoryType = CategoryType::where('id', $categorySlug)->first();
         $category = Category::where('id', $categoryType->category_id)->first();
         $user = auth()->user();
-        return view('listings.post', compact('user', 'category', 'categoryType'));
+        return view('listings.post', compact('user', 'category', 'categoryType', 'states', 'cities'));
     }
     public function storePropertyListing(Request $request)
     {
         // dd($request->all());
         $request->validate([
             'ad_title' => 'required',
-            'location' => 'required',
+            'location' => 'nullable',
             'category_type_id' => 'required',
             'price' => 'required',
             'description' => 'required',

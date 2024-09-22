@@ -51,8 +51,34 @@
                 </div>
 
                 <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="state">
+                        State
+                    </label>
+                    <select
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="state" name="state" data-search="true" onchange="loadCities(this.value)" required>
+                        <option value="">Select State</option>
+                        @foreach ($states as $state)
+                            <option value="{{ $state->pk_i_id }}">{{ $state->s_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
+                        City
+                    </label>
+                    <select
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="city" name="city" data-search="true" required>
+                        <option value="">Select City</option>
+
+                    </select>
+                </div>
+
+                <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="location">
-                        Location
+                        Area
                     </label>
                     <input
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -180,3 +206,22 @@
                 </div>
             </form>
         </div>
+        <script>
+            function loadCities(stateId) {
+                axios.get(`{{ route('cities.by.state') }}?stateId=${stateId}`)
+                    .then(response => {
+                        const cities = response.data;
+                        const citySelect = document.getElementById('city');
+                        citySelect.innerHTML = `<option value="">Select City</option>`;
+                        cities.forEach(city => {
+                            const option = document.createElement('option');
+                            option.value = city.pk_i_id;
+                            option.text = city.s_name;
+                            citySelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        </script>
