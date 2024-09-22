@@ -22,6 +22,8 @@ return new class extends Migration {
             $table->string('address')->nullable();
             $table->string('photo_passport')->nullable();
             $table->string('resume')->nullable();
+            $table->bigInteger('city_id')->nullable()->constrained()->nullOnDelete();
+            $table->bigInteger('state_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }
