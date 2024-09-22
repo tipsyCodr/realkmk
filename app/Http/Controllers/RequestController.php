@@ -44,7 +44,7 @@ class RequestController extends Controller
             $jobRequest->state_id = $request->state ?? 0;
             // $jobRequest->user_id = auth()->user()->id ?? 0;
             $jobRequest->save();
-            return 'success';
+            return redirect()->back()->with('success', 'Your form has been filled please scroll below and make payment to complete procedure!');
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return 'failed';

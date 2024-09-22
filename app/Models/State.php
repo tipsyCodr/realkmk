@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class State extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'pk_i_id';
+
     public function jobRequest()
     {
         return $this->belongsTo(JobRequest::class);

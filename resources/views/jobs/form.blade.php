@@ -7,7 +7,7 @@
                 clicking on
                 payment button below the
                 form</p>
-            <form id='job_request_form' onsubmit="submitForm(event)" method="POST"
+            <form id='job_request_form' method="POST" action="{{ route('jobs.store') }}"
                 class="w-full flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
@@ -60,7 +60,7 @@
                         id="state" name="state" data-search="true" onchange="loadCities(this.value)" required>
                         <option value="">Select State</option>
                         @foreach ($states as $state)
-                            <option value="{{ $state->id }}">{{ $state->name }}</option>
+                            <option value="{{ $state->pk_i_id }}">{{ $state->s_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -74,7 +74,7 @@
                         <option value="">Select City</option>
                         @if (isset($cities))
                             @foreach ($cities as $city)
-                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                <option value="{{ $city->pk_i_id }}">{{ $city->s_name }}</option>
                             @endforeach
                         @endif
                     </select>
@@ -195,8 +195,8 @@
                     citySelect.innerHTML = `<option value="">Select City</option>`;
                     cities.forEach(city => {
                         const option = document.createElement('option');
-                        option.value = city.id;
-                        option.text = city.name;
+                        option.value = city.pk_i_id;
+                        option.text = city.s_name;
                         citySelect.appendChild(option);
                     });
                 })
@@ -205,27 +205,24 @@
                 });
         }
 
-        function submitForm(event) {
-            event.preventDefault();
-            const form = document.getElementById('job_request_form');
-            const formData = new FormData(form);
-            axios.post('{{ route('jobs.store') }}', formData)
-                .then(response => {
-                    console.log(response);
-                    $('#success').show();
-                    window.location.href = '#message';
+        // function submitsForm(event) {
+        //     event.preventDefault();
+        //     const form = document.getElementById('job_request_form');
+        //     const formData = new FormData(form);
+        //     axios.post('{{ route('jobs.store') }}', formData)
+        //         .then(response => {
+        //             console.log(response);
+        //             $('#success').show();
+        //             window.location.href = '#message';
+        //         })
+        //         .catch(error => {
+        //             window.location.href = '#message';
+        //             $('#error').show();
+        //             console.error(error);
+        //         });
+        // }
+        // document.addEventListener('DOMContentLoaded', () => {
 
-                    // window.location.href = '{{ route('jobs.list') }}';
-                })
-                .catch(error => {
-                    window.location.href = '#message';
-                    $('#error').show();
-                    console.error(error);
-                });
-
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-
-        })
+        // })
     </script>
 </x-app-layout>

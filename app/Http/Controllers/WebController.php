@@ -46,7 +46,7 @@ class WebController extends Controller
     }
     public function citiesByState(Request $request)
     {
-        $cities = City::where('state_id', $request->stateId)->get();
+        $cities = City::where('fk_i_region_id', $request->stateId)->get();
         return response()->json($cities);
     }
 

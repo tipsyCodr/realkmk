@@ -39,10 +39,10 @@ Route::get('properties/show/{location}', [WebController::class, 'showProperties'
 
 Route::name('admin.requests.')->prefix('admin/requests')->group(function () {
     Route::get('/', [RequestController::class, 'showRequests'])->name('list');
-    Route::get('jobs/{id}', [RequestController::class, 'viewJob'])->name('jobs.view');
-    Route::get('properties/{id}', [RequestController::class, 'viewProperty'])->name('properties.view');
     Route::get('jobs', [RequestController::class, 'indexJobs'])->name('jobs.list');
+    Route::get('jobs/{id}', [RequestController::class, 'viewJob'])->name('jobs.view');
     Route::get('properties', [RequestController::class, 'indexProperties'])->name('properties.list');
+    Route::get('properties/{id}', [RequestController::class, 'viewProperty'])->name('properties.view');
 });
 
 Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
