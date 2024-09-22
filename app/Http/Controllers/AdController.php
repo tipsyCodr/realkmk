@@ -13,7 +13,7 @@ class AdController extends Controller
     {
         // Assuming you have an array of ads with image and URL
         $ads = [
-            ['image' => 'https://via.placeholder.com/440x240?text=Ads%20Space', 'url' => '#'],
+            ['image' => 'https://www.adspeed.com/placeholder-300x250.gif"', 'url' => '#'],
             // ...
         ];
         $ads = Ad::all();
