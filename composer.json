@@ -32,7 +32,8 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
-            "app/Helpers/AdHelper.php"
+            "app/Helpers/AdHelper.php",
+            "app/Helpers/IND_money_format.php"
         ]
     },
     "autoload-dev": {

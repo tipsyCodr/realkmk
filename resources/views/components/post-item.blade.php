@@ -16,7 +16,9 @@
         @endif
     </div>
     <p class="text-left text-xl font-bold">
-        ₹ {{ number_format($post['price'], 0, '.', ',') }}
+
+        ₹ {{ IND_money_format($post['price']) }}
+
     </p>
     <p class="text-left text-gray-600 py-2">{{ $post['ad_title'] }}</p>
     <span class="flex flex-row items-center"> <i class="fa fa-location-dot p-2"></i>

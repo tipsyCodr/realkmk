@@ -44,11 +44,11 @@
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         id="price" type="number" name="price" value="{{ old('price') }}" required>
                 </div>
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="category_type_id">
                         Type
                     </label>
-                </div>
+                </div> --}}
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="state">
@@ -78,7 +78,7 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="location">
-                        Area
+                        Area (Locality)
                     </label>
                     <input
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -88,50 +88,103 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="bedrooms">
                         Bedrooms
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="bedrooms" type="number" name="bedrooms" value="{{ old('bedrooms') }}" required>
+                        id="bedrooms" name="bedrooms" required>
+                        <option value="">Select Bedrooms</option>
+                        @for ($i = 1; $i <= 7; $i++)
+                            <option value="{{ $i }}" {{ old('bedrooms') == $i ? 'selected' : '' }}>
+                                {{ $i }}</option>
+                        @endfor
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="bathrooms">
                         Bathrooms
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="bathrooms" type="number" name="bathrooms" value="{{ old('bathrooms') }}" required>
+                        id="bathrooms" name="bathrooms" required>
+                        <option value="">Select Bathrooms</option>
+                        @for ($i = 1; $i <= 7; $i++)
+                            <option value="{{ $i }}" {{ old('bathrooms') == $i ? 'selected' : '' }}>
+                                {{ $i }}</option>
+                        @endfor
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="furnishing">
                         Furnishing
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="furnishing" type="text" name="furnishing" value="{{ old('furnishing') }}" required>
+                        id="furnishing" name="furnishing" required>
+                        <option value="">Select Furnishing</option>
+                        <option value="No Furnishing" {{ old('furnishing') == 'No Furnishing' ? 'selected' : '' }}>
+                            No Furnishing</option>
+                        <option value="Semi Furnished" {{ old('furnishing') == 'Semi Furnished' ? 'selected' : '' }}>
+                            Semi Furnished</option>
+                        <option value="Fully Furnished" {{ old('furnishing') == 'Fully Furnished' ? 'selected' : '' }}>
+                            Fully Furnished</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="construction_status">
                         Construction Status
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="construction_status" type="text" name="construction_status"
-                        value="{{ old('construction_status') }}" required>
+                        id="construction_status" name="construction_status" required>
+                        <option value="">Select Construction Status</option>
+                        <option value="Under Construction"
+                            {{ old('construction_status') == 'Under Construction' ? 'selected' : '' }}>
+                            Under Construction</option>
+                        <option value="Ready To Move"
+                            {{ old('construction_status') == 'Ready To Move' ? 'selected' : '' }}>
+                            Ready To Move</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="listed_by">
                         Listed By
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="listed_by" type="text" name="listed_by" value="{{ old('listed_by') }}" required>
+                        id="listed_by" name="listed_by" required>
+                        <option value="">Select Listed By</option>
+                        <option value="Owner" {{ old('listed_by') == 'Owner' ? 'selected' : '' }}>
+                            Owner</option>
+                        <option value="Builder" {{ old('listed_by') == 'Builder/Developer' ? 'selected' : '' }}>
+                            Builder</option>
+                        <option value="Agent" {{ old('listed_by') == 'Agent' ? 'selected' : '' }}>
+                            Agent</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="facing">
                         Facing
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="facing" type="text" name="facing" value="{{ old('facing') }}" required>
+                        id="facing" name="facing" required>
+                        <option value="">Select Facing</option>
+                        <option value="East" {{ old('facing') == 'East' ? 'selected' : '' }}>
+                            East</option>
+                        <option value="West" {{ old('facing') == 'West' ? 'selected' : '' }}>
+                            West</option>
+                        <option value="North" {{ old('facing') == 'North' ? 'selected' : '' }}>
+                            North</option>
+                        <option value="South" {{ old('facing') == 'South' ? 'selected' : '' }}>
+                            South</option>
+                        <option value="North-East" {{ old('facing') == 'North-East' ? 'selected' : '' }}>
+                            North-East</option>
+                        <option value="North-West" {{ old('facing') == 'North-West' ? 'selected' : '' }}>
+                            North-West</option>
+                        <option value="South-East" {{ old('facing') == 'South-East' ? 'selected' : '' }}>
+                            South-East</option>
+                        <option value="South-West" {{ old('facing') == 'South-West' ? 'selected' : '' }}>
+                            South-West</option>
+                    </select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="project_name">
@@ -144,7 +197,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="super_builtup_area">
-                        Super Builtup Area
+                        Super Builtup Area (ft)
                     </label>
                     <input
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -153,7 +206,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="carpet_area">
-                        Carpet Area
+                        Carpet Area (ft)
                     </label>
                     <input
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -162,31 +215,50 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="maintainance">
-                        Maintainance
+                        Maintainance (Monthly)
                     </label>
                     <input
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="maintainance" type="number" name="maintainance" value="{{ old('maintainance') }}"
+                        id="maintainance" type="number" name="maintainance" value="{{ old('maintainance') ?? 0 }}"
                         required>
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="total_floors">
                         Total Floors
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="total_floors" type="number" name="total_floors" value="{{ old('total_floors') }}"
-                        required>
+                        id="total_floors" name="total_floors" required>
+                        @for ($i = 1; $i <= 10; $i++)
+                            <option value="{{ $i }}" {{ old('total_floors') == $i ? 'selected' : '' }}>
+                                {{ $i }}</option>
+                        @endfor
+                    </select>
 
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="total_floors">
                         Car Parking
                     </label>
-                    <input
+                    <select
                         class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="car_parking" type="number" name="car_parking" value="{{ old('car_parking') }}"
-                        required>
+                        id="car_parking" name="car_parking" required>
+                        <option value="1" {{ old('car_parking') == 0 ? 'selected' : '' }}>
+                            0
+                        </option>
+                        <option value="1" {{ old('car_parking') == 1 ? 'selected' : '' }}>
+                            1
+                        </option>
+                        <option value="2" {{ old('car_parking') == 2 ? 'selected' : '' }}>
+                            2
+                        </option>
+                        <option value="3" {{ old('car_parking') == 3 ? 'selected' : '' }}>
+                            3
+                        </option>
+                        <option value="4" {{ old('car_parking') == 4 ? 'selected' : '' }}>
+                            4
+                        </option>
+                    </select>
 
                 </div>
                 <div class="mb-4">
