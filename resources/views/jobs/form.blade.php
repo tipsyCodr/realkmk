@@ -128,7 +128,7 @@
                         <option value="more-than-4-years">More than 4 Years</option>
                     </select>
                 </div>
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="photo_passport">
                         Photo Passport of Applicant
                     </label>
@@ -136,7 +136,7 @@
                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         id="photo_passport" name="photo_passport" type="file" accept=".jpg, .jpeg, .png"
                         required>
-                </div>
+                </div> --}}
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="resume">
                         Resume
