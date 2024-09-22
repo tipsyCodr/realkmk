@@ -32,12 +32,22 @@ class RequestController extends Controller
                 $photo = $request->file('photo_passport');
                 $filename = $request->name . '_passport.jpg';
                 $path = $photo->storeAs($location, $filename);
+
+                //rewrite the path for db storage cuz linkin issue
+                $location = 'uploads/requests/job';
+                $path = $location . "/" . $filename;
+                $path = $location . "/" . $filename;
                 $jobRequest->photo_passport = $path;
             }
+
             if ($request->hasFile('resume')) {
                 $resume = $request->file('resume');
                 $filename = $request->name . '_resume.pdf';
                 $path = $resume->storeAs($location, $filename);
+
+                //rewrite the path for db storage cuz linkin issue
+                $location = 'uploads/requests/job';
+                $path = $location . "/" . $filename;
                 $jobRequest->resume = $path;
             }
             $jobRequest->city_id = $request->city ?? 0;
