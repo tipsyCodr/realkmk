@@ -19,14 +19,7 @@
                     <input type="hidden" name="category_type_id" value="{{ $categoryType->id }}">
 
                 </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="photos">
-                        Photos
-                    </label>
-                    <input
-                        class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="photos" type="file" name="photos[]" multiple>
-                </div>
+
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="ad_title">
                         Ad Title
@@ -55,7 +48,6 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="category_type_id">
                         Type
                     </label>
-
                 </div>
 
                 <div class="mb-4">
@@ -170,6 +162,14 @@
                         id="car_parking" type="number" name="car_parking" value="{{ old('car_parking') }}"
                         required>
 
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="photos">
+                        Photos
+                    </label>
+                    <input
+                        class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="photos" type="file" name="photos[]" multiple>
                 </div>
                 <div class="flex items-center justify-between">
                     <button

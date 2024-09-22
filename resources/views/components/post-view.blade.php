@@ -130,10 +130,10 @@
                     <td class="border px-4 py-2">Total Floors:</td>
                     <td class="border px-4 py-2">{{ $listing['total_floors'] }}</td>
                 </tr>
-                <tr>
+                {{-- <tr>
                     <td class="border px-4 py-2">Floor No:</td>
                     <td class="border px-4 py-2">{{ $listing['floor_no'] }}</td>
-                </tr>
+                </tr> --}}
                 <tr>
                     <td class="border px-4 py-2">Car Parking:</td>
                     <td class="border px-4 py-2">{{ $listing['car_parking'] }}</td>
