@@ -87,9 +87,14 @@
             </thead>
             <tbody>
                 <tr>
+                    <td class="border px-4 py-2">Mobile:</td>
+                    <td class="border px-4 py-2">{{ $listing['mobile'] ?? '' }}</td>
+                </tr>
+                <tr>
                     <td class="border px-4 py-2">Bedrooms:</td>
                     <td class="border px-4 py-2">{{ $listing['bedrooms'] }}</td>
                 </tr>
+
                 <tr>
                     <td class="border px-4 py-2">Bathrooms:</td>
                     <td class="border px-4 py-2">{{ $listing['bathrooms'] }}</td>
