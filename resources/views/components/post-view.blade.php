@@ -166,7 +166,7 @@
     <div class="mapouter">
         <div class="gmap_canvas">
             <iframe width="100%" height="500" id="gmap_canvas"
-                src="https://maps.google.com/maps?q={{ $listing['location'] }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q={{ $listing['location'] ? $listing['location'] . '+' . ($listing['state'] ?? '') . '+' . ($listing['city'] ?? '') : '' }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
         </div>
     </div>
@@ -178,4 +178,23 @@
         href="#report/{{ $listing['listing_uid'] }}"> REPORT THIS AD</a>
 </div>
 
+</div>
+<div>
+    <div class="fixed bottom-0 left-0 w-full h-16 bg-white shadow " style="z-index: 5">
+
+        <div class="flex flex-row  justify-between items-center p-2">
+            <div class="flex-1">
+                <a class='p-2 w-full block text-center bg-blue-500   text-white hover:bg-gray-300 hover:text-black'
+                    href="tel:{{ $listing['mobile'] ?? '' }}" target="_blank">
+                    <i class="fa fa-phone p-2"></i> Call </a>
+            </div>
+            <div class="flex-1">
+                <a class='p-2 w-full block text-center bg-green-500  text-white hover:bg-green-600 '
+                    href="https://wa.me/{{ $listing['mobile'] ?? '' }}" target="_blank">
+                    <i class="fab fa-whatsapp p-2"></i> Chat on Whatsapp
+                </a>
+            </div>
+
+        </div>
+    </div>
 </div>

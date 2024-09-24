@@ -11,6 +11,7 @@ Route::get('/', [WebController::class, 'index'])->name('home');
 Route::get('chat', [WebController::class, 'chat'])->name('chat');
 
 //User Management
+Route::get('google-auth', [WebController::class, 'login'])->name('google.auth');
 Route::get('login', [WebController::class, 'login'])->name('login');
 Route::get('register', [WebController::class, 'register'])->name('register');
 Route::post('register/store', [UserController::class, 'registerUser'])->name('register.store');
