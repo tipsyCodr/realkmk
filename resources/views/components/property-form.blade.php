@@ -68,7 +68,7 @@
                         id="state" name="state" data-search="true" onchange="loadCities(this.value)" required>
                         <option value="">Select State</option>
                         @foreach ($states as $state)
-                            <option value="{{ $state->s_slug }}">{{ $state->s_name }}</option>
+                            <option value="{{ $state->pk_i_id }}">{{ $state->s_name }}</option>
                         @endforeach
                     </select>
                 </div>
