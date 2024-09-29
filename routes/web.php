@@ -39,11 +39,21 @@ Route::get('properties/show/{location}', [WebController::class, 'showProperties'
 
 
 Route::name('admin.requests.')->prefix('admin/requests')->group(function () {
+    // Requests Form Section
     Route::get('/', [RequestController::class, 'showRequests'])->name('list');
     Route::get('jobs', [RequestController::class, 'indexJobs'])->name('jobs.list');
     Route::get('jobs/{id}', [RequestController::class, 'viewJob'])->name('jobs.view');
     Route::get('properties', [RequestController::class, 'indexProperties'])->name('properties.list');
     Route::get('properties/{id}', [RequestController::class, 'viewProperty'])->name('properties.view');
+    // Requests Form Section
+});
+Route::name('admin.listings.')->prefix('admin/listings')->group(function () {
+    Route::get('/', [ListingController::class, 'searchListingsAdmin'])->name('list');
+    Route::get('show/{id}', [ListingController::class, 'showListingsAdmin'])->name('show');
+    Route::post('delete', [ListingController::class, 'deleteListingsAdmin'])->name('delete');
+    Route::post('disable', [ListingController::class, 'disableListingsAdmin'])->name('disable');
+    Route::post('enable', [ListingController::class, 'enableListingsAdmin'])->name('enable');
+
 });
 
 Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');

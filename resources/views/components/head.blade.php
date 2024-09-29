@@ -1,4 +1,4 @@
-<header class="fixed top-0 w-full bg-white">
+<header class="fixed top-0 w-full bg-white z-10">
     <div class="w-full shadow border flex flex-row justify-between">
         {{-- logo --}}
         @php

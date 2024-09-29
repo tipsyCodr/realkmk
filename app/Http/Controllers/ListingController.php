@@ -129,4 +129,81 @@ class ListingController extends Controller
         ]);
         // return view('listings.post', compact('user', 'category', 'categoryType'));
     }
+    public function searchListingsAdmin(Request $request)
+    {
+        $q = $request->input('q');
+        $location = $request->input('l');
+        $query = Listing::query()->orderBy('created_at', 'desc');
+        if ($q && $location) {
+            $query->where('location', 'like', '%' . $location . '%')->where('ad_title', 'like', '%' . $q . '%');
+        } elseif ($q) {
+            $query->where('ad_title', 'like', '%' . $q . '%');
+        } elseif ($location) {
+            $query->where('location', 'like', '%' . $location . '%');
+        }
+
+        $listings = $query->get();
+        return view('admin.listings.list', compact('listings'));
+    }
+    public function showListingsAdmin(Request $request)
+    {
+        $id = $request->segment(4);
+        $listing = Listing::find($id);
+        if (!$listing) {
+            abort(404);
+        }
+        $listing->photos = json_decode($listing->photos);
+        // dd($listing);
+        return view('admin.listings.view', compact('listing'));
+    }
+    public function deleteListingsAdmin(Request $request)
+    {
+        $id = $request->post('id');
+        $listing = Listing::find($id);
+        // dd($listing);
+        if ($listing) {
+            $listing->delete();
+            return redirect('admin/listings')->with([
+                'success' => 'Listing Deleted Successfully',
+            ]);
+        } else {
+            return redirect('admin/listings')->with([
+                'error' => 'Listing not found',
+            ]);
+        }
+    }
+    public function disableListingsAdmin(Request $request)
+    {
+        $id = $request->post('id');
+        $listing = Listing::find($id);
+        // dd($listing);
+        if ($listing) {
+            $listing->status = 1;
+            $listing->save();
+            return redirect('admin/listings')->with([
+                'success' => 'Listing Disabled Successfully',
+            ]);
+        } else {
+            return redirect('admin/listings')->with([
+                'error' => 'Listing not found',
+            ]);
+        }
+    }
+    public function enableListingsAdmin(Request $request)
+    {
+        $id = $request->post('id');
+        $listing = Listing::find($id);
+        // dd($listing);
+        if ($listing) {
+            $listing->status = 0;
+            $listing->save();
+            return redirect('admin/listings')->with([
+                'success' => 'Listing Enabled Successfully',
+            ]);
+        } else {
+            return redirect('admin/listings')->with([
+                'error' => 'Listing not found',
+            ]);
+        }
+    }
 }

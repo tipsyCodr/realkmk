@@ -1,4 +1,4 @@
-<nav class="fixed bottom-0 w-full shadow border bg-white">
+<nav class="fixed bottom-0 w-full shadow border bg-white z-10">
     <ul class="text-center flex flex-row  justify-evenly py-4 list-unstyled">
         <li class="">
             <a href="{{ route('home') }}"
