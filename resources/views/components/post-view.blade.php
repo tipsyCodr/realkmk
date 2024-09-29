@@ -84,7 +84,9 @@
         <dl class="-my-3 divide-y divide-gray-100 text-sm">
             <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                 <dt class="font-bold text-gray-900">Mobile</dt>
-                <dd class="text-gray-700 sm:col-span-2">+91 {{ $listing['mobile'] ?? '' }}</dd>
+                <dd class="text-gray-700 sm:col-span-2">
+                    {{ $listing['mobile'] ? '+91 ' . $listing['mobile'] : 'Not Available' }}
+                </dd>
             </div>
             <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                 <dt class="font-bold text-gray-900">Location</dt>
