@@ -33,7 +33,7 @@
 <a class="w-2/3 p-4 md:p-4" href="{{ route('admin.listings.show', $listing['id']) }}">
     <div class="">
         <h1 class="text-xl font-bold text-gray-800 dark:text-white">{{ $listing['project_name'] }}</h1>
-        @if ($listing['status'] == 1)
+        @if ($listing['status'] == 0)
             <span class="text-red-500">This listing is disabled</span>
         @else
             <span class="text-green-500">This listing is active</span>
