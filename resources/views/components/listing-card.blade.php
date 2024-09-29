@@ -1,4 +1,4 @@
-<div class="disabled m-2 mx-auto flex max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
+<div class="m-2 mx-4 mx-auto flex max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
 
     @php
         $photos = json_decode($listing['photos'], true);
@@ -61,7 +61,7 @@
                         Delete Listing
                     </button>
                 </form>
-                @if ($listing['status'] == 1)
+                @if ($listing['status'] == 0)
                     <form method="POST" action="{{ route('admin.listings.enable') }}">
                         @csrf
 

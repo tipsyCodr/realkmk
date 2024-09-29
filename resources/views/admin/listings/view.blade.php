@@ -68,7 +68,7 @@
                     Listing
                 </button>
             </form>
-            @if ($listing['status'] == 1)
+            @if ($listing['status'] == 0)
                 <form class="w-full" method="POST" action="{{ route('admin.listings.enable') }}">
                     @csrf
 

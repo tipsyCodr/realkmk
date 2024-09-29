@@ -178,7 +178,7 @@ class ListingController extends Controller
         $listing = Listing::find($id);
         // dd($listing);
         if ($listing) {
-            $listing->status = 1;
+            $listing->status = 0;
             $listing->save();
             return redirect('admin/listings')->with([
                 'success' => 'Listing Disabled Successfully',
@@ -195,7 +195,7 @@ class ListingController extends Controller
         $listing = Listing::find($id);
         // dd($listing);
         if ($listing) {
-            $listing->status = 0;
+            $listing->status = 1;
             $listing->save();
             return redirect('admin/listings')->with([
                 'success' => 'Listing Enabled Successfully',
