@@ -1,67 +1,91 @@
 <div class="disabled m-2 mx-auto flex max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
+
+
+    @if (is_array($photos))
+        @foreach ($photos as $photo)
+            {{-- <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}" class="w-full h-full rounded object-cover"> --}}
+            <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
+                style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos']) }}')">
+                <div>
+                </div>
+            </a>
+        @break
+    @endforeach
+@else
+    {{-- <img src="{{ Storage::url('uploads/property_images/' . $post['photos']) }}" alt="{{ $post['title'] }}"
+        class="w-full h-full rounded object-cover"> --}}
     <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
         style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos']) }}')">
         <div>
         </div>
     </a>
-    <a class="w-2/3 p-4 md:p-4" href="{{ route('admin.listings.show', $listing['id']) }}">
-        <div class="">
-            <h1 class="text-xl font-bold text-gray-800 dark:text-white">{{ $listing['project_name'] }}</h1>
-            @if ($listing['status'] == 1)
-                <span class="text-red-500">This listing is disabled</span>
-            @else
-                <span class="text-green-500">This listing is active</span>
-            @endif
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 ">{{ $listing['ad_title'] }}</p>
+@endif
 
-            <div class="flex mt-2 item-center">
-                <span class="px-1 text-white text-xs"><i
-                        class="fa fa-location-dot pr-1 "></i>{{ $listing['location'] }}</span>
-                <span class="px-1 text-white text-xs"><i class="fa fa-building pr-1 "></i>
-                    {{ $listing['city'] }}</span>
+{{-- <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
+    style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos']) }}')">
+    <div>
+    </div>
+</a> --}}
 
-            </div>
-            <h1 class="text-lg font-bold text-green-700 dark:text-green-500 md:text-xl">&#x20B9;
-                {{ number_format($listing['price'], 0, '.', ',') }}
-            </h1>
-            <div class="flex justify-between mt-3 item-center">
 
-                <div class="flex flex-col sm:flex-row w-full">
-                    <form method="POST" action="{{ route('admin.listings.delete') }}">
+<a class="w-2/3 p-4 md:p-4" href="{{ route('admin.listings.show', $listing['id']) }}">
+    <div class="">
+        <h1 class="text-xl font-bold text-gray-800 dark:text-white">{{ $listing['project_name'] }}</h1>
+        @if ($listing['status'] == 1)
+            <span class="text-red-500">This listing is disabled</span>
+        @else
+            <span class="text-green-500">This listing is active</span>
+        @endif
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 ">{{ $listing['ad_title'] }}</p>
+
+        <div class="flex mt-2 item-center">
+            <span class="px-1 text-white text-xs"><i
+                    class="fa fa-location-dot pr-1 "></i>{{ $listing['location'] }}</span>
+            <span class="px-1 text-white text-xs"><i class="fa fa-building pr-1 "></i>
+                {{ $listing['city'] }}</span>
+
+        </div>
+        <h1 class="text-lg font-bold text-green-700 dark:text-green-500 md:text-xl">&#x20B9;
+            {{ number_format($listing['price'], 0, '.', ',') }}
+        </h1>
+        <div class="flex justify-between mt-3 item-center">
+
+            <div class="flex flex-col sm:flex-row w-full">
+                <form method="POST" action="{{ route('admin.listings.delete') }}">
+                    @csrf
+                    <input type="hidden" name='id'value="{{ $listing['id'] }}">
+                    <button type="submit"
+                        class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-red-800 rounded dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:bg-red-700 dark:focus:bg-red-600">
+                        Delete Listing
+                    </button>
+                </form>
+                @if ($listing['status'] == 1)
+                    <form method="POST" action="{{ route('admin.listings.enable') }}">
                         @csrf
-                        <input type="hidden" name='id'value="{{ $listing['id'] }}">
+
+                        <input type="hidden" name="id" value="{{ $listing['id'] }}">
                         <button type="submit"
-                            class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-red-800 rounded dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:bg-red-700 dark:focus:bg-red-600">
-                            Delete Listing
+                            class="loaderButton border border-black px-2 py-1 m-2 text-xs font-bold text-black uppercase transition-all duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
+
+                            Enable Listing
                         </button>
                     </form>
-                    @if ($listing['status'] == 1)
-                        <form method="POST" action="{{ route('admin.listings.enable') }}">
-                            @csrf
+                @else
+                    <form method="POST" action="{{ route('admin.listings.disable') }}">
+                        @csrf
 
-                            <input type="hidden" name="id" value="{{ $listing['id'] }}">
-                            <button type="submit"
-                                class="loaderButton border border-black px-2 py-1 m-2 text-xs font-bold text-black uppercase transition-all duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
+                        <input type="hidden" name="id" value="{{ $listing['id'] }}">
+                        <button type="submit"
+                            class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
+                            Disable Listing
+                        </button>
+                    </form>
+                @endif
 
-                                Enable Listing
-                            </button>
-                        </form>
-                    @else
-                        <form method="POST" action="{{ route('admin.listings.disable') }}">
-                            @csrf
-
-                            <input type="hidden" name="id" value="{{ $listing['id'] }}">
-                            <button type="submit"
-                                class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
-                                Disable Listing
-                            </button>
-                        </form>
-                    @endif
-
-                </div>
             </div>
         </div>
-    </a>
+    </div>
+</a>
 </div>
 
 {{-- 
