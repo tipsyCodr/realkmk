@@ -60,28 +60,30 @@
 
             <p class="nowrap"><b class="nowrap" style="white-space: nowrap"> {{ $listing['likes'] }} Likes</b></p>
         </div>
-        <div class="p-4 flex justify-between">
-            <form method="POST" action="{{ route('admin.listings.delete') }}">
+        <div class="p-4 flex flex-col sm:flex-row gap-2 items-center w-full justify-between">
+            <form class="w-full" method="POST" action="{{ route('admin.listings.delete') }}">
                 @csrf
                 <input type="hidden" name='id'value="{{ $listing['id'] }}">
-                <button type="submit" class="p-2 bg-red-500 text-white rounded hover:bg-red-600"> Delete Listing
+                <button type="submit" class="loaderButton p-2 bg-red-500 text-white rounded hover:bg-red-600"> Delete
+                    Listing
                 </button>
             </form>
             @if ($listing['status'] == 1)
-                <form method="POST" action="{{ route('admin.listings.enable') }}">
+                <form class="w-full" method="POST" action="{{ route('admin.listings.enable') }}">
                     @csrf
 
                     <input type="hidden" name="id" value="{{ $listing['id'] }}">
-                    <button type="submit" class="p-2 bg-white text-black rounded hover:bg-white">
+                    <button type="submit"
+                        class="p-2 loaderButton border border-black bg-white text-black rounded hover:bg-white">
                         Enable Listing
                     </button>
                 </form>
             @else
-                <form method="POST" action="{{ route('admin.listings.disable') }}">
+                <form class="w-full" method="POST" action="{{ route('admin.listings.disable') }}">
                     @csrf
 
                     <input type="hidden" name="id" value="{{ $listing['id'] }}">
-                    <button type="submit" class="p-2 bg-black text-white rounded hover:bg-black">
+                    <button type="submit" class="loaderButton p-2 bg-black text-white rounded hover:bg-black">
                         Disable Listing
                     </button>
                 </form>
