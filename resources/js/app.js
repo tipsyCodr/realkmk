@@ -30,7 +30,16 @@ const swiper = new Swiper(".swiper", {
 });
 
 document.querySelectorAll(".loaderButton").forEach((element) => {
-    element.addEventListener("click", function () {
-        this.innerHTML += '<i class="fa fa-circle animate-ping p-1"></i>';
+    element.addEventListener("click", (event) => {
+        event.preventDefault(); // prevent default form submission
+        const confirmed = confirm("Are you sure you want to submit?");
+        if (confirmed) {
+            // add loader icon here
+            const loader = document.createElement("i");
+            loader.classList.add("fa", "fa-circle", "animate-ping", "p-1");
+            element.appendChild(loader);
+            // submit the form
+            element.form.submit();
+        }
     });
 });
