@@ -41,7 +41,7 @@
 
                             <input type="hidden" name="id" value="{{ $listing['id'] }}">
                             <button type="submit"
-                                class="loaderButton  px-2 py-1 m-2 text-xs font-bold text-black uppercase transition-all duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
+                                class="loaderButton border border-black px-2 py-1 m-2 text-xs font-bold text-black uppercase transition-all duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
 
                                 Enable Listing
                             </button>
