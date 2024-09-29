@@ -1,6 +1,6 @@
 <div class="disabled m-2 mx-auto flex max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
     <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-        style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos'][0]) }}')">
+        style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos']) }}')">
         <div>
         </div>
     </a>
