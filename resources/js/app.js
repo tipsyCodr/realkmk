@@ -28,3 +28,9 @@ const swiper = new Swiper(".swiper", {
         el: ".swiper-scrollbar",
     },
 });
+
+document.querySelectorAll(".loaderButton").forEach((element) => {
+    element.addEventListener("click", function () {
+        this.innerHTML += '<i class="fa fa-circle animate-ping p-1"></i>';
+    });
+});

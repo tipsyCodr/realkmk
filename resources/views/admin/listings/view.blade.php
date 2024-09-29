@@ -47,12 +47,6 @@
                         </h1>
                     </div>
                 </div>
-
-                <div class="flex-shrink-0">
-                    <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-                        Like
-                    </button>
-                </div>
             </div>
 
         </div>
@@ -78,8 +72,7 @@
                     @csrf
 
                     <input type="hidden" name="id" value="{{ $listing['id'] }}">
-                    <button type="submit"
-                        class="px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
+                    <button type="submit" class="p-2 bg-white text-black rounded hover:bg-white">
                         Enable Listing
                     </button>
                 </form>
@@ -88,8 +81,7 @@
                     @csrf
 
                     <input type="hidden" name="id" value="{{ $listing['id'] }}">
-                    <button type="submit"
-                        class="px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
+                    <button type="submit" class="p-2 bg-black text-white rounded hover:bg-black">
                         Disable Listing
                     </button>
                 </form>
