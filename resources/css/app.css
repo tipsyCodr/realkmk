@@ -4,7 +4,6 @@
 @tailwind utilities;
 .loaderButton {
     width: 100%;
-    padding-right: 30px;
 }
 .gold-bg {
     background: radial-gradient(

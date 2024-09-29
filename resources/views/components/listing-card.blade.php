@@ -19,18 +19,19 @@
                         class="fa fa-location-dot pr-1 "></i>{{ $listing['location'] }}</span>
                 <span class="px-1 text-white text-xs"><i class="fa fa-building pr-1 "></i>
                     {{ $listing['city'] }}</span>
-            </div>
 
+            </div>
+            <h1 class="text-lg font-bold text-green-700 dark:text-green-500 md:text-xl">&#x20B9;
+                {{ number_format($listing['price'], 0, '.', ',') }}
+            </h1>
             <div class="flex justify-between mt-3 item-center">
-                <h1 class="text-lg font-bold text-green-700 dark:text-green-500 md:text-xl">&#x20B9;
-                    {{ number_format($listing['price'], 0, '.', ',') }}
-                </h1>
-                <div class="flex flex-col sm:flex-row">
+
+                <div class="flex flex-col sm:flex-row w-full">
                     <form method="POST" action="{{ route('admin.listings.delete') }}">
                         @csrf
                         <input type="hidden" name='id'value="{{ $listing['id'] }}">
                         <button type="submit"
-                            class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-red-800 rounded dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:bg-red-700 dark:focus:bg-red-600">
+                            class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-red-800 rounded dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:bg-red-700 dark:focus:bg-red-600">
                             Delete Listing
                         </button>
                     </form>
@@ -40,7 +41,7 @@
 
                             <input type="hidden" name="id" value="{{ $listing['id'] }}">
                             <button type="submit"
-                                class="loaderButton px-2 py-1 m-2 text-xs font-bold text-black uppercase transition-colors duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
+                                class="loaderButton  px-2 py-1 m-2 text-xs font-bold text-black uppercase transition-all duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
 
                                 Enable Listing
                             </button>
@@ -51,7 +52,7 @@
 
                             <input type="hidden" name="id" value="{{ $listing['id'] }}">
                             <button type="submit"
-                                class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
+                                class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
                                 Disable Listing
                             </button>
                         </form>
