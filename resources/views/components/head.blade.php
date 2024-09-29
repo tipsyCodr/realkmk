@@ -7,8 +7,6 @@
         <div class="self-center">
             <a class="logo d-block mx-auto" href="/">
                 <img src="{{ asset('img/logo.png') }}" alt="" style="width: 200px">
-
-
             </a>
         </div>
         <div class="text-center my-2 self-center flex flex-row place-items-center px-2 ">
