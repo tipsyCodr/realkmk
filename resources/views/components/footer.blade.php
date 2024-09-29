@@ -1,5 +1,5 @@
 <footer style="text-align: center;">
-    <footer>
+    <footer class="mb-[100px]">
         <div class="ads w-full flex justify-center items-center">
             @php
                 $ads = \App\Models\Ad::inRandomOrder()->first();
