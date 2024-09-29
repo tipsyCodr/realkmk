@@ -159,10 +159,11 @@
         {{-- This is a future feature which will require db changes --}}
         <a class="flex justify-between" href="#">
             <div class="px-4 flex items-center">
-                <img src="{{ isset($listing['user']) && $listing['user']['profile_picture'] ? $listing['user']['profile_picture'] : '' }}"
+
+                <img src="{{ isset($user->profile_picture) && $user->profile_picture ? $user->profile_picture['profile_picture'] : asset('img/icon/user.png') }}"
                     width="30" height="30" class="rounded-full mr-2" />
                 <p class="text-black">
-                    {{ isset($listing['user']) && isset($listing['user']['name']) ? $listing['user']['name'] : '' }}
+                    {{ isset($user->name) && isset($user->name) ? $user->name : '' }}
                 </p>
             </div>
 
