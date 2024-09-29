@@ -32,7 +32,7 @@ const swiper = new Swiper(".swiper", {
 document.querySelectorAll(".loaderButton").forEach((element) => {
     element.addEventListener("click", (event) => {
         event.preventDefault(); // prevent default form submission
-        const confirmed = confirm("Are you sure you want to submit?");
+        const confirmed = confirm("Are you sure you want to proceed?");
         if (confirmed) {
             // add loader icon here
             const loader = document.createElement("i");
