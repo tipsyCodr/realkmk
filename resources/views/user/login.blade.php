@@ -106,7 +106,7 @@
 
                 <div class="mt-6">
                     <button
-                        class="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-800 rounded-lg hover:bg-gray-700 border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+                        class="loaderButton w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-800 rounded-lg hover:bg-gray-700 border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
                         Sign In
                     </button>
                 </div>
