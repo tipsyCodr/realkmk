@@ -3,7 +3,7 @@
     $ad_cont = new AdController();
 @endphp
 
-<div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
+<div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-2">
     <?php $adCount = 0; ?>
     @foreach ($posts as $post)
         <x-post-item :post="$post" />

@@ -41,9 +41,7 @@
                 <div class="flex flex-col">
                     <p class="text-2xl font-bold text-gray-800">&#x20B9;
                         {{ number_format($listing['price'], 0, '.', ',') }} /-</p>
-                    <h1 class="text-xl text-gray-700 overflow-hidden overflow-ellipsis whitespace-nowrap">
-                        {{ $listing['ad_title'] }}
-                    </h1>
+
                 </div>
             </div>
 
@@ -61,7 +59,7 @@
             <div><b>{{ $listing['views'] }} Views</b></div>
         @endif
 
-        <p class="flex items-center"> <b>Location: </b> {{ $listing['location'] }}</p>
+        {{-- <p class="flex items-center"> <b>Location: </b> </p> --}}
 
         <p class="nowrap"><b class="nowrap" style="white-space: nowrap"> {{ $listing['likes'] }} Likes</b></p>
     </div>
@@ -77,111 +75,118 @@
 
 
 <div class="p-4">
-    {{-- <h2>Details</h2> --}}
-    <div class="overflow-x-auto" style="max-width: 500px;">
-        <table class="table-auto w-full">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 bg-gray-100 shadow" colspan=2>Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="border px-4 py-2">Mobile:</td>
-                    <td class="border px-4 py-2">{{ $listing['mobile'] ?? '' }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Bedrooms:</td>
-                    <td class="border px-4 py-2">{{ $listing['bedrooms'] }}</td>
-                </tr>
-
-                <tr>
-                    <td class="border px-4 py-2">Bathrooms:</td>
-                    <td class="border px-4 py-2">{{ $listing['bathrooms'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Furnishing:</td>
-                    <td class="border px-4 py-2">{{ $listing['furnishing'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Construction Status:</td>
-                    <td class="border px-4 py-2">{{ $listing['construction_status'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Listed by:</td>
-                    <td class="border px-4 py-2">{{ $listing['listed_by'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Facing:</td>
-                    <td class="border px-4 py-2">{{ $listing['facing'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Project Name:</td>
-                    <td class="border px-4 py-2">{{ $listing['project_name'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Super Built-up Area:</td>
-                    <td class="border px-4 py-2">{{ $listing['super_builtup_area'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Carpet Area:</td>
-                    <td class="border px-4 py-2">{{ $listing['carpet_area'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Maintenance:</td>
-                    <td class="border px-4 py-2">{{ $listing['maintainance'] }}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2">Total Floors:</td>
-                    <td class="border px-4 py-2">{{ $listing['total_floors'] }}</td>
-                </tr>
-                {{-- <tr>
-                    <td class="border px-4 py-2">Floor No:</td>
-                    <td class="border px-4 py-2">{{ $listing['floor_no'] }}</td>
-                </tr> --}}
-                <tr>
-                    <td class="border px-4 py-2">Car Parking:</td>
-                    <td class="border px-4 py-2">{{ $listing['car_parking'] }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="pb-4">
+        <h2 class="text-lg font-bold">Ad TItle</h2>
+        <p class='text-sm'>{{ $listing['ad_title'] }}</p>
     </div>
-</div>
-<div class="account_bar border-y p-4 ">
-    {{-- This is a future feature which will require db changes --}}
-    <a class="flex justify-between" href="#">
-        <div class="px-4 flex items-center">
-            <img src="https://i.pravatar.cc/100?img={{ rand(1, 70) }}" width="30" height="30"
-                class="rounded-full mr-2" />
-            <p class="text-black">{{ $listing['user'] ? $listing['user']['name'] : '' }}</p>
-        </div>
+    <h2 class="text-lg pb-4 font-bold border-bottom border-black">Details</h2>
+    <div class="flow-root">
+        <dl class="-my-3 divide-y divide-gray-100 text-sm">
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Mobile</dt>
+                <dd class="text-gray-700 sm:col-span-2">+91 {{ $listing['mobile'] ?? '' }}</dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Location</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['location'] ?? '' }}</dd>
+            </div>
 
-        <div class="px-4">
-            <b class="font-bold text-2xl ">></b>
-        </div>
-    </a>
-</div>
-<div class="p-4">
-    <h2 class='text-xl font-bold'>Description</h2>
-    <p class="text-black">{{ $listing['description'] }}</p>
-</div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Bedrooms</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['bedrooms'] }}</dd>
+            </div>
 
-<div class="p-4">
-    <h2 class='text-xl font-bold'>Location</h2>
-    <div class="mapouter">
-        <div class="gmap_canvas">
-            <iframe width="100%" height="500" id="gmap_canvas"
-                src="https://maps.google.com/maps?q={{ $listing['location'] ? $listing['location'] . '+' . ($listing['state'] ?? '') . '+' . ($listing['city'] ?? '') : '' }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Bathrooms</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['bathrooms'] }}</dd>
+            </div>
+
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Furnishing</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['furnishing'] }}</dd>
+            </div>
+
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Construction Status</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['construction_status'] }}</dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Listed by</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['listed_by'] }}</dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Facing</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['facing'] }}</dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Project Name</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['project_name'] }}</dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Super Built-up Area</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['super_builtup_area'] }} <b
+                        class="text-sm">sq.ft.</b></dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Carpet Area</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['carpet_area'] }} <b class="text-sm">sq.ft.</b>
+                </dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Maintenance</dt>
+                <dd class="text-gray-700 sm:col-span-2">Rs. {{ $listing['maintainance'] }} (Monthly)</dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Total Floors</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['total_floors'] }}</dd>
+            </div>
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">Car Parking</dt>
+                <dd class="text-gray-700 sm:col-span-2">{{ $listing['car_parking'] }}</dd>
+            </div>
+
+            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                <dt class="font-bold text-gray-900">About listing</dt>
+                <dd class="text-gray-700 sm:col-span-2 pb-6">{{ $listing['description'] }}
+                </dd>
+            </div>
+        </dl>
+    </div>
+
+    <div class="account_bar border-y p-4 ">
+        {{-- This is a future feature which will require db changes --}}
+        <a class="flex justify-between" href="#">
+            <div class="px-4 flex items-center">
+                <img src="{{ isset($listing['user']) && $listing['user']['profile_picture'] ? $listing['user']['profile_picture'] : '' }}"
+                    width="30" height="30" class="rounded-full mr-2" />
+                <p class="text-black">
+                    {{ isset($listing['user']) && isset($listing['user']['name']) ? $listing['user']['name'] : '' }}
+                </p>
+            </div>
+
+            <div class="px-4">
+                <b class="font-bold text-2xl ">></b>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="p-4">
+        <h2 class='text-xl font-bold py-6'>Location</h2>
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="100%" height="500" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q={{ $listing['location'] ? $listing['location'] . '+' . ($listing['state'] ?? '') . '+' . ($listing['city'] ?? '') : '' }}&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="px-2 py-4 my-4 flex justify-between border-y">
-    <h2 class="font-bold text-sm ">AD UID: {{ $listing['listing_uid'] }} </h2>
-    <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
-        href="#report/{{ $listing['listing_uid'] }}"> REPORT THIS AD</a>
-</div>
+    <div class="px-2 py-4 my-4 flex justify-between border-y">
+        <h2 class="font-bold text-sm ">AD UID: {{ $listing['listing_uid'] }} </h2>
+        <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
+            href="#report/{{ $listing['listing_uid'] }}"> REPORT THIS AD</a>
+    </div>
 
 </div>
 <div>

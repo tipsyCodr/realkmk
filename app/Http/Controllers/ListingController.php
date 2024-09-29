@@ -7,6 +7,7 @@ use App\Models\CategoryType;
 use App\Models\City;
 use App\Models\Listing;
 use App\Models\State;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -17,7 +18,8 @@ class ListingController extends Controller
     {
         $id = $request->segment(2);
         $listing = Listing::find($id);
-        return view('listings.view', compact('listing'));
+        $user = User::find($listing["user_id"]);
+        return view('listings.view', compact('listing', 'user'));
     }
     /**
      * Search for listings given the request query parameters
@@ -84,12 +86,13 @@ class ListingController extends Controller
             'total_floors' => 'nullable|integer',
             'car_parking' => 'nullable|integer',
         ]);
+
         $user = auth()->user();
         $categoryType = CategoryType::find($request->category_type_id);
         // dd($categoryType);
         $category = Category::find($categoryType->category_id)->slug;
         $listing = Listing::create([
-            'user_id' => 11,
+            'user_id' => $user->id,
             'listing_uid' => "KMK" . rand(1000000000, 9999999999),
             'ad_title' => $request->ad_title,
             'slug' => Str::slug($request->ad_title),
@@ -144,6 +147,12 @@ class ListingController extends Controller
 
         $listings = $query->get();
         return view('admin.listings.list', compact('listings'));
+    }
+    public function getUserListing()
+    {
+        $user_id = auth()->user()->id;
+        $listings = Listing::where('user_id', $user_id)->get();
+        return view('my-listings', compact('listings', 'user_id'));
     }
     public function showListingsAdmin(Request $request)
     {

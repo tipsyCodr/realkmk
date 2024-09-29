@@ -16,8 +16,13 @@
                 ad <i class="fa-solid fa-plus-square fa-2x pl-2 text-yellow-500"></i></a>
 
             <a href="{{ route('login') }}">
-                <img class="img-fluid rounded-top w-9 hover:scale-125 transition-transform"
-                    src="{{ asset('img/icon/user.png') }}" alt="">
+                @if (Auth::user() && Auth::user()->profile_picture)
+                    <img class="img-fluid rounded-full w-9 hover:scale-105 transition-transform"
+                        src="{{ Auth::user()->profile_picture }}" alt="">
+                @else
+                    <img class="img-fluid rounded-top w-9 hover:scale-125 transition-transform"
+                        src="{{ asset('img/icon/user.png') }}" alt="">
+                @endif
             </a>
         </div>
     </div>

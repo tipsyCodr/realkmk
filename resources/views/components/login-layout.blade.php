@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="title" content="RealKMK | No Broker, 0% Commission">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description"
         content="A Property listing website which Lists Properties and provide with the Buyer and seller with requirements">
     <meta name="keywords"
@@ -26,17 +27,11 @@
 
 <body>
     <x-alert />
-
-
-    <div id="app" class="mt-14 ">
-        <x-head />
-        <x-navbar />
-        <main class="my-16 ">
+    <div id="app" class=" my-5">
+        <main class=" ">
             {{ $slot }}
         </main>
     </div>
-    <x-footer />
-
 </body>
 
 </html>

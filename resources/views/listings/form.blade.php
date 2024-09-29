@@ -124,7 +124,7 @@
             </fieldset>
 
             <div class="mb-4">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 px-4 rounded"
+                <button class="loaderButton bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 px-4 rounded"
                     type="submit">
                     Save & Browse
                 </button>

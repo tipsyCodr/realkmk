@@ -123,7 +123,7 @@ class RequestController extends Controller
             $propertyRequest->name = $request->name ?? '';
             $propertyRequest->state = $request->state ?? '';
             $propertyRequest->save();
-            return 'success';
+            return redirect()->route('properties.show', $propertyRequest->location);
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return 'failed';
