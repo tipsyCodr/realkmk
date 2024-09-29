@@ -1,11 +1,13 @@
 <div class="disabled m-2 mx-auto flex max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
 
-
+    @php
+        $photos = json_decode($listing['photos'], true);
+    @endphp
     @if (is_array($photos))
         @foreach ($photos as $photo)
             {{-- <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}" class="w-full h-full rounded object-cover"> --}}
             <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-                style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos']) }}')">
+                style="background-image: url('{{ asset('storage/uploads/property_images/' . $photo) }}')">
                 <div>
                 </div>
             </a>
@@ -15,7 +17,7 @@
     {{-- <img src="{{ Storage::url('uploads/property_images/' . $post['photos']) }}" alt="{{ $post['title'] }}"
         class="w-full h-full rounded object-cover"> --}}
     <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-        style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos']) }}')">
+        style="background-image: url('{{ asset('storage/uploads/property_images/' . $photos) }}')">
         <div>
         </div>
     </a>
