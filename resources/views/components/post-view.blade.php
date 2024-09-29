@@ -160,10 +160,10 @@
         <a class="flex justify-between" href="#">
             <div class="px-4 flex items-center">
 
-                <img src="{{ isset($user->profile_picture) && $user->profile_picture ? $user->profile_picture : asset('img/icon/user.png') }}"
+                <img src="{{ isset($listing_user->profile_picture) && $listing_user->profile_picture ? $listing_user->profile_picture : asset('img/icon/user.png') }}"
                     width="30" height="30" class="rounded-full mr-2" />
                 <p class="text-black">
-                    {{ isset($user->name) && isset($user->name) ? $user->name : '' }}
+                    {{ isset($listing_user->name) && isset($listing_user->name) ? $listing_user->name : 'Anonymous' }}
                 </p>
             </div>
 

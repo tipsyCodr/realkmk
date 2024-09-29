@@ -18,8 +18,8 @@ class ListingController extends Controller
     {
         $id = $request->segment(2);
         $listing = Listing::find($id);
-        $user = User::find($listing["user_id"]);
-        return view('listings.view', compact('listing', 'user'));
+        $listing_user = User::find($listing["user_id"]);
+        return view('listings.view', compact('listing', 'listing_user'));
     }
     /**
      * Search for listings given the request query parameters
