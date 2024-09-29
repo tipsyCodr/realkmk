@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\UserController;
@@ -37,6 +38,8 @@ Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'
 Route::post('properties-form-store', [RequestController::class, 'propertiesFormSave'])->name('properties.form.store');
 Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
 
+Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
 Route::name('admin.requests.')->prefix('admin/requests')->group(function () {
     // Requests Form Section

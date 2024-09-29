@@ -77,6 +77,7 @@
                 <i class="fab fa-google"></i>
                 Sign in with Google
             </button>
+            {{-- <a href="{{ route('admin.login') }}" class="hidden">Admin</a> --}}
         </div>
     </div>
     <script type="module">
