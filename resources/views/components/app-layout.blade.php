@@ -30,7 +30,7 @@
     <x-alert />
 
 
-    <div id="app" class="mt-14 pt-5">
+    <div id="app" class="mt-14 pt-2">
         <x-head />
         <x-navbar />
         <main class="my-16 ">
