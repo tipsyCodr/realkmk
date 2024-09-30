@@ -18,9 +18,34 @@ Route::post('register/store', [UserController::class, 'registerUser'])->name('re
 Route::post('login/user', [UserController::class, 'authenticateUser'])->name('authenticate.user');
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
+
+Route::get('/', [WebController::class, 'index'])->name('home');
+
+
+
+Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
+Route::get('search', [ListingController::class, 'searchListings'])->name('listing.search');
+
+
+Route::name('plans.')->group(function () {
+    Route::view('plan', 'plans.index')->name('index');
+    Route::view('plan-buyer', 'plans.buyer')->name('buyer');
+    Route::view('plan-seller', 'plans.seller')->name('seller');
+    Route::view('plan-ads', 'plans.ads')->name('ads');
+});
+
+Route::get('categories', [WebController::class, 'categories'])->name('categories');
+
+Route::get('properties', [WebController::class, 'properties'])->name('properties');
+Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'])->name('properties.form');
+Route::post('properties-form-store', [RequestController::class, 'propertiesFormSave'])->name('properties.form.store');
+Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
+
+// API
+Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('cities.by.state');
+
 // User Must be authenticated and has role of user or admin
 Route::middleware('checkUser')->group(function () {
-    Route::get('/', [WebController::class, 'index'])->name('home');
     Route::get('my-listings', [ListingController::class, 'getUserListing'])->name('my-listings');
 
     Route::name('listing.')->prefix('listing')->group(function () {
@@ -29,8 +54,6 @@ Route::middleware('checkUser')->group(function () {
         Route::get('post/{categoryType}', [ListingController::class, 'postForm'])->name('form');
         Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
     });
-    Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
-    Route::get('search', [ListingController::class, 'searchListings'])->name('listing.search');
 
     //Jobs Section
     Route::prefix('jobs')->name('jobs.')->group(function () {
@@ -39,26 +62,11 @@ Route::middleware('checkUser')->group(function () {
         Route::post('store', [RequestController::class, 'jobsStore'])->name('store');
     });
     //plans
-    Route::name('plans.')->group(function () {
-        Route::view('plan', 'plans.index')->name('index');
-        Route::view('plan-buyer', 'plans.buyer')->name('buyer');
-        Route::view('plan-seller', 'plans.seller')->name('seller');
-        Route::view('plan-ads', 'plans.ads')->name('ads');
-    });
-
-    Route::get('categories', [WebController::class, 'categories'])->name('categories');
-
-    Route::get('properties', [WebController::class, 'properties'])->name('properties');
-    Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'])->name('properties.form');
-    Route::post('properties-form-store', [RequestController::class, 'propertiesFormSave'])->name('properties.form.store');
-    Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
 
     // Payment page
     Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
     Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
 
-    // API
-    Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('cities.by.state');
 
 });
 
