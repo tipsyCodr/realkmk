@@ -6,17 +6,19 @@
             @endphp
             @if (is_array($photos))
                 @foreach ($photos as $photo)
-                    <img src="{{ $photo ? Storage::url($photo) : '' }}" alt="{{ $post['title'] }}"
+                    <img src="{{ $photo ? Storage::url($photo) : 'https://placehold.co/600x400?text=Hello%5CnWorld' }}"
+                        alt="{{ $post['title'] }}"
                         class="w-full h-[300px] rounded-lg object-cover object-center {{ $photo ? '' : 'bg-gray-300' }}"
-                        alt="listing" onerror="this.src='{{ asset('img/no-image.png') }}'">
+                        alt="listing" onerror="this.src='https://placehold.co/600x400?text=Hello%5CnWorld'">
                 @break
             @endforeach
         @else
-            <img src="{{ $post['photos'] ? Storage::url('uploads/property_images/' . $post['photos']) : '' }}"
+            <img src="{{ $post['photos'] ? Storage::url('uploads/property_images/' . $post['photos']) : 'https://placehold.co/600x400?text=Hello%5CnWorld' }}"
                 alt="{{ $post['title'] }}"
                 class="w-full h-[300px] rounded-lg object-cover object-center {{ $post['photos'] ? '' : 'bg-gray-300' }}"
-                alt="listing" onerror="this.src='{{ asset('img/no-image.png') }}'">
+                alt="listing" onerror="this.src='https://placehold.co/600x400?text=Hello%5CnWorld'">
         @endif
+
 
         <p class=" ml-4 text-lg font-semibold text-green-600">
             ₹ {{ IND_money_format($post['price']) }}</p>
