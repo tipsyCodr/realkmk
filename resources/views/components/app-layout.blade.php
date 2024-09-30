@@ -28,8 +28,6 @@
 
 <body>
     <x-alert />
-
-
     <div id="app" class="mt-16">
         <x-head />
         <x-navbar />
