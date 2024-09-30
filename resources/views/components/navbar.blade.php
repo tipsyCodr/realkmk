@@ -5,7 +5,7 @@
                 class="flex flex-col items-center justify-center  text-gray-500 hover:text-gray-700 text-center">
                 <p>
                     {{-- <x-home-icon :color="'grey-400'" /> --}}
-                    <img src="{{ asset('img/icon/properties.png') }}"
+                    <img src="{{ asset('img/icon/home.png') }}"
                         class="img-fluid rounded-top w-9 hover:scale-110 transition-transform" alt="" />
 
                 </p>
