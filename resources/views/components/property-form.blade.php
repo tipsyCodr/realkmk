@@ -36,6 +36,16 @@
         <form action="{{ route('listing.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="photos">
+                    Photos
+                    <a class="p-2 bg-blue-500 text-white rounded" type="button">Select Properties
+                        Photos</a>
+                    <input
+                        class="hidden appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="photos" accept="image/png,image/jpeg" type="file" name="photos[]" multiple>
+                </label>
+            </div>
+            <div class="mb-4">
                 <input type="hidden" name="category_id" value="{{ $category->id }}">
                 <input type="hidden" name="category_type_id" value="{{ $categoryType->id }}">
 
@@ -290,16 +300,7 @@
                 </select>
 
             </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="photos">
-                    Photos
-                    <a class="p-2 bg-blue-500 text-white rounded" type="button">Select Properties
-                        Photos</a>
-                    <input
-                        class="hidden appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        id="photos" accept="image/png,image/jpeg" type="file" name="photos[]" multiple>
-                </label>
-            </div>
+
             <div class="flex items-center justify-between">
                 <button
                     class="loaderButton bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
