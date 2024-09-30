@@ -7,7 +7,7 @@
             @if (is_array($photos))
                 @foreach ($photos as $photo)
                     <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}"
-                        class="w-full rounded-lg object-cover object-center" alt="listing">
+                        class="w-full h-[340px] rounded-lg object-cover object-center" alt="listing">
                 @break
             @endforeach
         @else
