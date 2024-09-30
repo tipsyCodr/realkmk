@@ -26,7 +26,15 @@ Route::get('/', [WebController::class, 'index'])->name('home');
 Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
 Route::get('search', [ListingController::class, 'searchListings'])->name('listing.search');
 
+//Jobs Section
+Route::prefix('jobs')->name('jobs.')->group(function () {
+    Route::get('/', [WebController::class, 'jobs'])->name('list');
+    Route::get('form/{category}', [WebController::class, 'jobsForm'])->name('form');
+    Route::post('store', [RequestController::class, 'jobsStore'])->name('store');
+});
 
+
+//plans
 Route::name('plans.')->group(function () {
     Route::view('plan', 'plans.index')->name('index');
     Route::view('plan-buyer', 'plans.buyer')->name('buyer');
@@ -55,13 +63,7 @@ Route::middleware('checkUser')->group(function () {
         Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
     });
 
-    //Jobs Section
-    Route::prefix('jobs')->name('jobs.')->group(function () {
-        Route::get('/', [WebController::class, 'jobs'])->name('list');
-        Route::get('form/{category}', [WebController::class, 'jobsForm'])->name('form');
-        Route::post('store', [RequestController::class, 'jobsStore'])->name('store');
-    });
-    //plans
+
 
     // Payment page
     Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
