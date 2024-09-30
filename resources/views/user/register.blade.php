@@ -108,18 +108,27 @@
                                 class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                         </div>
 
-                        <div>
+                        <div class='relative'>
                             <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Password</label>
                             <input id="password" name="password" type="password" required
                                 placeholder="Enter your password"
                                 class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+
+                            <button type="button" id="togglePassword" class="absolute right-4 top-10 text-gray-500">
+                                <i class='fa fa-eye hover:text-gray-300 transition-colors'></i>
+                            </button>
                         </div>
 
-                        <div>
+                        <div class="relative">
                             <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Confirm password</label>
                             <input id="conf_pass" name="conf_pass" type="password" required
                                 placeholder="Enter your password again"
                                 class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+
+                            <button type="button" id="toggleConfPassword"
+                                class="absolute right-4 top-10 text-gray-500">
+                                <i class='fa fa-eye hover:text-gray-300 transition-colors'></i>
+                            </button>
                         </div>
 
                         <button
@@ -227,6 +236,29 @@
                     console.error("Error during sign-in:", error.message);
                     alert("Authentication failed: " + error.message);
                 });
+        });
+
+        const passwordInput = document.getElementById('password');
+        const togglePasswordButton = document.getElementById('togglePassword');
+        const confPasswordInput = document.getElementById('conf_pass');
+        const toggleConfPasswordButton = document.getElementById('toggleConfPassword');
+
+        togglePasswordButton.addEventListener('click', function() {
+            const currentType = passwordInput.getAttribute('type');
+            if (currentType === 'password') {
+                passwordInput.setAttribute('type', 'text');
+            } else {
+                passwordInput.setAttribute('type', 'password');
+            }
+        });
+
+        toggleConfPasswordButton.addEventListener('click', function() {
+            const currentType = confPasswordInput.getAttribute('type');
+            if (currentType === 'password') {
+                confPasswordInput.setAttribute('type', 'text');
+            } else {
+                confPasswordInput.setAttribute('type', 'password');
+            }
         });
     </script>
 </x-login-layout>
