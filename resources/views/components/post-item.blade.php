@@ -1,5 +1,5 @@
 <a class="" href="{{ route('listing.view', $post['id']) }}">
-    <div class="mx-auto px-2 my-6 flex justify-center items-center">
+    <div class="mx-auto px-2 my-6 ">
         <div class="max-w-xs cursor-pointer rounded-lg bg-white p-2 shadow duration-150 hover:scale-105 hover:shadow-md">
             @php
                 $photos = json_decode($post['photos'], true);
