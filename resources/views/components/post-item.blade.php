@@ -1,19 +1,18 @@
 <a class="" href="{{ route('listing.view', $post['id']) }}">
     <div class="mx-auto px-2 my-6 ">
-        <div
-            class="max-w-xs h-[340px] cursor-pointer rounded-lg bg-white p-2 shadow duration-150 hover:scale-105 hover:shadow-md">
+        <div class="max-w-xs cursor-pointer rounded-lg bg-white p-2 shadow duration-150 hover:scale-105 hover:shadow-md">
             @php
                 $photos = json_decode($post['photos'], true);
             @endphp
             @if (is_array($photos))
                 @foreach ($photos as $photo)
                     <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}"
-                        class="w-full  rounded-lg object-cover object-center" alt="listing">
+                        class="w-full h-[340px] rounded-lg object-cover object-center" alt="listing">
                 @break
             @endforeach
         @else
             <img src="{{ Storage::url('uploads/property_images/' . $post['photos']) }}" alt="{{ $post['title'] }}"
-                class="w-full rounded-lg object-cover object-center" alt="listing">
+                class="w-full h-[340px] rounded-lg object-cover object-center" alt="listing">
         @endif
 
         <p class=" ml-4 text-lg font-semibold text-green-600">
