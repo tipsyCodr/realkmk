@@ -1,4 +1,4 @@
-<x-login-layout>
+<x-app-layout>
     <div class="flex justify-center mx-auto mb-5">
         <img class="w-auto h-16 sm:h-20" src="{{ asset('img/logo.png') }}" alt="">
     </div>
@@ -47,7 +47,7 @@
 
 
             <p class="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
-                Welcome back!
+                Please Sign in first
             </p>
 
             <a href="#" id='google-login'
@@ -235,4 +235,4 @@
             }
         });
     </script>
-</x-login-layout>
+</x-app-layout>
