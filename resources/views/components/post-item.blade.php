@@ -6,13 +6,16 @@
             @endphp
             @if (is_array($photos))
                 @foreach ($photos as $photo)
-                    <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}"
-                        class="w-full h-[340px] rounded-lg object-cover object-center" alt="listing">
+                    <img src="{{ $photo ? Storage::url($photo) : '' }}" alt="{{ $post['title'] }}"
+                        class="w-full h-[340px] rounded-lg object-cover object-center {{ $photo ? '' : 'bg-gray-300' }}"
+                        alt="listing" onerror="this.src='{{ asset('img/no-image.png') }}'">
                 @break
             @endforeach
         @else
-            <img src="{{ Storage::url('uploads/property_images/' . $post['photos']) }}" alt="{{ $post['title'] }}"
-                class="w-full h-[340px] rounded-lg object-cover object-center" alt="listing">
+            <img src="{{ $post['photos'] ? Storage::url('uploads/property_images/' . $post['photos']) : '' }}"
+                alt="{{ $post['title'] }}"
+                class="w-full h-[340px] rounded-lg object-cover object-center {{ $post['photos'] ? '' : 'bg-gray-300' }}"
+                alt="listing" onerror="this.src='{{ asset('img/no-image.png') }}'">
         @endif
 
         <p class=" ml-4 text-lg font-semibold text-green-600">
