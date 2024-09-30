@@ -7,7 +7,7 @@
     </a>
 
     <div id='search-bar-wrapper'
-        class="hidden  search-popup w-full h-full fixed top-0 left-0 bg-white p-2 transition-all duration-500 ease-in-out">
+        class="hidden z-50 search-popup w-full h-full fixed top-0 left-0 bg-white p-2 transition-all duration-500 ease-in-out">
         {{-- Search Bar --}}
         <form action="search" method="get">
             <div class="search-bar flex flex-row">
