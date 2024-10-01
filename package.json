@@ -18,6 +18,7 @@
         "firebase": "^10.13.2",
         "fontawesome": "^5.6.3",
         "jquery-filepond": "^1.0.0",
+        "sortablejs": "^1.15.3",
         "swiper": "^11.1.14"
     }
 }
