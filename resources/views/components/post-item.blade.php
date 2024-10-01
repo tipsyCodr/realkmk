@@ -9,14 +9,14 @@
                 @foreach ($photos as $photo)
                     <img src="{{ $photo ? Storage::url($photo) : 'https://placehold.co/300x400?text=No\nImage' }}"
                         alt="{{ $post['title'] }}"
-                        class="w-full h-full rounded-lg object-cover {{ $photo ? '' : 'bg-gray-300' }}" alt="listing"
+                        class="w-full h-[250px] rounded-lg object-cover {{ $photo ? '' : 'bg-gray-300' }}" alt="listing"
                         onerror="this.src='https://placehold.co/300x400?text=No\nImage'">
                 @break
             @endforeach
         @else
             <img src="{{ $post['photos'] ? Storage::url('uploads/property_images/' . $post['photos']) : 'https://placehold.co/300x400?text=No\nImage' }}"
                 alt="{{ $post['title'] }}"
-                class="w-full h-full rounded-lg object-cover {{ $post['photos'] ? '' : 'bg-gray-300' }}"
+                class="w-full h-[250px] rounded-lg object-cover {{ $post['photos'] ? '' : 'bg-gray-300' }}"
                 alt="listing" onerror="this.src='https://placehold.co/300x400?text=No\nImage'">
         @endif
 
