@@ -30,7 +30,7 @@
 
 
                 {{-- <x-add-icon :color="'grey-400'" /> --}}
-                <img src="{{ asset('img/icon/sell.png') }}"
+                <img src="{{ asset('img/icon/add.png') }}"
                     class="img-fluid rounded-top w-9 hover:scale-110 transition-transform" alt="" />
 
                 <p class="text-black">Sell</p>
@@ -40,7 +40,7 @@
             <a href="{{ route('plans.index') }}"
                 class="flex flex-col items-center justify-center  text-gray-500 hover:text-gray-700">
                 {{-- <x-daimond-icon :color="'grey-400'" /> --}}
-                <img src="{{ asset('img/icon/plans.png') }}"
+                <img src="{{ asset('img/icon/premium.png') }}"
                     class="img-fluid rounded-top w-9 hover:scale-110 transition-transform" alt="" />
 
                 <p class="text-black">Plans</p>
@@ -50,7 +50,7 @@
             <a href="{{ route('jobs.list') }}"
                 class="flex flex-col items-center justify-center  text-gray-500 hover:text-gray-700">
                 {{-- <x-user-icon :color="'grey-400'" /> --}}
-                <img src="{{ asset('img/icon/jobs.png') }}"
+                <img src="{{ asset('img/icon/suitcase.png') }}"
                     class="img-fluid rounded-top w-9 hover:scale-110 transition-transform" alt="" />
 
                 <p class="text-black">Jobs</p>

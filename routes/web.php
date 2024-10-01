@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\RequestController;
@@ -71,6 +72,9 @@ Route::middleware('checkUser')->group(function () {
 
 
 });
+
+
+Route::get('admin/ads/list', [AdController::class, 'getAllAds'])->name('admin.ads.list');
 
 
 Route::middleware('checkAdmin')->group(function () {

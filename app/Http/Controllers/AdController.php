@@ -26,5 +26,10 @@ class AdController extends Controller
         }
     }
 
+    public function getAllAds()
+    {
+        $ads = Ad::all();
+        return view('admin.ads.list', compact('ads'));
+    }
 
 }
