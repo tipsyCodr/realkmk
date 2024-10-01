@@ -20,14 +20,15 @@
                 alt="listing" onerror="this.src='https://placehold.co/300x400?text=No\nImage'">
         @endif
 
-
-        <p class=" ml-4 text-lg font-semibold text-green-600">
-            ₹ {{ IND_money_format($post['price']) }}</p>
-        <p class=" pl-4 text-xs  text-gray-400"><i class="fa fa-location-dot"></i> {{ $post['location'] }}</p>
-        <p class="mt-4 pl-4 font-bold text-gray-700 h-7 overflow-hidden whitespace-nowrap text-ellipsis">
-            {{ $post['ad_title'] }}
-        </p>
-        <p class='pl-4 text-xs  text-gray-400'>Click to know more</p>
+        <div class="p-2">
+            <p class="text-lg font-semibold text-green-600">
+                ₹ {{ IND_money_format($post['price']) }}</p>
+            <p class="text-xs  text-gray-400"><i class="fa fa-location-dot"></i> {{ $post['location'] }}</p>
+            <p class="mt-4 font-bold text-gray-700 overflow-hidden whitespace-nowrap text-ellipsis">
+                {{ $post['ad_title'] }}
+            </p>
+            <p class='text-xs  text-gray-400'>Click to know more</p>
+        </div>
     </div>
 </div>
 </a>
