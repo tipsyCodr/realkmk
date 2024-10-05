@@ -136,14 +136,25 @@
             event.preventDefault();
             const form = document.getElementById('property_request_form');
             const formData = new FormData(form);
-            axios.post("{{ route('properties.form.store') }}", formData)
-                .then(response => {
-                    console.log(response);
-                    // window.location.href = '{{ route('jobs.list') }}';
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+            let isFormValid = true;
+            for (const entry of formData.entries()) {
+                if (!entry[1]) {
+                    isFormValid = false;
+                    break;
+                }
+            }
+            if (isFormValid) {
+                axios.post("{{ route('properties.form.store') }}", formData)
+                    .then(response => {
+                        console.log(response);
+                        // window.location.href = '{{ route('jobs.list') }}';
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            } else {
+                alert('Please fill all the fields');
+            }
 
         }
     </script>
