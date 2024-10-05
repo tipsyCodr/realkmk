@@ -126,9 +126,9 @@
                                 <td class="px-4 py-2 border border-black">
                                     <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                                         @csrf
-                                        <input type="hidden" name="amount" value="14,999" />
+                                        <input type="hidden" name="amount" value="19,999" />
                                         <input class="p-2 gold-bg text-white rounded w-full font-bold" type="submit"
-                                            name="submit" value=" Buy for Rs.14,999" />
+                                            name="submit" value=" Buy for Rs.19,999" />
                                     </form>
 
                                 </td>
@@ -141,9 +141,9 @@
                                 <td class="px-4 py-2 border border-black">
                                     <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                                         @csrf
-                                        <input type="hidden" name="amount" value="24,999" />
+                                        <input type="hidden" name="amount" value="29,999" />
                                         <input class="p-2 gold-bg text-white rounded w-full font-bold" type="submit"
-                                            name="submit" value=" Buy for Rs.24,999" />
+                                            name="submit" value=" Buy for Rs.29,999" />
                                     </form>
 
                                 </td>
