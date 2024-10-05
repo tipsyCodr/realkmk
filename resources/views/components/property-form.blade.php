@@ -47,10 +47,10 @@
 
             </div> --}}
             <div class="border-b border-black pb-2">
-                <label for="photos" class="block text-sm text-black dark:text-gray-300">Photos</label>
+                <label for="photos" class="block text-gray-700 text-sm font-bold mb-2">Photos</label>
 
                 <label for="photos"
-                    class="flex flex-col items-center w-full max-w-lg p-5 mx-auto mt-2 text-center bg-gray-400 border-2 border-gray-300 border-dashed cursor-pointer dark:bg-gray-900 dark:border-gray-700 rounded-xl">
+                    class="flex flex-col items-center w-full max-w-lg p-5 mx-auto mt-2 text-center bg-gray-400 border-2 border-gray-500 border-dashed cursor-pointer dark:bg-gray-900 dark:border-gray-700 rounded-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8 text-gray-500 dark:text-gray-400">
                         <path stroke-linecap="round" stroke-linejoin="round"
