@@ -5,7 +5,9 @@
             $adController = new \App\Http\Controllers\AdController();
             $ad = $adController->getAd(1);
             ?>
-            <x-ad :ad="$ad ?? null" />
+            <div class="max-w-[400px]">
+                <x-ad :ad="$ad ?? null" />
+            </div>
         </div>
         <div class="environment">
             <p>Copyright © 2024 RealKMK. All rights reserved.</p>
