@@ -45,11 +45,11 @@
                 </div>
             </div>
 
-            <div class="flex-shrink-0">
+            {{-- <div class="flex-shrink-0">
                 <button class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                     Like
                 </button>
-            </div>
+            </div> --}}
         </div>
 
     </div>
@@ -61,7 +61,7 @@
 
         {{-- <p class="flex items-center"> <b>Location: </b> </p> --}}
 
-        <p class="nowrap"><b class="nowrap" style="white-space: nowrap"> {{ $listing['likes'] }} Likes</b></p>
+        {{-- <p class="nowrap"><b class="nowrap" style="white-space: nowrap"> {{ $listing['likes'] }} Likes</b></p> --}}
     </div>
 
 
