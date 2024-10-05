@@ -1,7 +1,7 @@
 <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
 <x-app-layout>
     <div class="wrapper ">
-        <h1 class="font-bold text-3xl text-center py-2"> Include some details.</h1>
+        <h1 class="font-bold text-3xl text-center py-2"> Include Some Details.</h1>
         @if ($category->slug === 'properties')
             <x-property-form :category="$category" :categoryType="$categoryType" :states="$states" :cities="$cities" />
         @endif
