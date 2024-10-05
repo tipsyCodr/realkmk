@@ -62,7 +62,7 @@
                     <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Bank Seizing Properties</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance also</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance</li>
                     {{-- <li><i class="fa fa-check-circle text-green-600"></i> Total amount Rs.19,500</li> --}}
                 </ol>
             </div>
