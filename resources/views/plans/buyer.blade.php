@@ -45,7 +45,7 @@
 
             <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
                 <h2 class="text-4xl font-bold text-center py-4 text-black">Gold Plan</h2>
-                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 4,500</p>
+                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 999</p>
                 <b class="p-2 block text-left">
                     For you to get started, you need to pay Rs.4,500 initially. After you purchase a property, you
                     need to pay Rs.15,000 in total.
