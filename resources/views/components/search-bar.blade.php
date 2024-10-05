@@ -38,12 +38,12 @@
                     </p>
                     <p class="px-2">Properties</p>
                 </a>
-                <a href class="flex flex-row p-2 items-center hover:bg-gray-200 ">
+                {{-- <a href class="flex flex-row p-2 items-center hover:bg-gray-200 ">
                     <p class="px-2">
                         <x-search-icon></x-search-icon>
                     </p>
                     <p class="px-2">Jobs</p>
-                </a>
+                </a> --}}
                 <a href class="flex flex-row p-2 items-center hover:bg-gray-200 ">
                     <p class="px-2">
                         <x-search-icon></x-search-icon>
