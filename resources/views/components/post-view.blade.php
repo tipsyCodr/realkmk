@@ -204,7 +204,7 @@
             <div class="flex-1">
                 <a class='p-2 w-full block text-center bg-green-500  text-white hover:bg-green-600 '
                     href="https://wa.me/{{ $listing['mobile'] ?? '' }}" target="_blank">
-                    <i class="fab fa-whatsapp p-2"></i> Chat on Whatsapp
+                    <i class="fab fa-whatsapp p-2"></i> Chat
                 </a>
             </div>
 
