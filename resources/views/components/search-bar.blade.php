@@ -2,7 +2,7 @@
     <a id='btn-search' class="block border border-black bg-white p-1 rounded  w-full" href="#">
         <div class="flex flex-row items-center">
             <x-search-icon :color="'black'" />
-            <p class=" px-1 self-center items-center text-gray-400">Find Properties and Jobs...</p>
+            <p class=" px-1 self-center items-center text-gray-400">Find Properties</p>
         </div>
     </a>
 
