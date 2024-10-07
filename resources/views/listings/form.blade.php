@@ -10,8 +10,8 @@
                 Properties.</p>
         </div>
 
-        <form id="property_request_form" onsubmit="submitForm(event)" action="{{ route('properties.form.store') }}"
-            method="POST">
+        {{-- <form id="property_request_form" onsubmit="submitForm(event)" action="{{ route('properties.form.store') }}" --}}
+        <form id="property_request_form" action="{{ route('properties.form.store') }}" method="POST">
             @csrf
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
@@ -47,10 +47,15 @@
                 </label>
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="state" name="state" required>
+                    id="state" name="state" required onchange="loadCities(this.value)">
+                    <option value="">Select City</option>
+
                     @foreach ($states as $state)
-                        <option value="{{ $state->id }}" {{ old('state') == $state->id ? 'selected' : '' }}>
-                            {{ $state->name }}
+                        {{-- <option value="{{ $state->pk_i_id }}" {{ old('state') == $state->pk_i_id ? 'selected' : '' }}>
+                        {{ $state->s_name }}
+                    </option> --}}
+                        <option value="{{ $state->pk_i_id }}">
+                            {{ $state->s_name }}
                         </option>
                     @endforeach
                 </select>
@@ -62,10 +67,14 @@
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="city" name="city" required>
+                    <option value="">Select City</option>
                     @foreach ($cities as $city)
-                        <option value="{{ $city->id }}" {{ old('city') == $city->id ? 'selected' : '' }}>
-                            {{ $city->name }}
+                        <option value="{{ $city->pk_i_id }}">
+                            {{ $city->s_name }}
                         </option>
+                        {{-- <option value="{{ $city->pk_i_id }}" {{ old('city') == $city->pk_i_id ? 'selected' : '' }}>
+                        {{ $city->s_name }}
+                    </option> --}}
                     @endforeach
                 </select>
             </div>
@@ -132,6 +141,25 @@
         </form>
     </div>
     <script>
+        function loadCities(stateId) {
+            axios.get(`{{ route('cities.by.state') }}?stateId=${stateId}`)
+                .then(response => {
+                    const cities = response.data;
+                    const citySelect = document.getElementById('city');
+                    citySelect.innerHTML = `<option value="">Select City</option>`;
+                    cities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city.s_slug;
+                        option.text = city.s_name;
+                        citySelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+
         function submitForm(event) {
             event.preventDefault();
             const form = document.getElementById('property_request_form');
@@ -155,7 +183,6 @@
             } else {
                 alert('Please fill all the fields');
             }
-
         }
     </script>
 </x-app-layout>
