@@ -50,6 +50,9 @@ Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'
 Route::post('properties-form-store', [RequestController::class, 'propertiesFormSave'])->name('properties.form.store');
 Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
 
+Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
+
+
 // API
 Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('cities.by.state');
 
@@ -67,7 +70,6 @@ Route::middleware('checkUser')->group(function () {
 
 
     // Payment page
-    Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
     Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
 
 
