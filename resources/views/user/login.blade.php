@@ -1,4 +1,12 @@
 <x-app-layout>
+    <div id='loaderOverlay'
+        class="flex justify-center items-center fixed w-full h-full bg-white z-10 bg-opacity-30 backdrop-blur-sm transition-all"
+        style="display: none">
+        <i class="fa fa-circle animate-ping p-8"></i>
+        <p>Please wait...</p>
+    </div>
+
+
     <div class="flex justify-center mx-auto mb-5">
         <img class="w-auto h-16 sm:h-20" src="{{ asset('img/logo.png') }}" alt="">
     </div>
@@ -182,6 +190,7 @@
         // Event listener for Google login
 
         document.getElementById("google-login").addEventListener("click", function() {
+
             signInWithPopup(auth, provider)
                 .then((result) => {
                     const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -189,7 +198,8 @@
                     const user = result.user;
 
                     if (user) {
-                        alert("Welcome " + user.displayName);
+                        document.getElementById("loaderOverlay").style.display = "flex";
+                        // alert("Welcome " + user.displayName);
 
                         // Get CSRF token from meta tag
                         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute(

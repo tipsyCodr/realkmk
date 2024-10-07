@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -47,7 +48,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'mobile' => 'required',
             'password' => 'required',
-            'remember' => 'boolean',
+            // 'remember' => 'boolean',
         ]);
 
         if ($validator->fails()) {
@@ -77,9 +78,8 @@ class UserController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
-
         if ($user) {
-            auth()->login($user);
+            auth()->login($user, true);
             return response()->json(['success' => true, 'message' => 'User logged in']);
         } else {
             $user = User::create([
@@ -90,8 +90,15 @@ class UserController extends Controller
                 'profile_picture' => $request->photoURL,
             ]);
 
-            auth()->login($user, true);
-            return response()->json(['success' => true, 'message' => 'User registered and logged in']);
+            $email = $user->email;
+            $password = $user->password;
+            $remember = true;
+            // auth()->login($user, true);
+            if (Auth::attempt($this->only('email', 'password'), $remember)) {
+                // logged in succcessfully, if remember key exist in request then remember me will be true
+                // return redirect()->intended('/')->with('success', 'User registered and logged in');
+                return response()->json(['success' => true, 'message' => 'User registered and logged in']);
+            }
         }
     }
 
