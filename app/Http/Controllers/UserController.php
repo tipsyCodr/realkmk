@@ -45,7 +45,7 @@ class UserController extends Controller
     public function authenticateUser(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'mobile' => 'required|digits:10',
+            'mobile' => 'required',
             'password' => 'required',
             'remember' => 'boolean',
         ]);

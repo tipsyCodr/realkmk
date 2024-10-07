@@ -107,7 +107,15 @@
                         <i class='fa fa-eye hover:text-gray-300 transition-colors'></i>
                     </button>
                 </div>
-
+                <div class="mt-4">
+                    <div class="flex items-center">
+                        <input id="remember" name="remember" type="checkbox" checked
+                            class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded" />
+                        <label for="remember" class="ml-2 block text-sm text-gray-900">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
                 <div class="mt-6">
                     <button
                         class="loaderButton w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-800 rounded-lg hover:bg-gray-700 border-gray-400 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
