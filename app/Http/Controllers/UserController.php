@@ -90,7 +90,7 @@ class UserController extends Controller
                 'profile_picture' => $request->photoURL,
             ]);
 
-            auth()->login($user);
+            auth()->login($user, true);
             return response()->json(['success' => true, 'message' => 'User registered and logged in']);
         }
     }
