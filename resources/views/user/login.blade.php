@@ -190,6 +190,7 @@
         // Event listener for Google login
 
         document.getElementById("google-login").addEventListener("click", function() {
+            document.getElementById("loaderOverlay").style.display = "flex";
 
             signInWithPopup(auth, provider)
                 .then((result) => {
@@ -198,7 +199,6 @@
                     const user = result.user;
 
                     if (user) {
-                        document.getElementById("loaderOverlay").style.display = "flex";
                         // alert("Welcome " + user.displayName);
 
                         // Get CSRF token from meta tag
