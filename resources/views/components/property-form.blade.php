@@ -106,11 +106,7 @@
                     class="appearance-none border-b border-black rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="price" type="number" name="price" value="{{ old('price') }}" required>
             </div>
-            {{-- <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="category_type_id">
-                        Type
-                    </label>
-                </div> --}}
+
 
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="state">
@@ -128,11 +124,11 @@
 
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
-                    City
+                    City <span id="city-loader" style='display: none;'> <i class="fa fa-spinner fa-spin"></i></span>
                 </label>
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="city" name="city" data-search="true" required>
+                    id="city" name="city" data-search="true" disabled required>
                     <option value="">Select City</option>
 
                 </select>
@@ -334,10 +330,15 @@
     </div>
     <script>
         function loadCities(stateId) {
+            const cityLoader = document.getElementById('city-loader');
+            cityLoader.style.display = 'inline';
+
             axios.get(`{{ route('cities.by.state') }}?stateId=${stateId}`)
                 .then(response => {
                     const cities = response.data;
+                    cityLoader.style.display = 'none';
                     const citySelect = document.getElementById('city');
+                    citySelect.disabled = false;
                     citySelect.innerHTML = `<option value="">Select City</option>`;
                     cities.forEach(city => {
                         const option = document.createElement('option');

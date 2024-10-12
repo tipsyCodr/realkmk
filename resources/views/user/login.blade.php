@@ -187,7 +187,6 @@
         console.log("Provider: " + provider);
 
         // Event listener for Google login
-        // Event listener for Google login
 
         document.getElementById("google-login").addEventListener("click", function() {
             document.getElementById("loaderOverlay").style.display = "flex";

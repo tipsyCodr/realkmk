@@ -48,7 +48,7 @@
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="state" name="state" required onchange="loadCities(this.value)">
-                    <option value="">Select City</option>
+                    <option value="">Select State</option>
 
                     @foreach ($states as $state)
                         {{-- <option value="{{ $state->pk_i_id }}" {{ old('state') == $state->pk_i_id ? 'selected' : '' }}>
@@ -62,11 +62,12 @@
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
-                    City
+                    City <span id="city-loader" style='display: none;'> <i class="fa fa-spinner fa-spin"></i></span>
+
                 </label>
                 <select
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="city" name="city" required>
+                    id="city" name="city" disabled required>
                     <option value="">Select City</option>
                     @foreach ($cities as $city)
                         <option value="{{ $city->pk_i_id }}">
@@ -133,7 +134,8 @@
             </fieldset>
 
             <div class="mb-4">
-                <button class="loaderButton bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 px-4 rounded"
+                <button
+                    class="loaderButton bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 px-4 rounded"
                     type="submit">
                     Save & Browse
                 </button>
@@ -142,14 +144,18 @@
     </div>
     <script>
         function loadCities(stateId) {
+            const cityLoader = document.getElementById('city-loader');
+            cityLoader.style.display = 'inline';
             axios.get(`{{ route('cities.by.state') }}?stateId=${stateId}`)
                 .then(response => {
                     const cities = response.data;
                     const citySelect = document.getElementById('city');
+                    citySelect.disabled = false;
+                    cityLoader.style.display = 'none';
                     citySelect.innerHTML = `<option value="">Select City</option>`;
                     cities.forEach(city => {
                         const option = document.createElement('option');
-                        option.value = city.s_slug;
+                        option.value = city.pk_i_id;
                         option.text = city.s_name;
                         citySelect.appendChild(option);
                     });

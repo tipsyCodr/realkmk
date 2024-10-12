@@ -67,11 +67,12 @@
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
-                            City
+                            City <span id="city-loader" style='display: none;'><i
+                                    class="fa fa-spinner fa-spin"></i></span>
                         </label>
                         <select
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="city" name="city" data-search="true" required>
+                            id="city" name="city" data-search="true" disabled required>
                             <option value="">Select City</option>
                             @if (isset($cities))
                                 @foreach ($cities as $city)
@@ -173,6 +174,14 @@
                             type="submit" name="submit" value=" Pay Rs.499 /- Now" />
                     </form>
                 </div>
+                <div class="relative overflow-hidden" style="padding-top: 56.25%">
+                    <iframe class="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/aax-NyK8Qco?si=DhyDUk18bUuSLoJN"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
                 <div class="py-4 text-center flex flex-col items-center justify-center">
                     <p class="font-bold text-2xl capitalize">
                         We are working our best with these companies to provide you with the best and geniune jobs for
@@ -188,10 +197,14 @@
     </div>
     <script>
         function loadCities(stateId) {
+            const cityLoader = document.getElementById('city-loader');
+            cityLoader.style.display = 'inline';
             axios.get(`{{ route('cities.by.state') }}?stateId=${stateId}`)
                 .then(response => {
                     const cities = response.data;
                     const citySelect = document.getElementById('city');
+                    citySelect.disabled = false;
+                    cityLoader.style.display = 'none';
                     citySelect.innerHTML = `<option value="">Select City</option>`;
                     cities.forEach(city => {
                         const option = document.createElement('option');
