@@ -88,6 +88,7 @@ class UserController extends Controller
                 'password' => bcrypt($request->token),
                 'email_verified_at' => $request->emailVerified ? now() : null,
                 'profile_picture' => $request->photoURL,
+                'role' => 'user'
             ]);
 
             $email = $user->email;

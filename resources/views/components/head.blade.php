@@ -9,6 +9,14 @@
                 <img src="{{ asset('img/logo.png') }}" alt="" style="width: 200px">
             </a>
         </div>
+        @if (Auth::user() && Auth::user()->hasRole('admin'))
+            <div class="self-center ">
+                <a href="{{ route('admin.index') }}"
+                    class="text-right border border-blue-500 hover:bg-blue-700 hover:text-white text-black font-bold py-2 px-4 rounded">
+                    <i class="fa fa-user-tie text-blue-500 hover:text-white"></i>
+                </a>
+            </div>
+        @endif
         <div class="flex items-centertext-center my-2 self-center flex flex-row place-items-center px-2 ">
             <a href="{{ route('listing.types', 'properties') }}"
                 class="text-right sm:scale-100 scale-75 p-1 capitalize text-xs flex items-center bg-yellow-200 border rounded text-yellow-900 border-yellow-500  ">Post

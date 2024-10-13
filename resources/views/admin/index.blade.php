@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <h1 class="font-bold text-4xl p-4 text-center">
         Admin Panel
     </h1>
@@ -46,4 +46,4 @@
             </a>
         </article>
     </div>
-</x-app-layout>
+</x-admin-layout>
