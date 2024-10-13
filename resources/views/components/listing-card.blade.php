@@ -1,4 +1,5 @@
-<div class="m-2 mx-4 mx-auto flex max-w-2xl overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
+<div
+    class="m-2 mx-auto sm:mx-16 flex mx-w-2xl sm:max-w-full  overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 ">
 
     @php
         $photos = json_decode($listing['photos'], true);
@@ -7,24 +8,24 @@
         @foreach ($photos as $photo)
             {{-- <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}" class="w-full h-full rounded object-cover"> --}}
             <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-                style="background-image: url('{{ asset('storage/uploads/property_images/' . $photo) }}')">
+                style="background-image: url('{{ asset('storage/' . $photo) }}')">
                 <div>
                 </div>
             </a>
         @break
     @endforeach
 @else
-    {{-- <img src="{{ Storage::url('uploads/property_images/' . $post['photos']) }}" alt="{{ $post['title'] }}"
+    {{-- <img src="{{ Storage::url('' . $post['photos']) }}" alt="{{ $post['title'] }}"
         class="w-full h-full rounded object-cover"> --}}
     <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-        style="background-image: url('{{ asset('storage/uploads/property_images/' . $photos) }}')">
+        style="background-image: url('{{ asset('storage/' . $photos) }}')">
         <div>
         </div>
     </a>
 @endif
 
 {{-- <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-    style="background-image: url('{{ asset('storage/uploads/property_images/' . $listing['photos']) }}')">
+    style="background-image: url('{{ asset('storage/' . $listing['photos']) }}')">
     <div>
     </div>
 </a> --}}
@@ -52,12 +53,12 @@
         </h1>
         <div class="flex justify-between mt-3 item-center">
 
-            <div class="flex flex-col sm:flex-row w-full">
+            <div class="flex flex-col gap-5 sm:flex-row w-full">
                 <form method="POST" action="{{ route('admin.listings.delete') }}">
                     @csrf
                     <input type="hidden" name='id'value="{{ $listing['id'] }}">
                     <button type="submit"
-                        class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-red-800 rounded dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:bg-red-700 dark:focus:bg-red-600">
+                        class="loaderButton px-3 py-2 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-red-800 rounded dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-600 focus:outline-none focus:bg-red-700 dark:focus:bg-red-600">
                         Delete Listing
                     </button>
                 </form>
@@ -67,7 +68,7 @@
 
                         <input type="hidden" name="id" value="{{ $listing['id'] }}">
                         <button type="submit"
-                            class="loaderButton border border-black px-2 py-1 m-2 text-xs font-bold text-black uppercase transition-all duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
+                            class="loaderButton border border-black  px-3 py-2 m-2 text-xs font-bold text-black uppercase transition-all duration-300 transform bg-white rounded dark:bg-white hover:bg-white dark:hover:bg-white focus:outline-none focus:bg-white dark:focus:bg-white">
 
                             Enable Listing
                         </button>
@@ -78,7 +79,7 @@
 
                         <input type="hidden" name="id" value="{{ $listing['id'] }}">
                         <button type="submit"
-                            class="loaderButton px-2 py-1 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
+                            class="loaderButton px-3 py-2 m-2 text-xs font-bold text-white uppercase transition-all duration-300 transform bg-black rounded dark:bg-black hover:bg-black dark:hover:bg-black focus:outline-none focus:bg-black dark:focus:bg-black">
                             Disable Listing
                         </button>
                     </form>

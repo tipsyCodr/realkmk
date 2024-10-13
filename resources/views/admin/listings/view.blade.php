@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-admin-layout>
     <div class="">
         <div class="carousel">
             <div class="wrapper">
@@ -227,4 +227,4 @@
         </div>
     </div>
 
-</x-app-layout>
+    </x-app-layout>
