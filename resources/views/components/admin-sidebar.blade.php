@@ -7,11 +7,12 @@
                 Admin Panel | RealKMK
             </a>
             <ul class="mt-6">
-                <li class="relative px-6 py-3">
+                <li
+                    class="relative px-6 py-3 {{ request()->routeIs('admin.dashboard') ? 'bg-gray-200 dark:bg-gray-700' : '' }}">
                     <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                        aria-hidden="true"></span>
+                        aria-hidden="true" {{ request()->routeIs('admin.dashboard') ? '' : 'hidden' }}></span>
                     <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                        href="{{ route('admin.index') }}">
+                        href="{{ route('admin.dashboard') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path
@@ -23,7 +24,10 @@
                 </li>
             </ul>
             <ul>
-                <li class="relative px-6 py-3">
+                <li
+                    class="relative px-6 py-3 {{ request()->routeIs('admin.listings.list') ? 'bg-gray-200 dark:bg-gray-700' : '' }}">
+                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true" {{ request()->routeIs('admin.listings.list') ? '' : 'hidden' }}></span>
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         href="{{ route('admin.listings.list') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -35,9 +39,13 @@
                         <span class="ml-4">Properties</span>
                     </a>
                 </li>
-                <li class="relative px-6 py-3">
+                <li
+                    class="relative px-6 py-3 {{ request()->routeIs('admin.ads.list') ? 'bg-gray-200 dark:bg-gray-700' : '' }}">
+                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true" {{ request()->routeIs('admin.ads.list') ? '' : 'hidden' }}></span>
+
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                        href="cards.html">
+                        href="{{ route('admin.ads.list') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path
@@ -175,11 +183,12 @@
                 Admin | RealKMK
             </a>
             <ul class="mt-6">
-                <li class="relative px-6 py-3">
+                <li
+                    class="relative px-6 py-3 {{ request()->routeIs('admin.dashboard') ? 'bg-gray-200 dark:bg-gray-700' : '' }}">
                     <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                        aria-hidden="true"></span>
+                        aria-hidden="true" {{ request()->routeIs('admin.dashboard') ? '' : 'hidden' }}></span>
                     <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                        href="{{ route('admin.index') }}">
+                        href="{{ route('admin.dashboard') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path
@@ -191,7 +200,10 @@
                 </li>
             </ul>
             <ul>
-                <li class="relative px-6 py-3">
+                <li
+                    class="relative px-6 py-3 {{ request()->routeIs('admin.listings.list') ? 'bg-gray-200 dark:bg-gray-700' : '' }}">
+                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true" {{ request()->routeIs('admin.listings.list') ? '' : 'hidden' }}></span>
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                         href="{{ route('admin.listings.list') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -203,16 +215,19 @@
                         <span class="ml-4">Properties</span>
                     </a>
                 </li>
-                <li class="relative px-6 py-3">
+                <li
+                    class="relative px-6 py-3 {{ request()->routeIs('admin.ads.list') ? 'bg-gray-200 dark:bg-gray-700' : '' }}">
+                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                        aria-hidden="true" {{ request()->routeIs('admin.ads.list') ? '' : 'hidden' }}></span>
                     <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                        href="cards.html">
+                        href="{{ route('admin.ads.list') }}">
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                             <path
                                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
                             </path>
                         </svg>
-                        <span class="ml-4">Cards</span>
+                        <span class="ml-4">Banner Ads</span>
                     </a>
                 </li>
                 <li class="relative px-6 py-3">
