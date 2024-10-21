@@ -8,7 +8,7 @@
                     <input class="w-full" type="text" value="{{ $ad->name }}">
                 </div>
                 {{-- <input type="text" value=" {{ $ad->title }}"> --}}
-                <div class="m-2 bg-gray-200 shadow shadow-inner">
+                <div class="m-2 bg-gray-200  shadow-inner">
                     <img class="object-contain  w-full h-60 rounded-lg"
                         src="{{ asset('storage/uploads/ad_images/' . $ad->location . '/' . $ad->location . '_' . $ad->image) }}"
                         alt="{{ $ad->name }}}">

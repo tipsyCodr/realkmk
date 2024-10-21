@@ -146,9 +146,7 @@
                     <div id="message">
                         <div id="success"
                             class="bg-green-200 text-green-800 border border-green-600 p-2 my-2 rounded"style='display: none;'>
-                            Your
-                            Form Has
-                            Been Submitted. We will contact you on your contact details.</div>
+                            Your Form Has Been Submitted. We will contact you on your contact details.</div>
                         <div id="error" class="bg-red-200 text-red-800 border border-red-600 p-2 my-2 rounded "
                             style='display: none;'>There is some problem please try again later .</div>
                     </div>
@@ -164,8 +162,10 @@
             <div class="lg:mx-40 lg:my-10">
                 <div id='' class="silver-bg text-white text-center border border-black my-6 rounded p-4">
                     <p class="text-center font-bold text-3xl text-black ">Note: </p>
-                    <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership pay Rs.499
-                        only
+                    <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership <br> <span
+                            class="text-green-500">50% Discount</span>
+                        <br> Pay
+                        Rs.4499/- only
                     </p>
                     <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                         @csrf
@@ -174,18 +174,25 @@
                             type="submit" name="submit" value=" Pay Rs.499 /- Now" />
                     </form>
                 </div>
-                <div class="relative overflow-hidden" style="padding-top: 56.25%">
-                    <iframe class="absolute top-0 left-0 w-full h-full"
-                        src="https://www.youtube.com/embed/aax-NyK8Qco?si=DhyDUk18bUuSLoJN"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="py-2 px-4 rounded-xl shadow shadow-slate-400 border border-blue-600 bg-blue-300">
+                    <div>
+                        <h1 class='font-bold text-2xl text-center'>
+                            Watch this video for more details about our contracts
+                        </h1>
+                    </div>
+                    <div class="rounded-xl relative overflow-hidden" style="padding-top: 56.25%">
+                        <iframe class="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/aax-NyK8Qco?si=DhyDUk18bUuSLoJN"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                 </div>
 
                 <div class="py-4 text-center flex flex-col items-center justify-center">
                     <p class="font-bold text-2xl capitalize">
-                        We are working our best with these companies to provide you with the best and geniune jobs for
-                        you.
+                        We are working our best with these companies to provide you with the best and geniune contract
+                        for you.
                     </p>
                     <img class="py-4 my-4 border max-w-md" src="{{ asset('img/jobs.jpg') }}" alt="">
                 </div>
