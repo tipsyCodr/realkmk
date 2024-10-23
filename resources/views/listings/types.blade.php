@@ -5,7 +5,8 @@
         <ul>
             @foreach ($categoryTypes as $categoryType)
                 <li><a class="block hover:bg-gray-300 py-4 px-4 border"
-                        href="{{ route('listing.form', $categoryType->id) }}">{{ $categoryType->name }}</a> </li>
+                        href="{{ route('listing.form', ['category' => $category->slug, 'categoryType' => $categoryType->slug]) }}">{{ $categoryType->name }}</a>
+                </li>
             @endforeach
         </ul>
     </div>

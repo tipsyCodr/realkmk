@@ -82,76 +82,140 @@
     <h2 class="text-lg pb-4 font-bold border-bottom border-black">Details</h2>
     <div class="flow-root">
         <dl class="-my-3 divide-y divide-gray-100 text-sm">
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Mobile</dt>
-                <dd class="text-gray-700 sm:col-span-2">
-                    {{ $listing['mobile'] ? '+91 ' . $listing['mobile'] : 'Not Available' }}
-                </dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Location</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['location'] ?? '' }}</dd>
-            </div>
+            @if ($listing['mobile'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Mobile</dt>
+                    <dd class="text-gray-700 sm:col-span-2">
+                        {{ $listing['mobile'] ? '+91 ' . $listing['mobile'] : 'Not Available' }}
+                    </dd>
+                </div>
+            @endif
 
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Bedrooms</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['bedrooms'] }}</dd>
-            </div>
+            @if ($listing['location'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Location</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['location'] }}</dd>
+                </div>
+            @endif
 
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Bathrooms</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['bathrooms'] }}</dd>
-            </div>
+            @if ($listing['bedrooms'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Bedrooms</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['bedrooms'] }}</dd>
+                </div>
+            @endif
 
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Furnishing</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['furnishing'] }}</dd>
-            </div>
+            @if ($listing['bathrooms'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Bathrooms</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['bathrooms'] }}</dd>
+                </div>
+            @endif
+            @if ($listing['land_type'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Land Type</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['land_type'] }}</dd>
+                </div>
+            @endif
 
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Construction Status</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['construction_status'] }}</dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Listed by</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['listed_by'] }}</dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Facing</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['facing'] }}</dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Project Name</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['project_name'] }}</dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Super Built-up Area</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['super_builtup_area'] }} <b
-                        class="text-sm">sq.ft.</b></dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Carpet Area</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['carpet_area'] }} <b class="text-sm">sq.ft.</b>
-                </dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Maintenance</dt>
-                <dd class="text-gray-700 sm:col-span-2">Rs. {{ $listing['maintainance'] }} (Monthly)</dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Total Floors</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['total_floors'] }}</dd>
-            </div>
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">Car Parking</dt>
-                <dd class="text-gray-700 sm:col-span-2">{{ $listing['car_parking'] }}</dd>
-            </div>
+            @if ($listing['breadth'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Breadth</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['breadth'] }} ft</dd>
+                </div>
+            @endif
 
-            <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
-                <dt class="font-bold text-gray-900">About listing</dt>
-                <dd class="text-gray-700 sm:col-span-2 pb-6">{{ $listing['description'] }}
-                </dd>
-            </div>
+            @if ($listing['length'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Length</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['length'] }} ft</dd>
+                </div>
+            @endif
+
+            @if ($listing['plot_area'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Plot Area</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['plot_area'] }} sqft</dd>
+                </div>
+            @endif
+            @if ($listing['furnishing'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Furnishing</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['furnishing'] }}</dd>
+                </div>
+            @endif
+
+            @if ($listing['construction_status'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Construction Status</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['construction_status'] }}</dd>
+                </div>
+            @endif
+
+            @if ($listing['listed_by'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Listed by</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['listed_by'] }}</dd>
+                </div>
+            @endif
+
+            @if ($listing['facing'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Facing</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['facing'] }}</dd>
+                </div>
+            @endif
+
+            @if ($listing['project_name'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Project Name</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['project_name'] }}</dd>
+                </div>
+            @endif
+
+            @if ($listing['super_builtup_area'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Super Built-up Area</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['super_builtup_area'] }} <b
+                            class="text-sm">sq.ft.</b></dd>
+                </div>
+            @endif
+
+            @if ($listing['carpet_area'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Carpet Area</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['carpet_area'] }} <b class="text-sm">sq.ft.</b>
+                    </dd>
+                </div>
+            @endif
+
+            @if ($listing['maintainance'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Maintenance</dt>
+                    <dd class="text-gray-700 sm:col-span-2">Rs. {{ $listing['maintainance'] }} (Monthly)</dd>
+                </div>
+            @endif
+
+            @if ($listing['total_floors'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Total Floors</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['total_floors'] }}</dd>
+                </div>
+            @endif
+
+            @if ($listing['car_parking'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">Car Parking</dt>
+                    <dd class="text-gray-700 sm:col-span-2">{{ $listing['car_parking'] }}</dd>
+                </div>
+            @endif
+
+            @if ($listing['description'])
+                <div class="grid grid-cols-1 gap-1 py-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt class="font-bold text-gray-900">About listing</dt>
+                    <dd class="text-gray-700 sm:col-span-2 pb-6">{{ $listing['description'] }}</dd>
+                </div>
+            @endif
         </dl>
     </div>
 

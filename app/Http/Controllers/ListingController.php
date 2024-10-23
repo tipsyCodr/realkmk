@@ -45,6 +45,7 @@ class ListingController extends Controller
     public function postCategoriesTypes(Request $request)
     {
         $categorySlug = $request->segment(4);
+        // dd($categorySlug);
         $category = Category::where('slug', $categorySlug)->first();
         $categoryTypes = CategoryType::where('category_id', $category->id)->get();
 
@@ -52,12 +53,14 @@ class ListingController extends Controller
     }
     public function postForm(Request $request)
     {
-        $categorySlug = $request->segment(3);
-        // dd($categorySlug);
+        $categorySlug = $request->segment(4);
+        $categoryTypeSlug = $request->segment(5);
+        // dd($categorySlug, $categoryTypeSlug);
         $states = State::all();
         $cities = City::all();
-        $categoryType = CategoryType::where('id', $categorySlug)->first();
-        $category = Category::where('id', $categoryType->category_id)->first();
+        $categoryType = CategoryType::where('slug', $categoryTypeSlug)->first();
+
+        $category = Category::where('slug', $categorySlug)->first();
         $user = auth()->user();
         return view('listings.post', compact('user', 'category', 'categoryType', 'states', 'cities'));
     }
@@ -72,13 +75,17 @@ class ListingController extends Controller
             'description' => 'required',
             'mobile' => 'required',
             'photos' => 'nullable|array',
-            'photos.*' => 'nullable|file|mimes:png,jpg,jpeg,gif,svg|max:2048',
+            'photos.*' => 'nullable|file|mimes:png,jpg,jpeg,gif,svg|max:5120',
             'bedrooms' => 'nullable|integer',
             'bathrooms' => 'nullable|integer',
             'furnishing' => 'nullable|string',
             'construction_status' => 'nullable|string',
             'listed_by' => 'nullable|string',
             'facing' => 'nullable|string',
+            'breadth' => 'nullable|integer',     //for land and plot
+            'length' => 'nullable|integer',
+            'plot_area' => 'nullable|integer',
+            'land_type' => 'nullable|string',    //for land and plot
             'project_name' => 'nullable|string',
             'super_builtup_area' => 'nullable|integer',
             'carpet_area' => 'nullable|integer',
@@ -106,6 +113,10 @@ class ListingController extends Controller
             'description' => $request->description,
             'bedrooms' => $request->bedrooms,
             'bathrooms' => $request->bathrooms,
+            'breadth' => $request->breadth,
+            'length' => $request->length,
+            'plot_area' => $request->plot_area,
+            'land_type' => $request->land_type,
             'furnishing' => $request->furnishing,
             'construction_status' => $request->construction_status,
             'listed_by' => $request->listed_by,
@@ -132,6 +143,7 @@ class ListingController extends Controller
         ]);
         // return view('listings.post', compact('user', 'category', 'categoryType'));
     }
+
     public function searchListingsAdmin(Request $request)
     {
         $q = $request->input('q');

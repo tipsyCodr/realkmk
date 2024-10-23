@@ -63,7 +63,7 @@ Route::middleware('checkUser')->group(function () {
     Route::name('listing.')->prefix('listing')->group(function () {
         Route::get('post', [WebController::class, 'post'])->name('post');
         Route::get('post/type/{category}', [ListingController::class, 'postCategoriesTypes'])->name('types');
-        Route::get('post/{categoryType}', [ListingController::class, 'postForm'])->name('form');
+        Route::get('post/type/{category}/{categoryType}', [ListingController::class, 'postForm'])->name('form');
         Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
     });
 
