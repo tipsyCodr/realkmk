@@ -135,13 +135,38 @@
                             id="photo_passport" name="photo_passport" type="file" accept=".jpg, .jpeg, .png"
                             required>
                     </div> --}}
-                    <div class="mb-4">
+
+                    {{-- <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="resume">
                             Resume
                         </label>
                         <input
                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                             id="resume" name="resume" type="file" accept=".pdf" required>
+                    </div> --}}
+
+                    <div class="border-b border-black pb-2">
+                        <label for="resume" class="block text-gray-700 text-sm font-bold mb-2">Upload Resume</label>
+
+                        <label for="resume"
+                            class="flex flex-col items-center w-full max-w-lg p-5 mx-auto mt-2 text-center bg-gray-400 border-2 border-gray-500 border-dashed cursor-pointer dark:bg-gray-900 dark:border-gray-700 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor"
+                                class="w-8 h-8 text-gray-500 dark:text-gray-400">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                            </svg>
+
+                            <h2 class="mt-1 font-medium tracking-wide text-gray-700 dark:text-gray-200">Upload Resume
+                            </h2>
+
+                            <p class="mt-2 text-xs tracking-wide text-gray-500 dark:text-gray-400">Upload or darg &
+                                drop your
+                                PDF, PNG, JPG. </p>
+
+                            <input id="resume" type="file" name="resume" accept="image/png,image/jpeg"
+                                class="hidden" multiple />
+                        </label>
                     </div>
                     <div id="message">
                         <div id="success"
@@ -162,27 +187,26 @@
             <div class="lg:mx-40 lg:my-10">
                 <div id='' class="silver-bg text-white text-center border border-black my-6 rounded p-4">
                     <p class="text-center font-bold text-3xl text-black ">Note: </p>
-                    <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership <br> <span
-                            class="text-green-500">50% Discount</span>
+                    <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership
                         <br> Pay
                         Rs.4499/- only
                     </p>
                     <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                         @csrf
-                        <input type="hidden" name="amount" value="499" />
+                        <input type="hidden" name="amount" value="4499" />
                         <input class="cursor-pointer w-full p-2  block text-xl gold-bg text-white font-bold rounded"
-                            type="submit" name="submit" value=" Pay Rs.499 /- Now" />
+                            type="submit" name="submit" value=" Pay Rs.4499 /- Now" />
                     </form>
                 </div>
-                <div class="py-2 px-4 rounded-xl shadow shadow-slate-400 border border-blue-600 bg-blue-300">
+                <div class="hidden py-2 px-4 rounded-xl shadow shadow-slate-400 border border-blue-600 bg-blue-300">
                     <div>
                         <h1 class='font-bold text-2xl text-center'>
                             Watch this video for more details about our contracts
                         </h1>
                     </div>
                     <div class="rounded-xl relative overflow-hidden" style="padding-top: 56.25%">
-                        <iframe class="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/aax-NyK8Qco?si=DhyDUk18bUuSLoJN"
+                        <iframe disabled class="absolute top-0 left-0 w-full h-full"
+                            srsc="https://www.youtube.com/embed/aax-NyK8Qco?si=DhyDUk18bUuSLoJN"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -191,16 +215,199 @@
 
                 <div class="py-4 text-center flex flex-col items-center justify-center">
                     <p class="font-bold text-2xl capitalize">
-                        We are working our best with these companies to provide you with the best and geniune contract
+                        We are working our best with these companies to provide you with the best and 100% geniune jobs
                         for you.
                     </p>
+                    <p class="font-bold text-xl capitalize">If you like our service you can donate a tip to us, after
+                        getting your dream job with realkmk.com</p>
                     <img class="py-4 my-4 border max-w-md" src="{{ asset('img/jobs.jpg') }}" alt="">
+                    {{-- <p class="font-bold text-xl capitalize">
+                        Working all over india.
+                    </p>
+                    <p class="font-bold text-xl capitalize">Which type of job you want?</p>
+                    <div class="py-6 flex flex-col sm:flex-row flex-wrap gap-10 ">
+                        <div
+                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
+                            <p class="font-bold">Data Entry & Back Office</p>
+                            <p class=" font-bold my- px-2 rounded text-6xl">
+                                {{ rand(10000, 99999) }}</p>
+                            <p class="capitalize text-black">
+                                jobs available
+                            </p>
+                        </div>
+                        <div
+                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
+                            <p class="font-bold">Sales & Marketing</p>
+                            <p class=" font-bold my- px-2 rounded text-6xl">
+                                {{ rand(10000, 99999) }}</p>
+                            <p class="capitalize text-black">
+                                jobs available
+                            </p>
+                        </div>
+                        <div
+                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
+                            <p class="font-bold">BPO & Telecalling</p>
+                            <p class=" font-bold my- px-2 rounded text-6xl">
+                                {{ rand(10000, 99999) }}</p>
+                            <p class="capitalize text-black">
+                                jobs available
+                            </p>
+                        </div>
+                        <div
+                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
+                            <p class="font-bold">Driver </p>
+                            <p class=" font-bold my- px-2 rounded text-6xl">
+                                {{ rand(10000, 99999) }}</p>
+                            <p class="capitalize text-black">
+                                jobs available
+                            </p>
+                        </div> --}}
                 </div>
             </div>
-
-
         </div>
 
+    </div>
+    <div class="relative text-center bg-green-100 py-4 ">
+        <h1 class="text-center font-bold text-xl sm:text-3xl">Trusted by 10Lakh+ Indians 🤝 <h1>
+                <p class="text-center text-gray-600 py-0 sm:py-2">We are here to help you.</p>
+                <br>
+                <style>
+                    .swiper-slide {
+                        background: #fff;
+                        border-radius: 10px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        min-height: 100px;
+                    }
+                </style>
+                <div class="testimonies ">
+                    <div class="swiper-container testimonies-swiper">
+                        <div class="swiper-wrapper pb-10 px-2">
+                            <!-- Testimony Slide 1 -->
+                            <div class="swiper-slide shadow">
+                                <div class="flex items-center">
+
+                                    <div class="">
+                                        <p class="font-bold text-lg">"This is the best service I have ever used!"</p>
+                                        <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                            <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                            <div class="flex flex-col items-start justify-start gap-2">
+                                                <p class="text-xs font-bold ">
+                                                    Rajesh Kumar, Mumbai</p>
+                                                <div class="flex">
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimony Slide 2 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg">"I found my dream job thanks to this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Anjali Sharma, Delhi</p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimony Slide 3 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg">"The opportunities here are endless."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Priya Singh, Bangalore </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Testimony Slide 4 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg">"A fantastic resource for job seekers."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Amit Patel, Ahmedabad </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg">"I got a job in a week from posting my resume on the
+                                    site."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Monika Singh, Mumbai </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg">"This is the best job search website I have ever seen."
+                                </p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Rohan Desai, Chennai </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more testimony slides as needed -->
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation -->
+                        {{-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> --}}
+                    </div>
+                </div>
+
+    </div>
     </div>
     <script>
         function loadCities(stateId) {

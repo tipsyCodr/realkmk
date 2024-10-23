@@ -12,6 +12,46 @@ import Swiper from "swiper/bundle";
 import "swiper/css/bundle";
 
 // init Swiper:
+const testimoniesSwiper = new Swiper(".testimonies-swiper", {
+    direction: "horizontal",
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    loop: true,
+    // dynamicBullets: true,
+    centeredSlides: true,
+    spaceBetween: 30,
+    // If we need pagination
+    pagination: {
+        el: ".swiper-pagination",
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+        el: ".swiper-scrollbar",
+    },
+
+    slidesPerView: 1.5,
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        1024: {
+            slidesPerView: 4,
+        },
+    },
+});
+
 const swiper = new Swiper(".swiper", {
     // Optional parameters
     direction: "horizontal",
