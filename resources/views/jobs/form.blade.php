@@ -288,7 +288,8 @@
                                 <div class="flex items-center">
 
                                     <div class="">
-                                        <p class="font-bold text-lg">"This is the best service I have ever used!"</p>
+                                        <p class="font-bold text-lg mx-4">"This is the best service I have ever used!"
+                                        </p>
                                         <div class="mx-4 flex gap-2 items-start justify-center py-2">
                                             <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
                                             <div class="flex flex-col items-start justify-start gap-2">
@@ -308,7 +309,7 @@
                             </div>
                             <!-- Testimony Slide 2 -->
                             <div class="swiper-slide shadow">
-                                <p class="font-bold text-lg">"I found my dream job thanks to this platform."</p>
+                                <p class="font-bold text-lg mx-4">"I found my dream job thanks to this platform."</p>
                                 <div class="mx-4 flex gap-2 items-start justify-center py-2">
                                     <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
                                     <div class="flex flex-col items-start justify-start gap-2">
@@ -326,7 +327,7 @@
                             </div>
                             <!-- Testimony Slide 3 -->
                             <div class="swiper-slide shadow">
-                                <p class="font-bold text-lg">"The opportunities here are endless."</p>
+                                <p class="font-bold text-lg mx-4">"The opportunities here are endless."</p>
                                 <div class="mx-4 flex gap-2 items-start justify-center py-2">
                                     <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
                                     <div class="flex flex-col items-start justify-start gap-2">
@@ -345,7 +346,7 @@
                             </div>
                             <!-- Testimony Slide 4 -->
                             <div class="swiper-slide shadow">
-                                <p class="font-bold text-lg">"A fantastic resource for job seekers."</p>
+                                <p class="font-bold text-lg mx-4">"A fantastic resource for job seekers."</p>
                                 <div class="mx-4 flex gap-2 items-start justify-center py-2">
                                     <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
                                     <div class="flex flex-col items-start justify-start gap-2">
@@ -362,7 +363,7 @@
                                 </div>
                             </div>
                             <div class="swiper-slide shadow">
-                                <p class="font-bold text-lg">"I got a job in a week from posting my resume on the
+                                <p class="font-bold text-lg mx-4">"I got a job in a week from posting my resume on the
                                     site."</p>
                                 <div class="mx-4 flex gap-2 items-start justify-center py-2">
                                     <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
@@ -380,7 +381,8 @@
                                 </div>
                             </div>
                             <div class="swiper-slide shadow">
-                                <p class="font-bold text-lg">"This is the best job search website I have ever seen."
+                                <p class="font-bold text-lg mx-4">"This is the best job search website I have ever
+                                    seen."
                                 </p>
                                 <div class="mx-4 flex gap-2 items-start justify-center py-2">
                                     <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
