@@ -189,13 +189,13 @@
                     <p class="text-center font-bold text-3xl text-black ">Note: </p>
                     <p class="text-center font-bold text-3xl text-black capitalize pb-4">Join Membership
                         <br> Pay
-                        Rs.4499/- only
+                        Rs.499/- only
                     </p>
                     <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                         @csrf
-                        <input type="hidden" name="amount" value="4499" />
+                        <input type="hidden" name="amount" value="499" />
                         <input class="cursor-pointer w-full p-2  block text-xl gold-bg text-white font-bold rounded"
-                            type="submit" name="submit" value=" Pay Rs.4499 /- Now" />
+                            type="submit" name="submit" value=" Pay Rs.499 /- Now" />
                     </form>
                 </div>
                 <div class="hidden py-2 px-4 rounded-xl shadow shadow-slate-400 border border-blue-600 bg-blue-300">
