@@ -12,6 +12,12 @@
             <div class="menu">
                 <ul class="list-none mb-6">
                     <li class="mb-4">
+                        <p> Contact Us at <a class="text-blue-500 hover:text-blue-700 underline"
+                                href="mailto:{{ auth()->user()->email }}">
+                                helpline@realkmk.com
+                            </a></p>
+                    </li>
+                    <li class="mb-4">
                         <a class="text-blue-500 hover:text-blue-700 underline" href="#">
                             Update Profile
                         </a>
