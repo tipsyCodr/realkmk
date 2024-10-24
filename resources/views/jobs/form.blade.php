@@ -225,7 +225,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="relative text-center bg-green-50 py-4 ">
         <h1 class="text-center font-bold text-xl sm:text-3xl">Trusted by 10Lakh+ Indians 🤝 <h1>
@@ -370,6 +369,10 @@
                 </div>
 
     </div>
+    <p class='text-center py-4'> Contact Us at <a class="text-blue-500 hover:text-blue-700 underline"
+            href="mailto:helpline@realkmk.com">
+            helpline@realkmk.com
+        </a></p>
     </div>
     <script>
         function loadCities(stateId) {

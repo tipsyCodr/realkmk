@@ -3,6 +3,7 @@
     <div class="p-2">
         <p class="font-bold text-lg">RealKMK working all over India.</p>
         <p class='font-bold'> Which type of job you want?</p>
+
         <div class="py-4">
             <ul>
                 @foreach ($jobs as $job)
@@ -14,4 +15,8 @@
             </ul>
         </div>
     </div>
+    <p class='text-center'> Contact Us at <a class="text-blue-500 hover:text-blue-700 underline"
+            href="mailto:helpline@realkmk.com">
+            helpline@realkmk.com
+        </a></p>
 </x-app-layout>
