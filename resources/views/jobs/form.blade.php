@@ -227,7 +227,7 @@
         </div>
 
     </div>
-    <div class="relative text-center bg-green-100 py-4 ">
+    <div class="relative text-center bg-green-50 py-4 ">
         <h1 class="text-center font-bold text-xl sm:text-3xl">Trusted by 10Lakh+ Indians 🤝 <h1>
                 <p class="text-center text-gray-600 py-0 sm:py-2">We are here to help you.</p>
                 <br>
