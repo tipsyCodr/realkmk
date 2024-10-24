@@ -13,7 +13,7 @@
                 <ul class="list-none mb-6">
                     <li class="mb-4">
                         <p> Contact Us at <a class="text-blue-500 hover:text-blue-700 underline"
-                                href="mailto:{{ auth()->user()->email }}">
+                                href="mailto:helpline@realkmk.com">
                                 helpline@realkmk.com
                             </a></p>
                     </li>
