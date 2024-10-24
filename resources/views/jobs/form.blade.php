@@ -221,47 +221,7 @@
                     <p class="font-bold text-xl capitalize">If you like our service you can donate a tip to us, after
                         getting your dream job with realkmk.com</p>
                     <img class="py-4 my-4 border max-w-md" src="{{ asset('img/jobs.jpg') }}" alt="">
-                    {{-- <p class="font-bold text-xl capitalize">
-                        Working all over india.
-                    </p>
-                    <p class="font-bold text-xl capitalize">Which type of job you want?</p>
-                    <div class="py-6 flex flex-col sm:flex-row flex-wrap gap-10 ">
-                        <div
-                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
-                            <p class="font-bold">Data Entry & Back Office</p>
-                            <p class=" font-bold my- px-2 rounded text-6xl">
-                                {{ rand(10000, 99999) }}</p>
-                            <p class="capitalize text-black">
-                                jobs available
-                            </p>
-                        </div>
-                        <div
-                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
-                            <p class="font-bold">Sales & Marketing</p>
-                            <p class=" font-bold my- px-2 rounded text-6xl">
-                                {{ rand(10000, 99999) }}</p>
-                            <p class="capitalize text-black">
-                                jobs available
-                            </p>
-                        </div>
-                        <div
-                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
-                            <p class="font-bold">BPO & Telecalling</p>
-                            <p class=" font-bold my- px-2 rounded text-6xl">
-                                {{ rand(10000, 99999) }}</p>
-                            <p class="capitalize text-black">
-                                jobs available
-                            </p>
-                        </div>
-                        <div
-                            class="item flex flex-col justify-between cursor-pointer border-2 h-[150px] min-w-[180px] border-gray-300 rounded p-4">
-                            <p class="font-bold">Driver </p>
-                            <p class=" font-bold my- px-2 rounded text-6xl">
-                                {{ rand(10000, 99999) }}</p>
-                            <p class="capitalize text-black">
-                                jobs available
-                            </p>
-                        </div> --}}
+
                 </div>
             </div>
         </div>
@@ -280,7 +240,7 @@
                         min-height: 100px;
                     }
                 </style>
-                <div class="testimonies ">
+                <div class="testimonies overflow-hidden">
                     <div class="swiper-container testimonies-swiper">
                         <div class="swiper-wrapper pb-10 px-2">
                             <!-- Testimony Slide 1 -->

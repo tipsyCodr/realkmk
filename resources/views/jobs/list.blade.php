@@ -1,7 +1,8 @@
 <!-- People find pleasure in different ways. I find it in keeping my mind clear. - Marcus Aurelius -->
 <x-app-layout>
     <div class="p-2">
-        <p class="font-bold">RealKMK working all over india. Which type of job you want?</p>
+        <p class="font-bold text-lg">RealKMK working all over India.</p>
+        <p class='font-bold'> Which type of job you want?</p>
         <div class="py-4">
             <ul>
                 @foreach ($jobs as $job)
