@@ -62,9 +62,8 @@
 
                     <p class="mt-2 text-xs tracking-wide text-gray-500 dark:text-gray-400">Upload or darg & drop your
                         PNG, JPG. </p>
-
                     <input id="photos" type="file" name="photos[]" accept="image/png,image/jpeg" class="hidden"
-                        multiple />
+                        multiple max="5" />
                 </label>
             </div>
             <div class="mb-4">

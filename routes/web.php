@@ -55,9 +55,7 @@ Route::name('plans.')->group(function () {
 Route::get('categories', [WebController::class, 'categories'])->name('categories');
 
 Route::get('properties', [WebController::class, 'properties'])->name('properties');
-Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'])->name('properties.form');
-Route::post('properties-form-store', [RequestController::class, 'propertiesFormSave'])->name('properties.form.store');
-Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
+
 
 Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
 
@@ -71,6 +69,10 @@ Route::middleware('checkUser')->group(function () {
 
     //Listing Routes Was Here
 
+    //Property Request Routes (Initially Was On Guests)
+    Route::get('properties-form/{location}', [WebController::class, 'propertiesForm'])->name('properties.form');
+    Route::post('properties-form-store', [RequestController::class, 'propertiesFormSave'])->name('properties.form.store');
+    Route::get('properties/show/{location}', [WebController::class, 'showProperties'])->name('properties.show');
 
     // Payment page
     Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
