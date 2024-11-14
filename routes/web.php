@@ -9,6 +9,9 @@ use App\Http\Controllers\WebController;
 use Faker\Provider\ar_EG\Payment;
 use Illuminate\Support\Facades\Route;
 
+//home
+Route::get('/', [WebController::class, 'index'])->name('home');
+
 //guest route
 //User Management
 Route::post('google-auth', [UserController::class, 'googleAuthenticate'])->name('google.auth');
@@ -20,12 +23,18 @@ Route::post('login/user', [UserController::class, 'authenticateUser'])->name('au
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
 
-Route::get('/', [WebController::class, 'index'])->name('home');
 
-
+//Listing Routes
+Route::name('listing.')->prefix('listing')->group(function () {
+    Route::get('post', [WebController::class, 'post'])->name('post');
+    Route::get('post/type/{category}', [ListingController::class, 'postCategoriesTypes'])->name('types');
+    Route::get('post/type/{category}/{categoryType}', [ListingController::class, 'postForm'])->name('form');
+    Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
+});
 
 Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
 Route::get('search', [ListingController::class, 'searchListings'])->name('listing.search');
+
 
 //Jobs Section
 Route::prefix('jobs')->name('jobs.')->group(function () {
@@ -60,13 +69,7 @@ Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('ci
 Route::middleware('checkUser')->group(function () {
     Route::get('my-listings', [ListingController::class, 'getUserListing'])->name('my-listings');
 
-    Route::name('listing.')->prefix('listing')->group(function () {
-        Route::get('post', [WebController::class, 'post'])->name('post');
-        Route::get('post/type/{category}', [ListingController::class, 'postCategoriesTypes'])->name('types');
-        Route::get('post/type/{category}/{categoryType}', [ListingController::class, 'postForm'])->name('form');
-        Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
-    });
-
+    //Listing Routes Was Here
 
 
     // Payment page

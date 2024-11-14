@@ -99,7 +99,7 @@ class ListingController extends Controller
         // dd($categoryType);
         $category = Category::find($categoryType->category_id)->slug;
         $listing = Listing::create([
-            'user_id' => $user->id,
+            // 'user_id' => $user->id, //add later(Temporary disable)
             'listing_uid' => "KMK" . rand(1000000000, 9999999999),
             'ad_title' => $request->ad_title,
             'slug' => Str::slug($request->ad_title),
