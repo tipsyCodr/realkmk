@@ -46,12 +46,16 @@
         <div class="px-6 py-4 my-4 w-80 rounded-xl gold-bg transition-opacity duration-500 ease-in-out " id="bGold">
 
             <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
-                <h2 class="text-4xl font-bold text-center py-4 text-black-100 ">Gold Plan</h2>
+                <h2 class="text-4xl font-bold text-center py-4 text-black-100 ">Membership Pay</h2>
                 <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 2,999</p>
                 <b class="p-2 block text-left capitalize">
-                    We are committed to offering the best deals and services.
+                    {{-- We are committed to offering the best deals and services.
                     <br>
-                    Upon selling your property, pay Rs.27,000.
+                    Upon selling your property, pay Rs.27,000. --}}
+
+                    We Are working Hard for providing the Best Deals And Services for you. When you successfully,
+                    sell your property with us pay Rs. 27000
+                    Total Amount 29,999
                 </b>
                 <ol class="card-text text-left ">
                     <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>

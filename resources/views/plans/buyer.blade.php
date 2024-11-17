@@ -45,12 +45,16 @@
             style=";">
 
             <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
-                <h2 class="text-4xl font-bold text-center py-4 text-black">Gold Plan</h2>
+                <h2 class="text-4xl font-bold text-center py-4 text-black">Membership Pay</h2>
                 <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 999</p>
                 <b class="p-2 block text-center capitalize">
-                    We are committed to offering the best deals and services.
+                    {{-- We are committed to offering the best deals and services.
                     <br>
-                    Upon purchasing your property, pay Rs.9,000.
+                    Upon purchasing your property, pay Rs.9,000. --}}
+
+                    We Are working Hard for providing the Best Deals And Services for you. When you successfully
+                    purchase your property with us pay Rs. 9,000
+                    Total Amount Rs. 9,999
                 </b>
                 <ol class="card-text text-left ">
                     <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>
