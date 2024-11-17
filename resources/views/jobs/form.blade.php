@@ -223,7 +223,7 @@
                             will
                             request a one-time service fee of Rs. 2,500/- from your first salary to support the efforts
                             that
-                            make these opportunities possible.Total Amount Rs. 2,999/-.</p>
+                            make these opportunities possible. Total Amount Rs. 2,999/-.</p>
                     </div>
 
                     <img class="py-4 my-4 border max-w-md" src="{{ asset('img/jobs.jpg') }}" alt="">
