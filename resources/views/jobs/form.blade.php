@@ -221,9 +221,9 @@
                     <div class="bg-orange-100 border-l-4 border-orange-500 p-4 my-4">
                         <p class="font-bold text-xl capitalize">Notice: When you land a job through our platform, we
                             will
-                            request a one-time service fee of Rs. 2999/- from your first salary to support the efforts
+                            request a one-time service fee of Rs. 2,500/- from your first salary to support the efforts
                             that
-                            make these opportunities possible.</p>
+                            make these opportunities possible.Total Amount Rs. 2,999/-.</p>
                     </div>
 
                     <img class="py-4 my-4 border max-w-md" src="{{ asset('img/jobs.jpg') }}" alt="">

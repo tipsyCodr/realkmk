@@ -24,4 +24,8 @@
             <p class="text-2xl p-4 font-bold">Banner Advertisement</p>
         </a>
     </div>
+    <div class="bg-blue-500 p-4 text-white text-center font-bold">
+        *Informative Notice: Please be aware that all payments made are non-refundable.
+    </div>
+
 </x-app-layout>
