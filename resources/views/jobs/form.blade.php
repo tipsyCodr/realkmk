@@ -218,8 +218,14 @@
                         We are working our best with these companies to provide you with the best and 100% geniune jobs
                         for you.
                     </p>
-                    <p class="font-bold text-xl capitalize">If you like our service you can donate a tip to us, after
-                        getting your dream job with realkmk.com</p>
+                    <div class="bg-orange-100 border-l-4 border-orange-500 p-4 my-4">
+                        <p class="font-bold text-xl capitalize">Notice: When you land a job through our platform, we
+                            may
+                            request a one-time service fee of Rs. 2999/- from your first salary to support the efforts
+                            that
+                            make these opportunities possible.</p>
+                    </div>
+
                     <img class="py-4 my-4 border max-w-md" src="{{ asset('img/jobs.jpg') }}" alt="">
 
                 </div>
