@@ -220,7 +220,7 @@
                     </p>
                     <div class="bg-orange-100 border-l-4 border-orange-500 p-4 my-4">
                         <p class="font-bold text-xl capitalize">Notice: When you land a job through our platform, we
-                            may
+                            will
                             request a one-time service fee of Rs. 2999/- from your first salary to support the efforts
                             that
                             make these opportunities possible.</p>
