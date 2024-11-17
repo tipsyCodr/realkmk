@@ -46,10 +46,10 @@
             <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
                 <h2 class="text-4xl font-bold text-center py-4 text-black">Gold Plan</h2>
                 <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 999</p>
-                <b class="p-2 block text-left capitalize">
-                    We are working hard for providing the best deals and services for you. If You like our services, you
-                    can donate a tip to us after you successfully purchase a property.
-
+                <b class="p-2 block text-center capitalize">
+                    We are committed to offering the best deals and services.
+                    <br>
+                    Upon purchasing your property, pay Rs.9,000.
                 </b>
                 <ol class="card-text text-left ">
                     <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>
