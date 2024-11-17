@@ -1,5 +1,5 @@
 <div class="pb-2 bg-gray-200">
-    <div class=' px-2 bg-white'>
+    <div class=' px-2 py-2 bg-white'>
         {{-- <p>Browse Categories</p> --}}
         <div class=" item-wrapper item flex flex-row justify-center overflow-x-scroll ">
             <a href="{{ route('properties') }}"

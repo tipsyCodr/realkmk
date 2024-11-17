@@ -28,7 +28,7 @@
 
 <body>
     <x-alert />
-    <div id="app" class="mt-16">
+    <div id="app" class="mt-16 py-1">
         <x-head />
         <x-navbar />
         <main class="my-16 ">
