@@ -1,5 +1,6 @@
 <!-- Walk as if you are kissing the Earth with your feet. - Thich Nhat Hanh -->
 <x-app-layout>
+    <x-back-button />
     <div class="p-2 w-full">
         <p class="font-bold text-4xl text-center">Our Plan</p>
     </div>

@@ -1,10 +1,10 @@
 <!-- Simplicity is an acquired taste. - Katharine Gerould -->
 <x-app-layout>
-
     <x-back-button />
-    <h1 class="text-3xl font-bold px-4 pt-4 capitalize"> We Provide Bank Siezing Properties & Owner Poperties which You
-        Can Buy.
-    </h1>
+
+    <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative" role="alert">
+        <span class="block sm:inline">We provide bank seizing properties & owner properties which you can buy.</span>
+    </div>
     <p class='text-center uppercase font-bold py-6 text-3xl text-red-600'>Real<span class="text-yellow-500">KMK</span>.com
     </p>
     <hr class="border border-1 border-gray-300 my-4 mx-4">

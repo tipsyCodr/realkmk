@@ -1,5 +1,6 @@
 <!-- Life is available only in the present moment. - Thich Nhat Hanh -->
 <x-app-layout>
+    <x-back-button />
     <h1 class="font-bold text-4xl p-4 text-center"> Banner Advertisement</h1>
     <div class="grid grid-cols-1 gap-4 p-4">
         <div class="rounded p-4 border silver-bg">
