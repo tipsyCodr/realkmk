@@ -22,7 +22,9 @@ Route::post('register/store', [UserController::class, 'registerUser'])->name('re
 Route::post('login/user', [UserController::class, 'authenticateUser'])->name('authenticate.user');
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
-
+Route::get('/loading', function () {
+    return view('loading');
+})->name('loading');
 
 //Listing Routes
 Route::name('listing.')->prefix('listing')->group(function () {
@@ -108,10 +110,3 @@ Route::middleware('checkAdmin')->group(function () {
 
     });
 });
-
-
-
-
-
-
-

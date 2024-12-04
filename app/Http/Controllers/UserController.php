@@ -75,12 +75,17 @@ class UserController extends Controller
             'token' => 'required',
             'photoURL' => 'nullable',
             'emailVerified' => 'nullable|boolean',
+            'intended_url' => 'nullable|string'
         ]);
 
         $user = User::where('email', $request->email)->first();
         if ($user) {
             auth()->login($user, true);
-            return response()->json(['success' => true, 'message' => 'User logged in']);
+            return response()->json([
+                'success' => true, 
+                'message' => 'User logged in',
+                'redirect_url' => $request->intended_url ?: url('/')
+            ]);
         } else {
             $user = User::create([
                 'name' => $request->name,
@@ -91,15 +96,12 @@ class UserController extends Controller
                 'role' => 'user'
             ]);
 
-            $email = $user->email;
-            $password = $user->password;
-            $remember = true;
-            // auth()->login($user, true);
-            if (Auth::attempt($this->only('email', 'password'), $remember)) {
-                // logged in succcessfully, if remember key exist in request then remember me will be true
-                // return redirect()->intended('/')->with('success', 'User registered and logged in');
-                return response()->json(['success' => true, 'message' => 'User registered and logged in']);
-            }
+            auth()->login($user, true);
+            return response()->json([
+                'success' => true, 
+                'message' => 'User registered and logged in',
+                'redirect_url' => $request->intended_url ?: url('/')
+            ]);
         }
     }
 

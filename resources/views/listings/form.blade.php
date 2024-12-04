@@ -101,14 +101,33 @@
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="address" name="address" placeholder="Enter Your Address">{{ old('address') }}</textarea>
             </div>
-            <div class="mb-4">
+            <!-- <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
                     Description
                 </label>
                 <textarea
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="description" name="description" placeholder="Enter Your Description">{{ old('description') }}</textarea>
+            </div> -->
+            <div class="mb-4">
+                <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4" role="alert">
+                    <p class="font-semibold">Important Instructions:</p>
+                    <p>Please email <a href="mailto:helpline@kmkworld.com" class="text-blue-600 hover:underline">helpline@kmkworld.com</a> for:</p>
+                    <ul class="list-disc ml-6 mt-2">
+                        <li>Payment details</li>
+                        <li>Password to submit this form</li>
+                        <li>Further instructions</li>
+                    </ul>
+                </div>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="password" name="password" type="password" placeholder="Enter Your Password"
+                    required>
             </div>
+
             <fieldset class="mb-4 p-4 border border-gray-300 rounded">
                 <legend class="text-gray-700 text-sm font-bold">Your Budget</legend>
                 <div class="flex space-x-4">
@@ -133,15 +152,62 @@
                 </div>
             </fieldset>
 
-            <div class="mb-4">
-                <button
-                    class="loaderButton bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 px-4 rounded"
+            <div class="flex items-center justify-between">
+                <button id="submitBtn"
+                    class="w-full bg-blue-500  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     type="submit">
-                    Save & Browse
+                    Submit
                 </button>
             </div>
         </form>
     </div>
+    
+    <h2 class="text-center py-6 font-bold text-3xl">Join Membership</h2>
+    <div class="mx-auto px-6 py-4 my-4 w-80 rounded-xl gold-bg transition-opacity duration-500 ease-in-out " id="bGold"
+            style="">
+            <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
+                <h2 class="text-4xl font-bold text-center py-4 text-black">Membership Pay</h2>
+                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 999</p>
+                <b class="p-2 block text-center capitalize">
+                    {{-- We are committed to offering the best deals and services.
+                    <br>
+                    Upon purchasing your property, pay Rs.9,000. --}}
+
+                    We Are working Hard for providing the Best Deals And Services for you. When you successfully
+                    purchase your property with us pay Rs.4,000
+                    Total Amount Rs. 4,999
+                </b>
+                <ol class="card-text text-left ">
+                    <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>
+                    <!-- <li>Giving Seller Geniune Number </li> -->
+                    <li><i class="fa fa-check-circle text-green-600"></i> 0% Commission</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Owner Number Provided</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Owner To Owner Meeting</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Add Whatsapp Group</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Bank Seizing Properties</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance</li>
+                    {{-- <li><i class="fa fa-check-circle text-green-600"></i> Total amount Rs.19,500</li> --}}
+                </ol>
+            </div>
+            <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                @csrf
+                <input type="hidden" name="amount" value="999" />
+                <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
+                    name="submit" value="Pay Now" />
+            </form>
+        </div>
+        <div class="bg-blue-100 mx-10 border-l-4 border-blue-500 text-blue-700 p-4 mb-4" role="alert">
+                    <p class="font-semibold">Important Instructions:</p>
+                    <p>Please email <a href="mailto:helpline@kmkworld.com" class="text-blue-600 hover:underline">helpline@kmkworld.com</a> for:</p>
+                    <ul class="list-disc ml-6 mt-2">
+                        <li>Payment details</li>
+                        <li>Password to submit this form</li>
+                        <li>Further instructions</li>
+                    </ul>
+                </div>
     <script>
         function loadCities(stateId) {
             const cityLoader = document.getElementById('city-loader');
@@ -164,7 +230,6 @@
                     console.error(error);
                 });
         }
-
 
         function submitForm(event) {
             event.preventDefault();

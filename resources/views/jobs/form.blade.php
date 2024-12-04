@@ -215,15 +215,15 @@
 
                 <div class="py-4 text-center flex flex-col items-center justify-center">
                     <p class="font-bold text-2xl capitalize">
-                        We are working our best with these companies to provide you with the best and 100% geniune jobs
+                        We are working our best with these companies and job placement offices to provide you with the best and 100% geniune jobs
                         for you.
                     </p>
-                    <div class="bg-orange-100 border-l-4 border-orange-500 p-4 my-4">
-                        <p class="font-bold text-xl capitalize">Notice: When you land a job through our platform, we
-                            will
-                            request a one-time service fee of Rs. 2,500/- from your first salary to support the efforts
-                            that
-                            make these opportunities possible. Total Amount Rs. 2,999/-.</p>
+                    <div class="bg-orange-100 border-l-4 border-orange-500 p-4 my-4 rounded-lg shadow-lg">
+                        <p class="font-bold text-xl capitalize">
+                            <i class="fa-solid fa-circle-info text-orange-500"></i> Notice: When you land a job through
+                            our platform, we will request a one-time service fee of Rs. 2,500/- from your first salary to
+                            support the efforts that make these opportunities possible. Total Amount Rs. 2,999/-.
+                        </p>
                     </div>
 
                     <img class="py-4 my-4 border max-w-md" src="{{ asset('img/jobs.jpg') }}" alt="">

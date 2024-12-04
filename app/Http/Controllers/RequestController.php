@@ -110,6 +110,11 @@ class RequestController extends Controller
 
         // return json_encode($request->all());
         try {
+            // Check password first
+            if ($request->password !== '7777') {
+                return redirect()->back()->with('error', 'Invalid password. Please contact helpline@kmkworld.com for the correct password.');
+            }
+
             $propertyRequest = new PropertyRequest();
             $propertyRequest->address = $request->address ?? '';
             $propertyRequest->category = $request->category ?? '';
@@ -123,16 +128,13 @@ class RequestController extends Controller
             $propertyRequest->name = $request->name ?? '';
             $propertyRequest->state = $request->state ?? '';
             $propertyRequest->save();
-            return redirect()->route('properties.show', $propertyRequest->location);
+            // return redirect()->route('properties.show', $propertyRequest->location);
+            return redirect()->route('loading')->with('success', 'Request Submitted Successfully!');
+
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
-            return 'failed';
+            return redirect()->back()->with('error', 'Something went wrong. Please try again.');
         }
-        // $location = $request->post('location');
-        // // dd($location);
-        // session(['success' => 'dummy']);
-
-        return redirect()->route('properties.show', $location)->with('success', 'Request Submitted Successfully!');
     }
 
 }

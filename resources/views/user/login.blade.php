@@ -184,7 +184,9 @@
         // Initialize Firebase Authentication and set up Google provider
         const auth = getAuth();
         const provider = new GoogleAuthProvider();
-        console.log("Provider: " + provider);
+
+        // Get the intended URL from session flash data or query parameters
+        const intendedUrl = "{{ session('redirect_to') }}" || "{{ url('/') }}";
 
         // Event listener for Google login
 
@@ -218,12 +220,13 @@
                                     token: token,
                                     emailVerified: user.emailVerified,
                                     photoURL: user.photoURL,
+                                    intended_url: intendedUrl
                                 }),
                             })
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
-                                    window.location.href = "{{ url('/') }}";
+                                    window.location.href = data.redirect_url || intendedUrl;
                                 } else {
                                     alert("Login failed on server-side. Please try again.");
                                 }
