@@ -334,25 +334,24 @@
 
             <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
                 <h2 class="text-4xl font-bold text-center py-4 text-black-100 ">Join Membership Pay</h2>
-                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 2,999</p>
+                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 9,999</p>
                 <b class="p-2 block text-left capitalize">
                     {{-- We are committed to offering the best deals and services.
             <br>
             Upon selling your property, pay Rs.27,000. --}}
 
                     We Are working Hard for providing the Best Deals And Services for you. When you successfully,
-                    sell your property with us pay Rs. 17000
-                    Total Amount 19,999
+                    sell your property, please donate a tip to us so we can continue to provide the best services.
                 </b>
                 <ol class="card-text text-left ">
-                    <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> 1 Year Validity</li>
                     <!-- <li>Giving Seller Geniune Number </li> -->
 
 
                     <li><i class="fa fa-check-circle text-green-600"></i> 0% Commission</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Owner Number Provided</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> Owner To Owner Meeting</li>
+                    <!-- <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li> -->
+                    <li><i class="fa fa-check-circle text-green-600"></i> Buyer To Agent Meeting</li>
                     {{-- <li><i class="fa fa-check-circle text-green-600"></i> Add Whatsapp Group</li> --}}
                     <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>
@@ -363,7 +362,7 @@
             </div>
             <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                 @csrf
-                <input type="hidden" name="amount" value="2,999" />
+                <input type="hidden" name="amount" value="9,999" />
                 <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
                     name="submit" value="Pay Now" />
             </form>

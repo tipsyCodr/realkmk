@@ -1,40 +1,39 @@
 <x-app-layout>
 
     <div class="container mx-auto p-4 capitalize">
-        <div class="max-w-2xl mx-auto py-10">
+        <div class="max-w-2xl mx-auto ">
             <div class="flex flex-col items-center">
-                <img class="py-6" src="{{ asset('img/agent.jpg') }}" alt="">
+                <h1 class="text-3xl py-2 font-bold uppercase">Real Agent</h1>
+                <img class="py-2" src="{{ asset('img/agent.jpg') }}" alt="">
                 <div class=" w-full flex justify-between">
                     <h2 class="text-3xl font-bold">10 Benefits for Real Agent</h2>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded capitalize">Unlimited post a free ad</button>
+                    <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded capitalize">Unlimited post a free ad</button> -->
                 </div>
             </div>
             <ol class="list-decimal list-inside">
-                <li>Real Unlimited Post a Property Ads.</li>
+                <li>Real Agent Unlimited Post a Ads.</li>
                 <li>RealKMK Giving 100% Geniune Buyer Number with follow up.</li>
                 <li>Real Agent can Deal Bank & owner Properties.</li>
-                <li>10 Real Agent When Deal a property you Earn 2% Commission.</li>
-                <li>RealKMK Given (ID) Card for Real Agent 6 month validity</li>
+                <li>Real Agent When Deal a property you Earn 2% Commission.</li>
+                <li>RealKMK Given (I.D.) Card for Real Agent 6 month validity</li>
                 <li>Real Agent sell Builder & Developer projects.</li>
-                <li>RealKMK Provide training video & Add WhatApy group.</li>
-                <li>Real Agent can add any one Agent with Reference you Will earn 1000rs.</li>
-                <li>Buyer & Seller When Deal a Property there contact real agent for verify Documentation per day you will Earn 1000.</li>
-                <li>Realkmk is classified portal real agent can promoting banner advertisement you earn 20% Commission.</li>
+                <li>RealKMK Provide training video & Add WhatApp group.</li>
+                <li>Real Agent can add any one Agent with Reference you Will earn 2000rs.</li>
+                <li>Buyer & Seller When Deal a Property there contact real agent for verify Documentation per day you will Earn 1000rs.</li>
+                <li>Realkmk is classified portal real agent can promoting banner advertisement you will earn 20% Commission.</li>
             </ol>
             <div class="bg-white shadow-md rounded px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
                 <div class="mb-4">
                     <img src="{{ asset('img/agent2.jpg') }}" alt="" class="w-full object-contain">
                 </div>
-                <div class="flex justify-between">
-                    <p class="text-2xl font-bold">6 Month validity</p>
+                <div class="flex flex-col justify-center text-center">
+                    <p class="text-2xl font-bold">1 Year validity</p>
                     <p class="text-2xl font-bold">Join Membership</p>
+                    <p class="text-2xl font-bold">Rs.9999</p>
+                    <p class="text-md  line-through">Rs.20,000</p>
+                    <p class="text-2xl font-bold">50% off</p>
                 </div>
 
-                <div class="flex justify-between">
-                    <p class="text-2xl font-bold">Rs.9999</p>
-                    <p class="text-md  line-through">Rs.19999</p>
-                </div>
-                <p class="text-2xl font-bold">50% off</p>
                 <form class="mt-4" action="{{ route('payment.show') }}" method="POST" id="card-form">
                     @csrf
                     <input type="hidden" name="amount" value="9999" />
@@ -45,14 +44,31 @@
         </div>
     </div>
 
+    <section class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-6">Become a Real Agent</h1>
+        
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <span class="block sm:inline">{{ session('success') }}</span>
+            </div>
+        @endif
+
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <p class="text-gray-600 mb-4">Join our network of professional real estate agents and grow your business.</p>
+            <a href="{{ route('agent.create') }}" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200">
+                Register as Real Agent
+            </a>
+        </div>
+    </section>
+
     <div class="agents">
     <h3 class=" px-4 py-3 rounded text-center relative" role="alert">
-        <span class=" text-xl block sm:inline font-bold capitalize">RealKMK Add Real Agent India Most popular portal cities</span>
+        <span class=" text-xl block sm:inline font-bold capitalize">RealKMK Add Real Agent India Most popular cities, RealKMK Working at real agent</span>
     </h3>
     
     </p>
     <hr class="border border-1 border-gray-300 my-4 mx-4">
-    <div class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded p-4 shadow text-center">
             <a href="{{ route('properties.form', 'delhi') }}">
                 <img class="rounded object-contain w-full py-2 " src="{{ asset('storage/uploads/locations/delhi.jpg') }}"

@@ -3,7 +3,9 @@
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\PlansController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\RealAgentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
 use Faker\Provider\ar_EG\Payment;
@@ -17,7 +19,6 @@ Route::get('/', [WebController::class, 'index'])->name('home');
 Route::post('google-auth', [UserController::class, 'googleAuthenticate'])->name('google.auth');
 Route::get('login', [WebController::class, 'login'])->name('login');
 
-Route::get('agent', [WebController::class, 'agent'])->name('agent.index');
 Route::get('register', [WebController::class, 'register'])->name('register');
 Route::post('register/store', [UserController::class, 'registerUser'])->name('register.store');
 Route::post('login/user', [UserController::class, 'authenticateUser'])->name('authenticate.user');
@@ -27,24 +28,12 @@ Route::get('/loading', function () {
     return view('loading');
 })->name('loading');
 
-//Listing Routes
-Route::name('listing.')->prefix('listing')->group(function () {
-    Route::get('post', [WebController::class, 'post'])->name('post');
-    Route::get('post/type/{category}', [ListingController::class, 'postCategoriesTypes'])->name('types');
-    Route::get('post/type/{category}/{categoryType}', [ListingController::class, 'postForm'])->name('form');
-    Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
-});
+
 
 Route::get('view-listing/{id}', [ListingController::class, 'viewListing'])->name('listing.view');
 Route::get('search', [ListingController::class, 'searchListings'])->name('listing.search');
 
 
-//Jobs Section
-Route::prefix('jobs')->name('jobs.')->group(function () {
-    Route::get('/', [WebController::class, 'jobs'])->name('list');
-    Route::get('form/{category}', [WebController::class, 'jobsForm'])->name('form');
-    Route::post('store', [RequestController::class, 'jobsStore'])->name('store');
-});
 
 
 //plans
@@ -53,11 +42,10 @@ Route::name('plans.')->group(function () {
     Route::view('plan-buyer', 'plans.buyer')->name('buyer');
     Route::view('plan-seller', 'plans.seller')->name('seller');
     Route::view('plan-ads', 'plans.ads')->name('ads');
-});
+    Route::get('plan-agent', [PlansController::class, 'agent'])->name('agent');});
 
 Route::get('categories', [WebController::class, 'categories'])->name('categories');
 
-Route::get('properties', [WebController::class, 'properties'])->name('properties');
 
 
 Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
@@ -69,6 +57,7 @@ Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('ci
 // User Must be authenticated and has role of user or admin
 Route::middleware('checkUser')->group(function () {
     Route::get('my-listings', [ListingController::class, 'getUserListing'])->name('my-listings');
+    Route::get('agent', [WebController::class, 'agent'])->name('agent.index');
 
     //Listing Routes Was Here
 
@@ -80,14 +69,42 @@ Route::middleware('checkUser')->group(function () {
     // Payment page
     Route::get('reset-password', [WebController::class, 'resetPassword'])->name('password.reset');
 
+    Route::get('properties', [WebController::class, 'properties'])->name('properties');
 
+    //Listing Routes
+    Route::name('listing.')->prefix('listing')->group(function () {
+        Route::get('post', [WebController::class, 'post'])->name('post');
+        Route::get('post/type/{category}', [ListingController::class, 'postCategoriesTypes'])->name('types');
+        Route::get('post/type/{category}/{categoryType}', [ListingController::class, 'postForm'])->name('form');
+        Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
+    });
+
+    //Jobs Section
+    Route::prefix('jobs')->name('jobs.')->group(function () {
+        Route::get('/', [WebController::class, 'jobs'])->name('list');
+        Route::get('form/{category}', [WebController::class, 'jobsForm'])->name('form');
+        Route::post('store', [RequestController::class, 'jobsStore'])->name('store');
+    });
 });
+
+//agent routes
+Route::middleware(['auth'])->prefix('agent')->name('agent.')->group(function () {
+    Route::get('/', [RealAgentController::class, 'index'])->name('index');
+    Route::get('/register', [RealAgentController::class, 'create'])->name('create');
+    Route::post('/store', [RealAgentController::class, 'store'])->name('store');
+    Route::get('/edit', [RealAgentController::class, 'edit'])->name('edit');
+    Route::put('/update', [RealAgentController::class, 'update'])->name('update');
+});
+
+
 
 
 Route::get('admin/ads/list', [AdController::class, 'getAllAds'])->name('admin.ads.list');
 
 
 Route::middleware('checkAdmin')->group(function () {
+
+    
 
     Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');

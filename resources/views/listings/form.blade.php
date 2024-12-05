@@ -112,12 +112,7 @@
             <div class="mb-4">
                 <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4" role="alert">
                     <p class="font-semibold">Important Instructions:</p>
-                    <p>Please email <a href="mailto:helpline@kmkworld.com" class="text-blue-600 hover:underline">helpline@kmkworld.com</a> for:</p>
-                    <ul class="list-disc ml-6 mt-2">
-                        <li>Payment details</li>
-                        <li>Password to submit this form</li>
-                        <li>Further instructions</li>
-                    </ul>
+                    <p> You have to email on <a href="mailto:helpline@realkmk.com">helpline@realkmk.com</a>.To get the password, please make the payment of 999rs. Then you will receive an OTP, which you need to fill in this form.</p>
                 </div>
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
                     Password
@@ -199,14 +194,9 @@
                     name="submit" value="Pay Now" />
             </form>
         </div>
-        <div class="bg-blue-100 mx-10 border-l-4 border-blue-500 text-blue-700 p-4 mb-4" role="alert">
+        <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4" role="alert">
                     <p class="font-semibold">Important Instructions:</p>
-                    <p>Please email <a href="mailto:helpline@kmkworld.com" class="text-blue-600 hover:underline">helpline@kmkworld.com</a> for:</p>
-                    <ul class="list-disc ml-6 mt-2">
-                        <li>Payment details</li>
-                        <li>Password to submit this form</li>
-                        <li>Further instructions</li>
-                    </ul>
+                    <p> You have to email on <a href="mailto:helpline@realkmk.com">helpline@realkmk.com</a>.To get the password, please make the payment of 999rs. Then you will receive an OTP, which you need to fill in this form.</p>
                 </div>
     <script>
         function loadCities(stateId) {

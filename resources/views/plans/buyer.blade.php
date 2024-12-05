@@ -73,7 +73,7 @@
             </div>
             <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                 @csrf
-                <input type="hidden" name="amount" value="400   0" />
+                <input type="hidden" name="amount" value="999" />
                 <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
                     name="submit" value="Pay Now" />
             </form>
