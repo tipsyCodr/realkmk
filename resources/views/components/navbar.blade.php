@@ -24,16 +24,16 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('listing.types', 'properties') }}"
+            <a href="{{ route('agent.index', 'properties') }}"
                 class="flex flex-col items-center justify-center text-gray-500 ">
                 {{-- <a href="{{ route('listing.post') }}" class="flex flex-col items-center justify-center text-gray-500 "> --}}
 
 
                 {{-- <x-add-icon :color="'grey-400'" /> --}}
-                <img src="{{ asset('img/icon/add.png') }}"
+                <img src="{{ asset('img/icon/agent.png') }}"
                     class="img-fluid rounded-top w-9 hover:scale-110 transition-transform" alt="" />
 
-                <p class="text-black">Sell</p>
+                <p class="text-black">Real Agent</p>
             </a>
         </li>
         <li>

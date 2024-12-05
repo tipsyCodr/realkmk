@@ -17,7 +17,7 @@
                 </a>
             </div>
         @endif
-        <div class="flex items-centertext-center my-2 self-center flex flex-row place-items-center px-2 ">
+        <div class="items-center text-center my-2 self-center flex flex-row place-items-center px-2 ">
             <a href="{{ route('listing.types', 'properties') }}"
                 class="text-right sm:scale-100 scale-75 p-1 capitalize text-xs flex items-center bg-yellow-200 border rounded text-yellow-900 border-yellow-500  ">Post
                 a free

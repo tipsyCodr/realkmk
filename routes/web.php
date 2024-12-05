@@ -17,6 +17,7 @@ Route::get('/', [WebController::class, 'index'])->name('home');
 Route::post('google-auth', [UserController::class, 'googleAuthenticate'])->name('google.auth');
 Route::get('login', [WebController::class, 'login'])->name('login');
 
+Route::get('agent', [WebController::class, 'agent'])->name('agent.index');
 Route::get('register', [WebController::class, 'register'])->name('register');
 Route::post('register/store', [UserController::class, 'registerUser'])->name('register.store');
 Route::post('login/user', [UserController::class, 'authenticateUser'])->name('authenticate.user');

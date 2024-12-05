@@ -29,6 +29,11 @@ class WebController extends Controller
         // echo "posts";
         return view('sell');
     }
+    public function agent()
+    {
+        // echo "posts";
+        return view('agent.index');
+    }
 
     public function jobs()
     {
