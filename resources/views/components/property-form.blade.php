@@ -337,21 +337,22 @@
                 <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 2,999</p>
                 <b class="p-2 block text-left capitalize">
                     {{-- We are committed to offering the best deals and services.
-            <br>
-            Upon selling your property, pay Rs.27,000. --}}
+        <br>
+        Upon selling your property, pay Rs.27,000. --}}
 
                     We Are working Hard for providing the Best Deals And Services for you. When you successfully,
-                    sell your property, please donate a tip to us so we can continue to provide the best services.
+                    sell your property with us pay Rs. 17000
+                    Total Amount 19,999
                 </b>
                 <ol class="card-text text-left ">
-                    <li><i class="fa fa-check-circle text-green-600"></i> 1 Year Validity</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>
                     <!-- <li>Giving Seller Geniune Number </li> -->
 
 
                     <li><i class="fa fa-check-circle text-green-600"></i> 0% Commission</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Owner Number Provided</li>
-                    <!-- <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li> -->
-                    <li><i class="fa fa-check-circle text-green-600"></i> Buyer To Agent Meeting</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Owner To Owner Meeting</li>
                     {{-- <li><i class="fa fa-check-circle text-green-600"></i> Add Whatsapp Group</li> --}}
                     <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>

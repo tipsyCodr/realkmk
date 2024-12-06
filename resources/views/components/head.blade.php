@@ -23,7 +23,7 @@
                 @if (strpos(url()->current(), 'agent') !== false)
                     Post free unlimited ads
                 @else
-                    Post a ads
+                    Post a free ad
                 @endif
                 <i class="fa-solid fa-plus-square fa-2x pl-2 text-yellow-500"></i>
             </a>

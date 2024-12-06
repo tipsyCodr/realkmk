@@ -6,7 +6,7 @@
                 <h1 class="text-3xl py-2 font-bold uppercase border-b ">Real Agent</h1>
                 <img class="py-2" src="{{ asset('img/agent.jpg') }}" alt="">
                 <div class=" w-full flex justify-between">
-                    <h2 class="text-3xl font-bold text-nowrap">10 Benefits for Real Agent</h2>
+                    <h2 class="text-2xl py-2 font-bold text-nowrap">10 Benefits for Real Agent</h2>
                     <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded capitalize">Unlimited post a free ad</button> -->
                 </div>
             </div>
@@ -15,7 +15,7 @@
                 <li>RealKMK Giving 100% Geniune Buyer Number with follow up.</li>
                 <li>Real Agent can Deal Bank & owner Properties.</li>
                 <li>Real Agent When Deal a property you Earn 2% Commission.</li>
-                <li>RealKMK Given (I.D.) Card for Real Agent 1 year validity</li>
+                <li>RealKMK Given (I.D.) Card for Real Agent <span class="text-nowrap">1 year validity</span></li>
                 <li>Real Agent sell Builder & Developer projects.</li>
                 <li>RealKMK Provide training video & Add WhatApp group.</li>
                 <li>Real Agent can add any one Agent with Reference you Will earn 2000rs.</li>
