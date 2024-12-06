@@ -123,14 +123,14 @@
                     <li><i class="fa fa-check-circle text-green-600"></i> 1 Year Validity</li>
                     <!-- <li>Giving Seller Geniune Number </li> -->
                     <li><i class="fa fa-check-circle text-green-600"></i> 0% Commission</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li>
+                    <!-- <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li> -->
                     <li><i class="fa fa-check-circle text-green-600"></i> Owner Number Provided</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> Owner To Owner Meeting</li>
+                    <li><i class="fa fa-check-circle text-green-600"></i> Owner To Agent Meeting</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Add Whatsapp Group</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>
                     <li><i class="fa fa-check-circle text-green-600"></i> Bank Seizing Properties</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance</li>
+                    <!-- <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance</li> -->
                     {{-- <li><i class="fa fa-check-circle text-green-600"></i> Total amount Rs.19,500</li> --}}
                 </ol>
             </div>
