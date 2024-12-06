@@ -334,7 +334,7 @@
 
             <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
                 <h2 class="text-4xl font-bold text-center py-4 text-black-100 ">Join Membership Pay</h2>
-                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 9,999</p>
+                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 2,999</p>
                 <b class="p-2 block text-left capitalize">
                     {{-- We are committed to offering the best deals and services.
             <br>
@@ -362,7 +362,7 @@
             </div>
             <form action="{{ route('payment.show') }}" method="POST" id="card-form">
                 @csrf
-                <input type="hidden" name="amount" value="9,999" />
+                <input type="hidden" name="amount" value="2,999" />
                 <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
                     name="submit" value="Pay Now" />
             </form>

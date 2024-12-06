@@ -3,10 +3,10 @@
     <div class="container mx-auto p-4 capitalize">
         <div class="max-w-2xl mx-auto ">
             <div class="flex flex-col items-center">
-                <h1 class="text-3xl py-2 font-bold uppercase">Real Agent</h1>
+                <h1 class="text-3xl py-2 font-bold uppercase border-b ">Real Agent</h1>
                 <img class="py-2" src="{{ asset('img/agent.jpg') }}" alt="">
                 <div class=" w-full flex justify-between">
-                    <h2 class="text-3xl font-bold">10 Benefits for Real Agent</h2>
+                    <h2 class="text-3xl font-bold text-nowrap">10 Benefits for Real Agent</h2>
                     <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded capitalize">Unlimited post a free ad</button> -->
                 </div>
             </div>
@@ -15,7 +15,7 @@
                 <li>RealKMK Giving 100% Geniune Buyer Number with follow up.</li>
                 <li>Real Agent can Deal Bank & owner Properties.</li>
                 <li>Real Agent When Deal a property you Earn 2% Commission.</li>
-                <li>RealKMK Given (I.D.) Card for Real Agent 6 month validity</li>
+                <li>RealKMK Given (I.D.) Card for Real Agent 1 year validity</li>
                 <li>Real Agent sell Builder & Developer projects.</li>
                 <li>RealKMK Provide training video & Add WhatApp group.</li>
                 <li>Real Agent can add any one Agent with Reference you Will earn 2000rs.</li>
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <section class="container mx-auto px-4 py-8">
+    <section class="container mx-auto px-4 py-4">
         <h1 class="text-2xl font-bold mb-6">Become a Real Agent</h1>
         
         @if(session('success'))
@@ -63,14 +63,14 @@
 
     <div class="agents">
     <h3 class=" px-4 py-3 rounded text-center relative" role="alert">
-        <span class=" text-xl block sm:inline font-bold capitalize">RealKMK Add Real Agent India Most popular cities, RealKMK Working at real agent</span>
+        <span class=" text-lg block sm:inline font-bold capitalize">RealKMK Add Real Agent India Most popular cities, RealKMK Working at real agent</span>
     </h3>
     
     </p>
     <hr class="border border-1 border-gray-300 my-4 mx-4">
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'delhi') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2 " src="{{ asset('storage/uploads/locations/delhi.jpg') }}"
                     alt="">
                 <p class="font-bold md:text-lg text-sm  text-center">Delhi</p>
@@ -78,7 +78,7 @@
             </a>
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'mumbai') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2 " src="{{ asset('storage/uploads/locations/mumbai.jpg') }}"
                     alt="">
                 <p class="font-bold md:text-lg text-sm   text-center">Mumbai </p>
@@ -88,7 +88,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'kolkata') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2" src="{{ asset('storage/uploads/locations/kolkata.jpg') }}"
                     alt="">
                 <p class="font-bold md:text-lg text-sm   text-center">Kolkata </p>
@@ -98,7 +98,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'bengaluru') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full   py-2"
                     src="{{ asset('storage/uploads/locations/banglore.jpg') }}" alt="">
                 <p class="font-bold md:text-lg text-sm   "> Banglore </p>
@@ -108,7 +108,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'chennai') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2"
                     src="{{ asset('storage/uploads/locations/chennai.jpg') }}" alt="">
                 <p class="font-bold md:text-lg text-sm   "> Chennai </p>
@@ -118,7 +118,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'pune') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2"
                     src="{{ asset('storage/uploads/locations/pune.jpg') }}" alt="">
                 <p class="font-bold md:text-lg text-sm   "> Pune </p>
@@ -128,7 +128,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'ahmedabad') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2"
                     src="{{ asset('storage/uploads/locations/ahmedabad.jpg') }}" alt="">
                 <p class="font-bold md:text-lg text-sm   "> Ahmedabad </p>
@@ -138,7 +138,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'jaipur') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2"
                     src="{{ asset('storage/uploads/locations/jaipur.jpg') }}" alt="">
                 <p class="font-bold md:text-lg text-sm   "> Jaipur </p>
@@ -148,7 +148,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'surat') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2"
                     src="{{ asset('storage/uploads/locations/surat.jpg') }}" alt="">
                 <p class="font-bold md:text-lg text-sm "> Surat </p>
@@ -158,7 +158,7 @@
 
         </div>
         <div class="bg-white rounded p-4 shadow text-center">
-            <a href="{{ route('properties.form', 'hyderabad') }}">
+            <a href="{{ route('agent.create') }}">
                 <img class="rounded object-contain w-full py-2"
                     src="{{ asset('storage/uploads/locations/hyderabad.jpg') }}" alt="">
                 <p class="font-bold md:text-lg text-sm   "> Hyderabad </p>

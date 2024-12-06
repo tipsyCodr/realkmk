@@ -1,5 +1,7 @@
 <footer style="text-align: center;">
     <footer class="mb-[100px]">
+        @if (request()->routeIs('my-listings'))
+        @else
         <div class="ads w-full flex justify-center items-center">
             <?php
             $adController = new \App\Http\Controllers\AdController();
@@ -9,6 +11,7 @@
                 <x-ad :ad="$ad ?? null" />
             </div>
         </div>
+        @endif
         <div class="environment">
             <p>Copyright © 2024 RealKMK. All rights reserved.</p>
         </div>
