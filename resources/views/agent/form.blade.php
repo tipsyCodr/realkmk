@@ -28,17 +28,32 @@
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
-                <div>
-                    <label for="state" class="block text-sm font-medium text-gray-700">State</label>
-                    <input type="text" name="state" id="state" required value="{{ old('state') }}"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                </div>
+                <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="state">
+                    State
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="state" name="state" data-search="true" onchange="loadCities(this.value)" required>
+                    <option value="">Select State</option>
+                    @foreach ($states as $state)
+                    <option value="{{ $state->pk_i_id }}">{{ $state->s_name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-                <div>
-                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                    <input type="text" name="city" id="city" required value="{{ old('city') }}"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
+                    City <span id="city-loader" style='display: none;'> <i class="fa fa-spinner fa-spin"></i></span>
+                </label>
+                <select
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="city" name="city" data-search="true" disabled required>
+                    <option value="">Select City</option>
+
+                </select>
+            </div>
+
 
                 <div>
                     <label for="area" class="block text-sm font-medium text-gray-700">Area/Locality</label>
@@ -144,3 +159,28 @@
     </div>
     </div>
 </x-app-layout>
+
+<script>
+        function loadCities(stateId) {
+            const cityLoader = document.getElementById('city-loader');
+            cityLoader.style.display = 'inline';
+
+            axios.get(`{{ route('cities.by.state') }}?stateId=${stateId}`)
+                .then(response => {
+                    const cities = response.data;
+                    cityLoader.style.display = 'none';
+                    const citySelect = document.getElementById('city');
+                    citySelect.disabled = false;
+                    citySelect.innerHTML = `<option value="">Select City</option>`;
+                    cities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city.s_slug;
+                        option.text = city.s_name;
+                        citySelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    </script>

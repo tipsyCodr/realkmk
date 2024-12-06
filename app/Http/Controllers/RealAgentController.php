@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\RealAgent;
+use App\Models\State;
+use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -11,7 +13,8 @@ class RealAgentController extends Controller
 {
     public function create()
     {
-        return view('agent.form');
+        $states = State::all();
+        return view('agent.form', compact('states'));
     }
 
     public function store(Request $request)
@@ -130,5 +133,11 @@ class RealAgentController extends Controller
         $agent->update($validated);
 
         return redirect()->route('agent.dashboard')->with('success', 'Agent profile updated successfully!');
+    }
+
+    public function getCities($stateId)
+    {
+        $cities = City::where('fk_i_region_id', $stateId)->get();
+        return response()->json($cities);
     }
 }
