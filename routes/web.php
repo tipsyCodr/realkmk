@@ -94,6 +94,8 @@ Route::middleware(['auth'])->prefix('agent')->name('agent.')->group(function () 
     Route::post('/store', [RealAgentController::class, 'store'])->name('store');
     Route::get('/edit', [RealAgentController::class, 'edit'])->name('edit');
     Route::put('/update', [RealAgentController::class, 'update'])->name('update');
+    Route::get('/otp', [RealAgentController::class, 'showOtpForm'])->name('otp');
+    Route::post('/otp/verify', [RealAgentController::class, 'verifyOtp'])->name('otp.verify');
 });
 
 

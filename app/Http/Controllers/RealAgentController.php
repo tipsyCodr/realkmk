@@ -45,9 +45,40 @@ class RealAgentController extends Controller
 
         $validated['user_id'] = Auth::id();
         
-        RealAgent::create($validated);
+        // Store form data in session
+        session(['agent_form_data' => $validated]);
+        
+        return redirect()->route('agent.otp');
+    }
 
-        return redirect()->route('agent.index')->with('success', 'Thank you for registering as an agent. We will review your application and get back to you soon.');
+    public function showOtpForm()
+    {
+        if (!session()->has('agent_form_data')) {
+            return redirect()->route('agent.create');
+        }
+        return view('agent.otp-verify');
+    }
+
+    public function verifyOtp(Request $request)
+    {
+        $request->validate([
+            'otp' => 'required|string|size:4'
+        ]);
+
+        if ($request->otp !== '7777') {
+            return back()->with('error', 'Invalid OTP. Please try again.');
+        }
+
+        // Get the stored form data
+        $validated = session('agent_form_data');
+        
+        // Create the agent
+        RealAgent::create($validated);
+        
+        // Clear the session data
+        session()->forget('agent_form_data');
+        
+        return redirect()->route('loading');
     }
 
     public function index()
