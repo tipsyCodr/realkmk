@@ -108,6 +108,7 @@ Route::get('admin/ads/list', [AdController::class, 'getAllAds'])->name('admin.ad
 Route::middleware('checkAdmin')->group(function () {
     Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::post('admin/ads/update-order', [AdController::class, 'updateOrder'])->name('admin.ads.updateOrder');
 
     Route::name('admin.listings.')->prefix('admin/listings')->group(function () {
         Route::get('/', [ListingController::class, 'searchListingsAdmin'])->name('list');
