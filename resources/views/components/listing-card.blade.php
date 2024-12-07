@@ -6,30 +6,26 @@
     @endphp
     @if (is_array($photos))
         @foreach ($photos as $photo)
-            {{-- <img src="{{ Storage::url($photo) }}" alt="{{ $post['title'] }}" class="w-full h-full rounded object-cover"> --}}
-            <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
+            <a class="w-1/3 bg-cover relative" href="{{ route('admin.listings.show', $listing['id']) }}"
                 style="background-image: url('{{ asset('storage/' . $photo) }}')">
+                @if ($listing['premium'])
+                    <div class="absolute top-0 right-0 bg-yellow-500 text-white px-2 py-1 text-sm font-bold rounded-bl">Premium</div>
+                @endif
                 <div>
                 </div>
             </a>
-        @break
-    @endforeach
-@else
-    {{-- <img src="{{ Storage::url('' . $post['photos']) }}" alt="{{ $post['title'] }}"
-        class="w-full h-full rounded object-cover"> --}}
-    <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-        style="background-image: url('{{ asset('storage/' . $photos) }}')">
-        <div>
-        </div>
-    </a>
-@endif
-
-{{-- <a class="w-1/3 bg-cover" href="{{ route('admin.listings.show', $listing['id']) }}"
-    style="background-image: url('{{ asset('storage/' . $listing['photos']) }}')">
-    <div>
-    </div>
-</a> --}}
-
+            @break
+        @endforeach
+    @else
+        <a class="w-1/3 bg-cover relative" href="{{ route('admin.listings.show', $listing['id']) }}"
+            style="background-image: url('{{ asset('storage/' . $photos) }}')">
+            @if ($listing['premium'])
+                <div class="absolute top-0 right-0 bg-yellow-500 text-white px-2 py-1 text-sm font-bold rounded-bl">Premium</div>
+            @endif
+            <div>
+            </div>
+        </a>
+    @endif
 
 <a class="w-2/3 p-4 md:p-4" href="{{ route('admin.listings.show', $listing['id']) }}">
     <div class="">
@@ -46,7 +42,13 @@
                     class="fa fa-location-dot pr-1 "></i>{{ $listing['location'] }}</span>
             <span class="px-1 text-white text-xs"><i class="fa fa-building pr-1 "></i>
                 {{ $listing['city'] }}</span>
-
+            <form action="{{ route('admin.listings.update.premium', $listing['id']) }}" method="POST" class="ml-2">
+                @csrf
+                @method('PUT')
+                <button type="submit" class="px-2 py-1 text-xs font-semibold {{ $listing['premium'] ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-gray-500 hover:bg-gray-600' }} text-white rounded-full transition duration-300">
+                    {{ $listing['premium'] ? 'Premium' : 'Make Premium' }}
+                </button>
+            </form>
         </div>
         <h1 class="text-lg font-bold text-green-700 dark:text-green-500 md:text-xl">&#x20B9;
             {{ number_format($listing['price'], 0, '.', ',') }}

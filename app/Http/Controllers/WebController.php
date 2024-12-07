@@ -16,7 +16,7 @@ class WebController extends Controller
     //
     public function index()
     {
-        $listings = Listing::orderByDesc('created_at')->get();
+        $listings = Listing::orderBy('premium', 'desc')->orderByDesc('created_at')->get();
         return view('app', compact('listings'));
     }
     public function chat()

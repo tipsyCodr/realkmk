@@ -106,11 +106,17 @@ Route::get('admin/ads/list', [AdController::class, 'getAllAds'])->name('admin.ad
 
 
 Route::middleware('checkAdmin')->group(function () {
-
-    
-
     Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+    Route::name('admin.listings.')->prefix('admin/listings')->group(function () {
+        Route::get('/', [ListingController::class, 'searchListingsAdmin'])->name('list');
+        Route::get('show/{id}', [ListingController::class, 'showListingsAdmin'])->name('show');
+        Route::post('delete', [ListingController::class, 'deleteListingsAdmin'])->name('delete');
+        Route::post('disable', [ListingController::class, 'disableListingsAdmin'])->name('disable');
+        Route::post('enable', [ListingController::class, 'enableListingsAdmin'])->name('enable');
+        Route::put('{id}/update-premium', [ListingController::class, 'togglePremium'])->name('update.premium');
+    });
 
     Route::name('admin.requests.')->prefix('admin/requests')->group(function () {
         // Requests Form Section
@@ -120,14 +126,5 @@ Route::middleware('checkAdmin')->group(function () {
         Route::get('properties', [RequestController::class, 'indexProperties'])->name('properties.list');
         Route::get('properties/{id}', [RequestController::class, 'viewProperty'])->name('properties.view');
         // Requests Form Section
-    });
-
-    Route::name('admin.listings.')->prefix('admin/listings')->group(function () {
-        Route::get('/', [ListingController::class, 'searchListingsAdmin'])->name('list');
-        Route::get('show/{id}', [ListingController::class, 'showListingsAdmin'])->name('show');
-        Route::post('delete', [ListingController::class, 'deleteListingsAdmin'])->name('delete');
-        Route::post('disable', [ListingController::class, 'disableListingsAdmin'])->name('disable');
-        Route::post('enable', [ListingController::class, 'enableListingsAdmin'])->name('enable');
-
     });
 });

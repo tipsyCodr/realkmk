@@ -31,7 +31,9 @@ class ListingController extends Controller
     {
         $q = $request->input('q');
         $location = $request->input('l');
-        $query = Listing::query();
+        $query = Listing::query()
+                    ->orderBy('premium', 'desc')  // Premium listings first
+                    ->orderBy('created_at', 'desc'); // Then by newest first
         if ($q && $location) {
             $query->where('location', 'like', '%' . $location . '%')->where('ad_title', 'like', '%' . $q . '%');
         } elseif ($q) {
@@ -148,7 +150,9 @@ class ListingController extends Controller
     {
         $q = $request->input('q');
         $location = $request->input('l');
-        $query = Listing::query()->orderBy('created_at', 'desc');
+        $query = Listing::query()
+                    ->orderBy('premium', 'desc')  // Premium listings first
+                    ->orderBy('created_at', 'desc'); // Then by newest first
         if ($q && $location) {
             $query->where('location', 'like', '%' . $location . '%')->where('ad_title', 'like', '%' . $q . '%');
         } elseif ($q) {
@@ -156,14 +160,16 @@ class ListingController extends Controller
         } elseif ($location) {
             $query->where('location', 'like', '%' . $location . '%');
         }
-
         $listings = $query->get();
         return view('admin.listings.list', compact('listings'));
     }
     public function getUserListing()
     {
         $user_id = auth()->user()->id;
-        $listings = Listing::where('user_id', $user_id)->get();
+        $listings = Listing::where('user_id', $user_id)
+                    ->orderBy('premium', 'desc')  // Premium listings first
+                    ->orderBy('created_at', 'desc') // Then by newest first
+                    ->get();
         return view('my-listings', compact('listings', 'user_id'));
     }
     public function showListingsAdmin(Request $request)
@@ -226,5 +232,13 @@ class ListingController extends Controller
                 'error' => 'Listing not found',
             ]);
         }
+    }
+    public function togglePremium($id)
+    {
+        $listing = Listing::findOrFail($id);
+        $listing->premium = !$listing->premium;
+        $listing->save();
+
+        return back()->with('success', $listing->premium ? 'Listing marked as premium' : 'Premium status removed');
     }
 }
