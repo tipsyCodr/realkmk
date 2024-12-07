@@ -47,16 +47,19 @@ class ListingController extends Controller
     public function postCategoriesTypes(Request $request)
     {
         $categorySlug = $request->segment(4);
+        $role = $request->query('role');
         // dd($categorySlug);
         $category = Category::where('slug', $categorySlug)->first();
         $categoryTypes = CategoryType::where('category_id', $category->id)->get();
 
-        return view('listings.types', compact('category', 'categoryTypes'));
+        return view('listings.types', compact('category', 'categoryTypes','role'));
     }
     public function postForm(Request $request)
     {
         $categorySlug = $request->segment(4);
         $categoryTypeSlug = $request->segment(5);
+        $role = $request->query('role');
+
         // dd($categorySlug, $categoryTypeSlug);
         $states = State::all();
         $cities = City::all();
@@ -64,7 +67,7 @@ class ListingController extends Controller
 
         $category = Category::where('slug', $categorySlug)->first();
         $user = auth()->user();
-        return view('listings.post', compact('user', 'category', 'categoryType', 'states', 'cities'));
+        return view('listings.post', compact('user', 'category', 'categoryType', 'states', 'cities', 'role'));
     }
     public function storePropertyListing(Request $request)
     {

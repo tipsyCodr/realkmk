@@ -46,6 +46,8 @@
                 </label>
 
             </div> --}}
+            <input type="hidden" name="role" value="{{$role}}">
+
             <div class="border-b border-black pb-2">
                 <label for="photos" class="block text-gray-700 text-sm font-bold mb-2">Photos</label>
 
@@ -284,8 +286,154 @@
         </div>
     </div>
 </div>
-<script>
-    function loadCities(stateId) {
+<div class="relative text-center bg-green-50 py-4 my-4 ">
+        <h1 class="text-center font-bold text-xl sm:text-3xl">Reviews from Land and Plot Sellers and Buyers <h1>
+                <!-- <p class="text-center text-gray-600 py-0 sm:py-2">We are here to help you.</p> -->
+                <br>
+                <style>
+                    .swiper-slide {
+                        background: #fff;
+                        border-radius: 10px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        min-height: 100px;
+                    }
+                </style>
+                <div class="testimonies overflow-hidden">
+                    <div class="swiper-container testimonies-swiper ">
+                        <div class="swiper-wrapper pb-10 px-2">
+                            <!-- Testimony Slide 1 -->
+                            <div class="swiper-slide shadow">
+                                <div class="flex items-center">
+                                    <div class="">
+                                        <p class="font-bold text-lg mx-4">"I sold my land in just 2 weeks through
+                                            this platform."</p>
+                                        <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                            <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                            <div class="flex flex-col items-start justify-start gap-2">
+                                                <p class="text-xs font-bold ">
+                                                    Rohan Desai, Chennai</p>
+                                                <div class="flex">
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimony Slide 2 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I found the perfect buyer for my land on this
+                                    platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Monika Singh, Mumbai </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimony Slide 3 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I've been able to sell my land quickly and easily
+                                    through this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Priya Singh, Bangalore </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Testimony Slide 4 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I've been able to find the perfect land for my
+                                    needs through this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Anjali Sharma, Delhi </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more testimony slides as needed -->
+                            <!-- Testimony Slide 5 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I've been able to sell my land quickly and easily
+                                    through this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Priya Singh, Bangalore </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimony Slide 6 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I've been able to purchase my dream land through
+                                    this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Rajesh Kumar, Mumbai </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation -->
+                        {{-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> --}}
+                    </div>
+                </div>
+
+    </div>
+<script>div  function loadCities(stateId) {
         const cityLoader = document.getElementById('city-loader');
         cityLoader.style.display = 'inline';
 

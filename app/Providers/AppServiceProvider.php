@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->composer('*', function ($view) {
+            $role = request()->query('role') ?? session('role');
+            $view->with('role', $role);
+        });
     }
 }

@@ -17,16 +17,21 @@
                 </a>
             </div>
         @endif
+       
         <div class="items-center text-center my-2 self-center flex flex-row place-items-center px-2 ">
-            <a href="{{ route('listing.types', 'properties') }}"
-                class="text-right sm:scale-100 scale-75 p-1 capitalize text-xs flex items-center bg-yellow-200 border rounded text-yellow-900 border-yellow-500  ">
-                @if (strpos(url()->current(), 'agent') !== false)
+            @if ($role === 'agent' || strpos(url()->current(), 'agent') !== false)
+                <a href="{{ route('listing.types', ['category' => 'properties']) }}?role=agent"
+                    class="text-right sm:scale-100 scale-75 p-1 capitalize text-xs flex items-center bg-yellow-200 border rounded text-yellow-900 border-yellow-500  ">
                     Post free unlimited ads
-                @else
+                    <i class="fa-solid fa-plus-square fa-2x pl-2 text-yellow-500"></i>
+                </a>
+            @else
+                <a href="{{ route('listing.types', ['category' => 'properties']) }}?role=seller"
+                    class="text-right sm:scale-100 scale-75 p-1 capitalize text-xs flex items-center bg-yellow-200 border rounded text-yellow-900 border-yellow-500  ">
                     Post a free ad
-                @endif
-                <i class="fa-solid fa-plus-square fa-2x pl-2 text-yellow-500"></i>
-            </a>
+                    <i class="fa-solid fa-plus-square fa-2x pl-2 text-yellow-500"></i>
+                </a>
+            @endif
 
             <a href="{{ route('login') }}">
                 @if (Auth::user() && Auth::user()->profile_picture)

@@ -243,6 +243,7 @@
                         South-West</option>
                 </select>
             </div>
+            <input type="hidden" name="role" value="{{$role}}">
             <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="project_name">
                     Project Name
@@ -328,46 +329,253 @@
         </form>
     </div>
 
-    <div class="flex items-center justify-center">
+    @if ($role == 'seller')
+        <!-- Seller -->
+        <div class="flex items-center justify-center">
+            <div class="px-6 py-4 my-4 w-80 rounded-xl gold-bg transition-opacity duration-500 ease-in-out " id="bGold">
 
-        <div class="px-6 py-4 my-4 w-80 rounded-xl gold-bg transition-opacity duration-500 ease-in-out " id="bGold">
+                <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
+                    <h2 class="text-4xl font-bold text-center py-4 text-black-100 ">Join Membership Pay</h2>
+                    <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 2,999</p>
+                    <b class="p-2 block text-left capitalize">
+                        
 
-            <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
-                <h2 class="text-4xl font-bold text-center py-4 text-black-100 ">Join Membership Pay</h2>
-                <p class="font-bold text-3xl text-center pb-4 text-black"> Rs. 2,999</p>
-                <b class="p-2 block text-left capitalize">
-                    {{-- We are committed to offering the best deals and services.
-        <br>
-        Upon selling your property, pay Rs.27,000. --}}
+                        We Are working Hard for providing the Best Deals And Services for you. When you successfully,
+                        sell your property with us pay Rs. 17000
+                        Total Amount 19,999
+                    </b>
+                    <ol class="card-text text-left ">
+                        <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>
+                        <!-- <li>Giving Seller Geniune Number </li> -->
 
-                    We Are working Hard for providing the Best Deals And Services for you. When you successfully,
-                    sell your property with us pay Rs. 17000
-                    Total Amount 19,999
-                </b>
-                <ol class="card-text text-left ">
-                    <li><i class="fa fa-check-circle text-green-600"></i> Unlimited Validity</li>
-                    <!-- <li>Giving Seller Geniune Number </li> -->
+                        <li><i class="fa fa-check-circle text-green-600"></i> 0% Commission</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Owner Number Provided</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Owner To Owner Meeting</li>
+                        {{-- <li><i class="fa fa-check-circle text-green-600"></i> Add Whatsapp Group</li> --}}
+                        <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>
+                        {{-- <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance also</li> --}}
+                        {{-- <li><i class="fa fa-check-circle text-green-600"></i> Total amount Rs.39,500</li> --}}
 
-
-                    <li><i class="fa fa-check-circle text-green-600"></i> 0% Commission</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> Owner Number Provided</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> Owner To Owner Meeting</li>
-                    {{-- <li><i class="fa fa-check-circle text-green-600"></i> Add Whatsapp Group</li> --}}
-                    <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
-                    <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>
-                    {{-- <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance also</li> --}}
-                    {{-- <li><i class="fa fa-check-circle text-green-600"></i> Total amount Rs.39,500</li> --}}
-
-                </ol>
+                    </ol>
+                </div>
+                <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                    @csrf
+                    <input type="hidden" name="amount" value="2,999" />
+                    <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
+                        name="submit" value="Pay Now" />
+                </form>
             </div>
-            <form action="{{ route('payment.show') }}" method="POST" id="card-form">
-                @csrf
-                <input type="hidden" name="amount" value="2,999" />
-                <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
-                    name="submit" value="Pay Now" />
-            </form>
         </div>
+        <!-- Seller -->
+    @elseif ($role == 'agent')
+        <!-- agent -->
+        <div class="flex items-center justify-center">
+
+            <div class="px-6 py-4 my-4 w-80 rounded-xl gold-bg transition-opacity duration-500 ease-in-out " id="bGold"
+                style="">
+
+                <div class=" bg-gray-50 bg-opacity-45 p-2 rounded-t-lg">
+                    <h2 class="text-4xl font-bold text-center py-4 text-black">Join Pay</h2>
+                    <p class="font-bold text-3xl text-center pb-4 text-black"> Rs.9,999</p>
+                    <b class="p-2 block text-center capitalize">
+                        {{-- We are committed to offering the best deals and services.
+                <br>
+                Upon purchasing your property, pay Rs.9,000. --}}
+
+                        We are providing this service for free. If you want to support us, feel free to donate a tip.
+                    </b>
+                    <ol class="card-text text-left ">
+                        <li><i class="fa fa-check-circle text-green-600"></i> 1 Year Validity</li>
+                        <!-- <li>Giving Seller Geniune Number </li> -->
+                        <li><i class="fa fa-check-circle text-green-600"></i> 0% Commission</li>
+                        <!-- <li><i class="fa fa-check-circle text-green-600"></i> No Agents & No Broker Policy</li> -->
+                        <li><i class="fa fa-check-circle text-green-600"></i> Owner Number Provided</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Owner To Agent Meeting</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Add Whatsapp Group</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Privacy Mobile Number</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Dedicated Support</li>
+                        <li><i class="fa fa-check-circle text-green-600"></i> Bank Seizing Properties</li>
+                        <!-- <li><i class="fa fa-check-circle text-green-600"></i> Buyer Bank Refinance</li> -->
+                        {{-- <li><i class="fa fa-check-circle text-green-600"></i> Total amount Rs.19,500</li> --}}
+                    </ol>
+                </div>
+                <form action="{{ route('payment.show') }}" method="POST" id="card-form">
+                    @csrf
+                    <input type="hidden" name="amount" value="9,999" />
+                    <input class="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-b-lg w-full" type="submit"
+                        name="submit" value="Pay Now" />
+                </form>
+            </div>
+        </div>
+        <!-- agent -->
+    @endif
+
+
+    <div class="relative text-center bg-green-50 py-4 my-4 ">
+        <h1 class="text-center font-bold text-xl sm:text-3xl">Reviews from Property Sellers and Buyers <h1>
+                <!-- <p class="text-center text-gray-600 py-0 sm:py-2">We are here to help you.</p> -->
+                <br>
+                <style>
+                    .swiper-slide {
+                        background: #fff;
+                        border-radius: 10px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        min-height: 100px;
+                    }
+                </style>
+                <div class="testimonies overflow-hidden">
+                    <div class="swiper-container testimonies-swiper">
+                        <div class="swiper-wrapper pb-10 px-2">
+                            <!-- Testimony Slide 1 -->
+                            <div class="swiper-slide shadow">
+                                <div class="flex items-center">
+
+                                    <div class="">
+                                        <p class="font-bold text-lg mx-4">"I sold my property in just 2 weeks through
+                                            this platform."</p>
+                                        <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                            <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                            <div class="flex flex-col items-start justify-start gap-2">
+                                                <p class="text-xs font-bold ">
+                                                    Rohan Desai, Chennai</p>
+                                                <div class="flex">
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                                    <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimony Slide 2 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I found the perfect buyer for my property on this
+                                    platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Monika Singh, Mumbai </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimony Slide 3 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I've been able to sell my property quickly and easily
+                                    through this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Priya Singh, Bangalore </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Testimony Slide 4 -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I've been able to find the perfect property for my
+                                    needs through this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Anjali Sharma, Delhi </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I've been able to purchase my dream property through
+                                    this platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Rajesh Kumar, Mumbai </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add more testimony slides as needed -->
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"This platform helped me find the perfect property
+                                    for my business."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Monika Singh, Mumbai </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide shadow">
+                                <p class="font-bold text-lg mx-4">"I found the perfect buyer for my property on this
+                                    platform."</p>
+                                <div class="mx-4 flex gap-2 items-start justify-center py-2">
+                                    <i class="fa-solid fa-user-circle text-gray-500 fa-2x"></i>
+                                    <div class="flex flex-col items-start justify-start gap-2">
+                                        <p class="text-xs font-bold ">
+                                            Priya Singh, Bangalore </p>
+                                        <div class="flex">
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star text-yellow-500 fa-xs"></i>
+                                            <i class="fa-solid fa-star-half-stroke text-yellow-500 fa-xs"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation -->
+                        {{-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> --}}
+                    </div>
+                </div>
+
     </div>
 
     <script>

@@ -18,10 +18,10 @@
 
     <div class=" my-6 ">
         <div class="flex justify-center items-center text-center">
-            <a href="{{ route('listing.types', 'properties') }}"
+            <a href="{{ route('listing.types', ['category' => 'properties', 'role' => 'user']) }}"
                 class="p-20 border flex-1 text-lg  hover:bg-gray-200 transition-colors"><i
                     class=" p-2 fa fa-house-chimney fa-2x text-yellow-400"></i> <br> Properties</a>
-            <a href="{{ route('listing.types', 'jobs') }}"
+            <a href="{{ route('listing.types', ['category' => 'jobs', 'role' => 'user']) }}"
                 class="p-20 border flex-1 text-lg  hover:bg-gray-200 transition-colors"><i
                     class="p-2 fa fa-briefcase fa-2x text-blue-500"></i> <br>
                 Jobs</a>

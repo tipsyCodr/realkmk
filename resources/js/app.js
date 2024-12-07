@@ -13,7 +13,7 @@ import "swiper/css/bundle";
 
 // init Swiper:
 const testimoniesSwiper = new Swiper(".testimonies-swiper", {
-    direction: "horizontal",
+    // direction: "horizontal",
     autoplay: {
         delay: 3000,
         disableOnInteraction: false,
