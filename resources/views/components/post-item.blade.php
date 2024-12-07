@@ -3,7 +3,7 @@
         <div class="max-w-xs cursor-pointer rounded-lg bg-white p-2 shadow duration-150 hover:scale-105 hover:shadow-md">
             <div class="h-[200px] bg-gray-500 relative">
                 @if ($post['premium'] == 1)
-                    <div class="absolute top-1 right-1 bg-yellow-400 rounded text-white px-2 py-1 font-bold">Premium</div>
+                    <div class="absolute top-1 right-1 text-xs bg-yellow-400 rounded text-white px-2 py-1 font-bold">Premium</div>
                 @endif
                 @php
                     $photos = json_decode($post['photos'], true);
