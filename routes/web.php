@@ -71,7 +71,7 @@ Route::middleware('checkUser')->group(function () {
 
     Route::get('properties', [WebController::class, 'properties'])->name('properties');
 
-    //Listing Routes
+    //Listing Routes Uncomment this block
     // Route::name('listing.')->prefix('listing')->group(function () {
     //     Route::get('post', [WebController::class, 'post'])->name('post');
     //     Route::get('post/type/{category}/{role}', [ListingController::class, 'postCategoriesTypes'])->name('types');
