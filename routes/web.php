@@ -71,12 +71,12 @@ Route::middleware('checkUser')->group(function () {
 
     Route::get('properties', [WebController::class, 'properties'])->name('properties');
 
-    // Listing Routes Uncomment this block
+    //Listing Routes Uncomment this block
     Route::name('listing.')->prefix('listing')->group(function () {
         Route::get('post', [WebController::class, 'post'])->name('post');
         Route::get('post/type/{category}/{role}', [ListingController::class, 'postCategoriesTypes'])->name('types');
         Route::get('post/type/{category}/{role}/{categoryType}', [ListingController::class, 'postForm'])->name('form');
-        // Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
+        Route::post('post/store', [ListingController::class, 'storePropertyListing'])->name('store');
     });
 
     //Jobs Section
