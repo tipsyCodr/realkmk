@@ -47,20 +47,22 @@ class ListingController extends Controller
     public function postCategoriesTypes(Request $request)
     {
         $categorySlug = $request->segment(4);
-        $role = $request->query('role');
-        // dd($categorySlug);
+        $roles = $request->segment(5);
+        // dd($categorySlug, $role);
+
         $category = Category::where('slug', $categorySlug)->first();
         $categoryTypes = CategoryType::where('category_id', $category->id)->get();
 
-        return view('listings.types', compact('category', 'categoryTypes','role'));
+        return view('listings.types', compact('roles', 'category', 'categoryTypes'));
     }
     public function postForm(Request $request)
     {
         $categorySlug = $request->segment(4);
-        $categoryTypeSlug = $request->segment(5);
-        $role = $request->query('role');
+        $role = $request->segment(5);
+        $categoryTypeSlug = $request->segment(6);
+        // $role = $request->query('role');
 
-        // dd($categorySlug, $categoryTypeSlug);
+        // dd($categorySlug, $categoryTypeSlug,$role);
         $states = State::all();
         $cities = City::all();
         $categoryType = CategoryType::where('slug', $categoryTypeSlug)->first();
