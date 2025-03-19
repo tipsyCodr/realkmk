@@ -170,7 +170,8 @@ class ListingController extends Controller
     }
     public function getUserListing()
     {
-        $user_id = auth()->user()->id;
+        // $user_id = auth()->user()->id;
+        $user_id = 1;
         $listings = Listing::where('user_id', $user_id)
                     ->orderBy('premium', 'desc')  // Premium listings first
                     ->orderBy('created_at', 'desc') // Then by newest first

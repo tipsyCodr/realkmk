@@ -55,7 +55,7 @@ Route::post('payment/show', [WebController::class, 'showScanner'])->name('paymen
 Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('cities.by.state');
 
 // User Must be authenticated and has role of user or admin
-Route::middleware('checkUser')->group(function () {
+// Route::middleware('checkUser')->group(function () {
     Route::get('my-listings', [ListingController::class, 'getUserListing'])->name('my-listings');
     Route::get('agent', [WebController::class, 'agent'])->name('agent.index');
 
@@ -85,7 +85,7 @@ Route::middleware('checkUser')->group(function () {
         Route::get('form/{category}', [WebController::class, 'jobsForm'])->name('form');
         Route::post('store', [RequestController::class, 'jobsStore'])->name('store');
     });
-});
+// });
 
 //agent routes
 Route::middleware(['auth'])->prefix('agent')->name('agent.')->group(function () {
@@ -122,6 +122,7 @@ Route::middleware('checkAdmin')->group(function () {
     });
 
     Route::name('admin.requests.')->prefix('admin/requests')->group(function () {
+
         // Requests Form Section
         Route::get('/', [RequestController::class, 'showRequests'])->name('list');
         Route::get('jobs', [RequestController::class, 'indexJobs'])->name('jobs.list');
