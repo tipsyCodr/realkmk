@@ -88,7 +88,8 @@ Route::get('cities/by/state', [WebController::class, 'citiesByState'])->name('ci
 // });
 
 //agent routes
-Route::middleware(['auth'])->prefix('agent')->name('agent.')->group(function () {
+// Route::middleware(['auth'])->prefix('agent')->name('agent.')->group(function () {
+Route:: prefix('agent')->name('agent.')->group(function () {
     Route::get('/', [RealAgentController::class, 'index'])->name('index');
     Route::get('/register', [RealAgentController::class, 'create'])->name('create');
     Route::post('/store', [RealAgentController::class, 'store'])->name('store');
