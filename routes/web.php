@@ -48,6 +48,7 @@ Route::get('categories', [WebController::class, 'categories'])->name('categories
 
 
 
+Route::get('payment/show', [WebController::class, 'showScanner'])->name('payment.show.get');
 Route::post('payment/show', [WebController::class, 'showScanner'])->name('payment.show');
 
 
