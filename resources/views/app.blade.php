@@ -4,7 +4,7 @@
 </div> --}}
 
 <x-app-layout>
-    <x-search-bar />
+    {{-- <x-search-bar /> --}}
     <div class="p-2 mx-2 mt-20 font-semibold text-center text-black capitalize bg-blue-100 border border-blue-500"
         role="alert">
         <p>Buyers can search properties from here</p>
