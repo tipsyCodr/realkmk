@@ -53,7 +53,9 @@ class RequestController extends Controller
             $jobRequest->city_id = $request->city ?? 0;
             $jobRequest->state_id = $request->state ?? 0;
             // $jobRequest->user_id = auth()->user()->id ?? 0;
-            $jobRequest->save();
+            // $jobRequest->save();
+            return redirect()->back()->withErrors(['storage' => 'Cannot save post: insufficient storage/memory']);
+
             return redirect()->back()->with('success', 'Your form has been filled please scroll below and make payment to complete procedure!');
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
@@ -127,9 +129,11 @@ class RequestController extends Controller
             $propertyRequest->mobile = $request->mobile ?? '';
             $propertyRequest->name = $request->name ?? '';
             $propertyRequest->state = $request->state ?? '';
+            
             $propertyRequest->save();
-            // return redirect()->route('properties.show', $propertyRequest->location);
-            return redirect()->route('loading')->with('success', 'Request Submitted Successfully!');
+            // return redirect()->back()->withErrors(['storage' => 'Cannot save post: insufficient storage/memory']);
+
+            // return redirect()->route('loading')->with('error', 'Cannot Process Request: insufficient storage/memory!');
 
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
