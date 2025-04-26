@@ -142,8 +142,10 @@ class ListingController extends Controller
                 $photos[] = $photo->store('uploads/property_images', 'public');
             }
             $listing->photos = json_encode($photos);
-            $listing->save();
+            return redirect()->back()->withErrors(['storage' => 'Cannot save post: insufficient storage/memory']);
+            // $listing->save()
         }
+
         return redirect()->back()->with([
             'listing_uid' => $listing->listing_uid,
             'success' => 'Thank You for posting your listing it will be available after sometime',
